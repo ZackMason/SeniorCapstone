@@ -32,7 +32,6 @@ public class TempHandScript : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             if (fixedJoints.Count == 0 && touchingItemRigidbodies.Count > 0) {
                 foreach (Rigidbody itemRigidbody in touchingItemRigidbodies) {
-                    // fixedJoint = transform.parent.gameObject.AddComponent<FixedJoint>();
                     FixedJoint fixedJoint = gameObject.AddComponent<FixedJoint>() as FixedJoint;
 
                     fixedJoint.connectedBody = itemRigidbody;
