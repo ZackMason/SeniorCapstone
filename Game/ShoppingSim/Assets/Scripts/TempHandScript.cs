@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class TempHandScript : MonoBehaviour
 {
-    [SerializeField] private string itemTag, grabbedItemLayer;
+    [SerializeField] private string itemTag, grabbedItemLayer, floorLayer;
     [SerializeField] private Transform leftGripperTransform, rightGripperTransform;
     [SerializeField] private float clampSpeed, triggerSizeAdjustment;
     [SerializeField] private int numOfLayers;
@@ -66,35 +66,35 @@ public class TempHandScript : MonoBehaviour
         Vector3 newRightGripperLocalPos;
 
         if (Input.GetMouseButton(0)) {
-            intersected = Physics.BoxCast(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.right, out hitInfo, leftGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime);
+            intersected = Physics.BoxCast(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.right, out hitInfo, leftGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(floorLayer));
 
             if (intersected) {
                 distance = hitInfo.distance;
             } else {
                 distance = clampSpeed * Time.fixedDeltaTime;
                 
-                if (Physics.CheckBox(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.rotation, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer)))) {
+                if (Physics.CheckBox(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.rotation, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), floorLayer))) {
                     distance = 0.0f;
                 }
             }
 
             newLeftGripperLocalPos = leftGripperTransform.localPosition + Vector3.right * distance;
 
-            intersected = Physics.BoxCast(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, -rightGripperTransform.right, out hitInfo, rightGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime);
+            intersected = Physics.BoxCast(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, -rightGripperTransform.right, out hitInfo, rightGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(floorLayer));
             
             if (intersected) {
                 distance = hitInfo.distance;
             } else {
                 distance = clampSpeed * Time.fixedDeltaTime;
 
-                if (Physics.CheckBox(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, rightGripperTransform.rotation, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer)))) {
+                if (Physics.CheckBox(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, rightGripperTransform.rotation, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), floorLayer))) {
                     distance = 0.0f;
                 }
             }
 
             newRightGripperLocalPos = rightGripperTransform.localPosition + Vector3.left * distance;
         } else {
-            intersected = Physics.BoxCast(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.position - rightGripperTransform.position, out hitInfo, leftGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime);
+            intersected = Physics.BoxCast(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, -leftGripperTransform.right, out hitInfo, leftGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(floorLayer));
 
             if (intersected) {
                 distance = hitInfo.distance;
@@ -103,7 +103,7 @@ public class TempHandScript : MonoBehaviour
             }
             newLeftGripperLocalPos = leftGripperTransform.localPosition + (leftGripperTransform.localPosition - rightGripperTransform.localPosition).normalized * distance;
 
-            intersected = Physics.BoxCast(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, rightGripperTransform.position - leftGripperTransform.position, out hitInfo, rightGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime);
+            intersected = Physics.BoxCast(rightGripperTransform.position, rightGripperTransform.lossyScale * 0.5f, rightGripperTransform.right, out hitInfo, rightGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(floorLayer));
             if (intersected) {
                 distance = hitInfo.distance;
             } else {

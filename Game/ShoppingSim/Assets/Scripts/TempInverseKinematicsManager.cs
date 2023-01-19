@@ -19,7 +19,6 @@ public class TempInverseKinematicsManager : MonoBehaviour {
     private void FixedUpdate() {
         RaycastHit hitInfo;
         Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(grabbedItemLayer));
-        print(((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(grabbedItemLayer));
 
         if (hitInfo.collider == null) {
             return;

@@ -763,7 +763,7 @@ MonoBehaviour:
   jointTransform: {fileID: 1291659526}
   jointParentTransform: {fileID: 0}
   segmentLength: 1.5
-  numOfLayers: 7
+  numOfLayers: 8
 --- !u!114 &1066851470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,11 +1622,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTag: Item
   grabbedItemLayer: Grabbed Item
+  floorLayer: Floor
   leftGripperTransform: {fileID: 1338153427}
   rightGripperTransform: {fileID: 469478832}
   clampSpeed: 1
   triggerSizeAdjustment: -0.1
-  numOfLayers: 7
+  numOfLayers: 8
 --- !u!23 &1481396809
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1935,7 +1936,7 @@ MonoBehaviour:
   jointTransform: {fileID: 1388863491}
   jointParentTransform: {fileID: 0}
   segmentLength: 0
-  numOfLayers: 7
+  numOfLayers: 8
 --- !u!1 &1981385712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,7 +1991,7 @@ MonoBehaviour:
   jointTransform: {fileID: 1156572788}
   jointParentTransform: {fileID: 1291659526}
   segmentLength: 1.5
-  numOfLayers: 7
+  numOfLayers: 8
 --- !u!153 &1981385715
 ConfigurableJoint:
   m_ObjectHideFlags: 0
