@@ -74,7 +74,6 @@ public class TempHandScript : MonoBehaviour
                 distance = clampSpeed * Time.fixedDeltaTime;
                 
                 if (Physics.CheckBox(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.rotation, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer)))) {
-                    print(((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer)));
                     distance = 0.0f;
                 }
             }
