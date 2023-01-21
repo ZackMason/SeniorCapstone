@@ -1,0 +1,15 @@
+# Blender MTL File: 'wewew.blend'
+# Material Count: 1
+
+newmtl apple
+Ns 308.063537
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.418876 0.349563
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Bump -bm 0.500000 apple_normal_map.jpg
+map_Kd apple_color.jpg
+map_Ks apple_specular_map.jpg
