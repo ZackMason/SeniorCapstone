@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class TempMovementController : MonoBehaviour {
-    [SerializeField] private float speed;
+    [SerializeField] private float acceleration, rotationalAcceleration;
 
     private Rigidbody targetRigidbody;
 
@@ -11,16 +11,16 @@ public class TempMovementController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (Input.GetKey("w")) {
-            targetRigidbody.AddForce(transform.forward * speed * targetRigidbody.mass);
+            targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass);
         }
         if (Input.GetKey("a")) {
-            targetRigidbody.AddForce(-transform.right * speed * targetRigidbody.mass);
+            targetRigidbody.AddTorque(-transform.up * rotationalAcceleration * targetRigidbody.mass);
         }
         if (Input.GetKey("s")) {
-            targetRigidbody.AddForce(-transform.forward * speed * targetRigidbody.mass);
+            targetRigidbody.AddForce(-transform.forward * acceleration * targetRigidbody.mass);
         }
         if (Input.GetKey("d")) {
-            targetRigidbody.AddForce(transform.right * speed * targetRigidbody.mass);
+            targetRigidbody.AddTorque(transform.up * rotationalAcceleration * targetRigidbody.mass);
         }
     }
 }
