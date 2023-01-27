@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class TempInverseKinematicsManager : MonoBehaviour {
-    [SerializeField] private TempPlayerController tempPlayerController;
+    [SerializeField] private PlayerAIController playerAIController;
     [SerializeField] private string grabbedItemLayer, raycastColliderLayer;
     [SerializeField] private Transform jointTransform, jointParentTransform;
     // The code currently assumes that both of the arm's segments have the same length
@@ -23,7 +23,7 @@ public class TempInverseKinematicsManager : MonoBehaviour {
         RaycastHit hitInfo;
         RaycastHit hitInfo2;
 
-        if (tempPlayerController.tempMode == 0) {
+        if (playerAIController.tempMode == 0) {
             Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo2, Mathf.Infinity, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), grabbedItemLayer, raycastColliderLayer));
         } else {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

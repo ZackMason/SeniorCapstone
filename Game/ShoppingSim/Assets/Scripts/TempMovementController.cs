@@ -1,31 +1,26 @@
 using UnityEngine;
 
 public class TempMovementController : MonoBehaviour {
-    [SerializeField] private TempPlayerController tempPlayerController;
     [SerializeField] private float acceleration, rotationalAcceleration;
 
+    private IAIController AiController;
     private Rigidbody targetRigidbody;
 
     private void Start() {
+        AiController = GetComponent<PlayerAIController>();
+
+        if (AiController == null) {
+            AiController = GetComponent<CPUAIController>();
+        }
+
+        Debug.Assert(AiController != null);
         targetRigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
-        Vector2 move = tempPlayerController.GetMove();
+        Vector2 Movement = AiController.GetMovement();
 
-        targetRigidbody.AddForce(move.y * transform.forward * acceleration * targetRigidbody.mass);
-        targetRigidbody.AddTorque(move.x * transform.up * rotationalAcceleration * targetRigidbody.mass);
-        // if (Input.GetKey("w")) {
-        //     targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass);
-        // }
-        // if (Input.GetKey("a")) {
-        //     targetRigidbody.AddTorque(-transform.up * rotationalAcceleration * targetRigidbody.mass);
-        // }
-        // if (Input.GetKey("s")) {
-        //     targetRigidbody.AddForce(-transform.forward * acceleration * targetRigidbody.mass);
-        // }
-        // if (Input.GetKey("d")) {
-        //     targetRigidbody.AddTorque(transform.up * rotationalAcceleration * targetRigidbody.mass);
-        // }
+        targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass * Movement.y);
+        targetRigidbody.AddTorque(transform.up * rotationalAcceleration * targetRigidbody.mass * Movement.x);
     }
 }

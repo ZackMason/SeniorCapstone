@@ -47,11 +47,11 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public TempPlayerController tempPlayerController;
+    public PlayerAIController playerAIController;
     public GameObject thirdPersonCamera, firstPersonCamera;
 
     public void TempChangeMode(int mode){
-        tempPlayerController.tempMode = mode;
+        playerAIController.tempMode = mode;
 
         if (mode == 0) {
             thirdPersonCamera.SetActive(true);

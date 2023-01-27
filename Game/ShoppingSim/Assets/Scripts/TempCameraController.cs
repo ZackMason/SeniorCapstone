@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class TempCameraController : MonoBehaviour {
-    [SerializeField] private TempPlayerController tempPlayerController;
+    [SerializeField] private PlayerAIController playerAIController;
     [SerializeField] private float edgeProportion, rotationSpeed;
 
     private Vector2 defaultEulerAngles;
@@ -15,7 +15,7 @@ public class TempCameraController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (tempPlayerController.tempMode == 0) {
+        if (playerAIController.tempMode == 0) {
             return;
         }
 
