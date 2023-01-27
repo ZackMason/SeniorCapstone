@@ -13,11 +13,17 @@ public class PlayerAIController : MonoBehaviour, IAIController
     public int tempMode;
 
     private PlayerInput playerInput;
-    private InputAction moveAction;
+    private InputAction moveAction, grabAction;
+
+    private bool grab = false;
 
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
-        moveAction = playerInput.currentActionMap.FindAction("move");
+        moveAction = playerInput.currentActionMap.FindAction("Move");
+
+        grabAction = playerInput.currentActionMap.FindAction("Grab");
+        grabAction.performed += _ => grab = true;
+        grabAction.canceled += _ => grab = false;
     }
 
     public Vector2 GetMovement()
@@ -45,5 +51,10 @@ public class PlayerAIController : MonoBehaviour, IAIController
     public Vector2 GetCameraMovement()
     {
         return new Vector2();
+    }
+
+    public bool IsGrabbing()
+    {
+        return grab;
     }
 }

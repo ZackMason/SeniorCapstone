@@ -12,4 +12,6 @@ public interface IAIController
     // note(zack): only used by player controller
     // not needed if we are using first person
     public Vector2 GetCameraMovement();
+
+    public bool IsGrabbing();
 }

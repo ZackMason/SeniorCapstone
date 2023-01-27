@@ -1879,14 +1879,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: 
-  raycastColliderLayer: 
   jointTransform: {fileID: 1291659526}
   jointParentTransform: {fileID: 0}
   segmentLength: 1.5
-  numOfLayers: 0
-  raycastCollider: {fileID: 0}
-  raycastDistance: 0
 --- !u!114 &1066851470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3366,6 +3361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dba0772501dece40927c9490cf6f7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAIController: {fileID: 1066851476}
   itemTag: Item
   grabbedItemLayer: Grabbed Item
   floorLayer: Floor
@@ -4057,14 +4053,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: 
-  raycastColliderLayer: 
   jointTransform: {fileID: 1388863491}
   jointParentTransform: {fileID: 0}
   segmentLength: 0
-  numOfLayers: 0
-  raycastCollider: {fileID: 0}
-  raycastDistance: 0
 --- !u!1 &1864680594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,14 +4482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: 
-  raycastColliderLayer: 
   jointTransform: {fileID: 1156572788}
   jointParentTransform: {fileID: 1291659526}
   segmentLength: 1.5
-  numOfLayers: 0
-  raycastCollider: {fileID: 0}
-  raycastDistance: 0
 --- !u!153 &1981385715
 ConfigurableJoint:
   m_ObjectHideFlags: 0
