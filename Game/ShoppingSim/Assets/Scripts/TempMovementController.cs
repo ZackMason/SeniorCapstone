@@ -3,24 +3,24 @@ using UnityEngine;
 public class TempMovementController : MonoBehaviour {
     [SerializeField] private float acceleration, rotationalAcceleration;
 
+    private IAIController AiController;
     private Rigidbody targetRigidbody;
 
     private void Start() {
+        AiController = GetComponent<PlayerAIController>();
+
+        if (AiController == null) {
+            AiController = GetComponent<CPUAIController>();
+        }
+
+        Debug.Assert(AiController != null);
         targetRigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
-        if (Input.GetKey("w")) {
-            targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass);
-        }
-        if (Input.GetKey("a")) {
-            targetRigidbody.AddTorque(-transform.up * rotationalAcceleration * targetRigidbody.mass);
-        }
-        if (Input.GetKey("s")) {
-            targetRigidbody.AddForce(-transform.forward * acceleration * targetRigidbody.mass);
-        }
-        if (Input.GetKey("d")) {
-            targetRigidbody.AddTorque(transform.up * rotationalAcceleration * targetRigidbody.mass);
-        }
+        Vector2 Movement = AiController.GetMovement();
+
+        targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass * Movement.y);
+        targetRigidbody.AddForce(transform.right * acceleration * targetRigidbody.mass * Movement.x);
     }
 }
