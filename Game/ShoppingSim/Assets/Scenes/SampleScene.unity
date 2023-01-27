@@ -1879,14 +1879,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: Grabbed Item
-  raycastColliderLayer: Raycast Collider
+  grabbedItemLayer: 
+  raycastColliderLayer: 
   jointTransform: {fileID: 1291659526}
   jointParentTransform: {fileID: 0}
   segmentLength: 1.5
-  numOfLayers: 9
-  raycastCollider: {fileID: 271786580}
-  raycastDistance: 10
+  numOfLayers: 0
+  raycastCollider: {fileID: 0}
+  raycastDistance: 0
 --- !u!114 &1066851470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,6 +2088,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b4d32a1b489434c89a196a90de2b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numOfLayers: 9
+  grabbedItemLayer: Grabbed Item
+  raycastColliderLayer: Raycast Collider
+  raycastCollider: {fileID: 271786580}
+  raycastDistance: 10
   tempMode: 0
 --- !u!114 &1066851477
 MonoBehaviour:
@@ -4052,14 +4057,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: Grabbed Item
-  raycastColliderLayer: Raycast Collider
+  grabbedItemLayer: 
+  raycastColliderLayer: 
   jointTransform: {fileID: 1388863491}
   jointParentTransform: {fileID: 0}
   segmentLength: 0
-  numOfLayers: 9
-  raycastCollider: {fileID: 271786580}
-  raycastDistance: 10
+  numOfLayers: 0
+  raycastCollider: {fileID: 0}
+  raycastDistance: 0
 --- !u!1 &1864680594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,14 +4491,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
-  grabbedItemLayer: Grabbed Item
-  raycastColliderLayer: Raycast Collider
+  grabbedItemLayer: 
+  raycastColliderLayer: 
   jointTransform: {fileID: 1156572788}
   jointParentTransform: {fileID: 1291659526}
   segmentLength: 1.5
-  numOfLayers: 9
-  raycastCollider: {fileID: 271786580}
-  raycastDistance: 10
+  numOfLayers: 0
+  raycastCollider: {fileID: 0}
+  raycastDistance: 0
 --- !u!153 &1981385715
 ConfigurableJoint:
   m_ObjectHideFlags: 0
