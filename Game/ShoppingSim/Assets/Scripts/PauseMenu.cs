@@ -47,6 +47,21 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public TempPlayerController tempPlayerController;
+    public GameObject thirdPersonCamera, firstPersonCamera;
+
+    public void TempChangeMode(int mode){
+        tempPlayerController.tempMode = mode;
+
+        if (mode == 0) {
+            thirdPersonCamera.SetActive(true);
+            firstPersonCamera.SetActive(false);
+        } else {
+            thirdPersonCamera.SetActive(false);
+            firstPersonCamera.SetActive(true);
+        }
+    }
+
     // Exits program 
     public void ExitGame(){
         Application.Quit();

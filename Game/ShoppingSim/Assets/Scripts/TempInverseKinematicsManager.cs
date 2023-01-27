@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public class TempInverseKinematicsManager : MonoBehaviour {
-    [SerializeField] private string grabbedItemLayer;
+    [SerializeField] private TempPlayerController tempPlayerController;
+    [SerializeField] private string grabbedItemLayer, raycastColliderLayer;
     [SerializeField] private Transform jointTransform, jointParentTransform;
     // The code currently assumes that both of the arm's segments have the same length
     [SerializeField] private float segmentLength;
@@ -22,16 +23,18 @@ public class TempInverseKinematicsManager : MonoBehaviour {
         RaycastHit hitInfo;
         RaycastHit hitInfo2;
 
-        // Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), grabbedItemLayer));
+        if (tempPlayerController.tempMode == 0) {
+            Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo2, Mathf.Infinity, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), grabbedItemLayer, raycastColliderLayer));
+        } else {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Floor"));
+            float distance = hitInfo.distance;
+            raycastCollider.Raycast(new Ray(ray.GetPoint(raycastDistance), -ray.direction), out hitInfo2, raycastDistance);
 
-        Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Floor"));
-        float distance = hitInfo.distance;
-        raycastCollider.Raycast(new Ray(ray.GetPoint(raycastDistance), -ray.direction), out hitInfo2, raycastDistance);
-
-        if (hitInfo.collider != null && hitInfo2.distance > distance) {
-            // return;
+            if (hitInfo.collider != null && hitInfo2.distance > distance) {
+                // return;
+            }
         }
 
         if (hitInfo2.collider == null) {
