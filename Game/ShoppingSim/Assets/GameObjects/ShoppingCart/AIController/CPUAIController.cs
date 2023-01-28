@@ -22,4 +22,9 @@ public class CPUAIController : MonoBehaviour, IAIController
     {
         return new Vector2();
     }
+
+    public bool IsGrabbing()
+    {
+        return false;
+    }
 }

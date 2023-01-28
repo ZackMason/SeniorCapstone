@@ -1,13 +1,10 @@
 using UnityEngine;
 
 public class TempInverseKinematicsManager : MonoBehaviour {
-    [SerializeField] private string grabbedItemLayer;
+    [SerializeField] private PlayerAIController playerAIController;
     [SerializeField] private Transform jointTransform, jointParentTransform;
     // The code currently assumes that both of the arm's segments have the same length
     [SerializeField] private float segmentLength;
-    [SerializeField] private int numOfLayers;
-    [SerializeField] private Collider raycastCollider;
-    [SerializeField] private float raycastDistance;
 
     private ConfigurableJoint configurableJoint;
     private Quaternion defaultRotation;
@@ -19,26 +16,7 @@ public class TempInverseKinematicsManager : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        RaycastHit hitInfo;
-        RaycastHit hitInfo2;
-
-        // Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer), grabbedItemLayer));
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Floor"));
-        float distance = hitInfo.distance;
-        raycastCollider.Raycast(new Ray(ray.GetPoint(raycastDistance), -ray.direction), out hitInfo2, raycastDistance);
-
-        if (hitInfo.collider != null && hitInfo2.distance > distance) {
-            // return;
-        }
-
-        if (hitInfo2.collider == null) {
-            return;
-        }
-
-        Vector3 targetPosition = hitInfo2.point;
+        Vector3 targetPosition = playerAIController.GetArmTarget();
         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - jointTransform.position);
 
         float distanceFromTarget = Vector3.Distance(targetPosition, jointTransform.position);

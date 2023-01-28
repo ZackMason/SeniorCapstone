@@ -21,6 +21,6 @@ public class TempMovementController : MonoBehaviour {
         Vector2 Movement = AiController.GetMovement();
 
         targetRigidbody.AddForce(transform.forward * acceleration * targetRigidbody.mass * Movement.y);
-        targetRigidbody.AddForce(transform.right * acceleration * targetRigidbody.mass * Movement.x);
+        targetRigidbody.AddTorque(transform.up * rotationalAcceleration * targetRigidbody.mass * Movement.x);
     }
 }

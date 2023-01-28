@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class TempHandScript : MonoBehaviour
 {
+    [SerializeField] private PlayerAIController playerAIController;
     [SerializeField] private string itemTag, grabbedItemLayer, floorLayer, raycastColliderLayer;
     [SerializeField] private Transform leftGripperTransform, rightGripperTransform;
     [SerializeField] private float clampSpeed, triggerSizeAdjustment;
@@ -29,7 +30,7 @@ public class TempHandScript : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetMouseButton(0)) {
+        if (playerAIController.IsGrabbing()) {
             if (fixedJoints.Count == 0 && touchingItemRigidbodies.Count > 0) {
                 foreach (Rigidbody itemRigidbody in touchingItemRigidbodies) {
                     FixedJoint fixedJoint = gameObject.AddComponent<FixedJoint>() as FixedJoint;
@@ -64,7 +65,7 @@ public class TempHandScript : MonoBehaviour
         Vector3 newLeftGripperLocalPos;
         Vector3 newRightGripperLocalPos;
 
-        if (Input.GetMouseButton(0)) {
+        if (playerAIController.IsGrabbing()) {
             intersected = Physics.BoxCast(leftGripperTransform.position, leftGripperTransform.lossyScale * 0.5f, leftGripperTransform.right, out hitInfo, leftGripperTransform.rotation, clampSpeed * Time.fixedDeltaTime, ((int) (Mathf.Pow(2.0f, numOfLayers)) - 1) ^ LayerMask.GetMask(floorLayer, raycastColliderLayer));
 
             if (intersected) {

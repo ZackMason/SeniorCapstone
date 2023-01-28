@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class TempCameraController : MonoBehaviour {
+    [SerializeField] private PlayerAIController playerAIController;
     [SerializeField] private float edgeProportion, rotationSpeed;
 
     private Vector2 defaultEulerAngles;
@@ -14,11 +15,16 @@ public class TempCameraController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (playerAIController.tempMode == 0) {
+            return;
+        }
+
         if (Input.GetKey("r")) {
             returnToCenter = true;
         }
 
         Vector2 newEulerAngles = transform.localEulerAngles;
+        // Vector2 newEulerAngles = Vector2.zero;
 
         if (returnToCenter) {
             if (transform.localEulerAngles.x < 180.0f) {
@@ -89,5 +95,7 @@ public class TempCameraController : MonoBehaviour {
         newEulerAngles.x = Mathf.Clamp((newEulerAngles.x + 180.0f) % 360.0f - 180.0f, -89.0f, 89.0f);
 
         transform.localEulerAngles = newEulerAngles;
+        // transform.Rotate(newEulerAngles, Space.World);
+        // transform.localRotation *= Quaternion.Euler(newEulerAngles);
     }
 }
