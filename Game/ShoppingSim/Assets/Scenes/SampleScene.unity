@@ -527,7 +527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAIController: {fileID: 1066851476}
   edgeProportion: 0.1
-  rotationSpeed: 50
+  rotationSpeed1: 50
+  rotationSpeed2: 500
 --- !u!1 &466086233
 GameObject:
   m_ObjectHideFlags: 0
