@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 5250124742649413410}
   - component: {fileID: 5250124742649413411}
   - component: {fileID: 5847481754457157795}
+  - component: {fileID: 5089505553184531107}
   - component: {fileID: 9074403915492300737}
   m_Layer: 0
   m_Name: aisle_01
@@ -267,6 +268,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanSpawn: []
   SpawnDistance: 0
+--- !u!114 &5089505553184531107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908177517724977430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65013b5eb435bf34ba282a793d2d71cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceThreshold: 3
 --- !u!65 &9074403915492300737
 BoxCollider:
   m_ObjectHideFlags: 0
