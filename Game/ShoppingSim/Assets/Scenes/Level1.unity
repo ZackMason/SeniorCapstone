@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6218997215010203894, guid: c5c4b52eb624d384290f05f0d208c31a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.13
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 6218997215010203894, guid: c5c4b52eb624d384290f05f0d208c31a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -338,12 +338,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847481754457157795, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
       propertyPath: CanSpawn.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5847481754457157795, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
       propertyPath: CanSpawn.Array.data[0]
       value: 
       objectReference: {fileID: 7753920622079677088, guid: 063f94cfd0f39104686aa53d35361dd1, type: 3}
+    - target: {fileID: 5847481754457157795, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
+      propertyPath: CanSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 4995714515254294376, guid: 024a28d41934a3c45aba1e7a41fc068d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
 --- !u!1 &555163296

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class AisleShelfSpawner : MonoBehaviour
 {
-    public GameObject[] CanSpawn;
+    private float _shelfDistance;
     private GameObject _spawner = null;
+
+    public GameObject[] CanSpawn;
 
     [Range(0.0f, 2.0f)]
     public float SpawnDistance;
     
-    private float _shelfDistance;
-
     void SpawnShelf(GameObject shelf) {
-        int SpawnIndex = Random.Range(0, CanSpawn.Length);
 
         Vector3 SpawnPosition = shelf.transform.position;
 
@@ -21,14 +20,14 @@ public class AisleShelfSpawner : MonoBehaviour
 
         // todo(zack): replace this
         for (int i = 0; i < 10; i++) {
+            int SpawnIndex = Random.Range(0, CanSpawn.Length);
             Instantiate(CanSpawn[SpawnIndex], SpawnPosition, Quaternion.identity);
             
             SpawnPosition += SpawnDirection * SpawnDistance;
         }
     }
 
-    void Start()
-    {
+    void Start() {
         _shelfDistance = GetComponent<BoxCollider>().bounds.size.z;
         _spawner = this.gameObject.transform.GetChild(0).gameObject;
 
@@ -41,9 +40,4 @@ public class AisleShelfSpawner : MonoBehaviour
         SpawnShelf(_spawner.transform.GetChild(5).gameObject);
     }
 
-    
-    void Update()
-    {
-        
-    }
 }
