@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private static ScoreManager _instance;
+    public static ScoreManager Instance { get; private set; }
+    
+    private void Awake() 
+    { 
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
+    public int PlayerScore = 0;
+    public int PlayerPenalty = 0;
 
-    public static ScoreManager Instance { get { return _instance; } }
-
-
-    public int PlayerScore;
-    public int PlayerPenalty;
+        public void OnShelfDamaged() {
+        PlayerPenalty += 100; // todo(zack): Adjust score
+    }
 }
