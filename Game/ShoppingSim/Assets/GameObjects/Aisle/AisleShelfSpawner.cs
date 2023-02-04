@@ -16,7 +16,8 @@ public class AisleShelfSpawner : MonoBehaviour
 
         Vector3 SpawnPosition = shelf.transform.position;
 
-        Vector3 SpawnDirection = new Vector3(0,0,1);
+        Matrix4x4 m = shelf.transform.worldToLocalMatrix;
+        Vector3 SpawnDirection = new Vector3(m[2, 0], m[2, 1], m[2, 2]);
 
         // todo(zack): replace this
         for (int i = 0; i < 10; i++) {
