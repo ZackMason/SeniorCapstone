@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5089505553184531107}
   - component: {fileID: 9074403915492300737}
   m_Layer: 0
-  m_Name: aisle_01
+  m_Name: aisle_empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AisleShelfSpawner : MonoBehaviour
 {
-    private float _shelfDistance;
     private GameObject _spawner = null;
 
     public GameObject[] CanSpawn;
 
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 20.0f)]
     public float SpawnDistance;
-    
+
+    [Range(0, 20)]
+    public int SpawnCount;
+
     void SpawnShelf(GameObject shelf) {
 
         Vector3 SpawnPosition = shelf.transform.position;
@@ -20,7 +22,7 @@ public class AisleShelfSpawner : MonoBehaviour
         Vector3 SpawnDirection = new Vector3(m[2, 0], m[2, 1], m[2, 2]);
 
         // todo(zack): replace this
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < SpawnCount; i++) {
             int SpawnIndex = Random.Range(0, CanSpawn.Length);
             Instantiate(CanSpawn[SpawnIndex], SpawnPosition, Quaternion.identity);
             
@@ -29,16 +31,12 @@ public class AisleShelfSpawner : MonoBehaviour
     }
 
     void Start() {
-        _shelfDistance = GetComponent<BoxCollider>().bounds.size.z;
-        _spawner = this.gameObject.transform.GetChild(0).gameObject;
+        _spawner = this.gameObject.transform.Find("SpawnStarts").gameObject;
 
-        SpawnShelf(_spawner.transform.GetChild(0).gameObject);
-        SpawnShelf(_spawner.transform.GetChild(1).gameObject);
-        SpawnShelf(_spawner.transform.GetChild(2).gameObject);
-
-        SpawnShelf(_spawner.transform.GetChild(3).gameObject);
-        SpawnShelf(_spawner.transform.GetChild(4).gameObject);
-        SpawnShelf(_spawner.transform.GetChild(5).gameObject);
+        for (int i = 0; i < _spawner.transform.childCount; i++)
+        {
+            SpawnShelf(_spawner.transform.GetChild(i).gameObject);
+        }
     }
 
 }
