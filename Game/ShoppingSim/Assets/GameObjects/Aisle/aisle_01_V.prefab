@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847481754457157795, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
       propertyPath: SpawnDistance
-      value: 0.919
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5847481754457157795, guid: 344fe864d0f3dba4aad92eff57659153, type: 3}
       propertyPath: CanSpawn.Array.size
