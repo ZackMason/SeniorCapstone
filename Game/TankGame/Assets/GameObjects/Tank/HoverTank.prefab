@@ -307,6 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireRate: 1
+  ExplosionRadius: 5
+  ExplosionPower: 420
+  DamagePower: 100
   ExplosionParticles: {fileID: 6929585628132928082, guid: 0d079d4d27c3b374c99e2f2e8ffce0c1,
     type: 3}
 --- !u!1 &8036351306094611173

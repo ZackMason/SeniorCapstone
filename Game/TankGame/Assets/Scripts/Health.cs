@@ -8,12 +8,22 @@ public class Health : MonoBehaviour
     public float MaxHealth;
 
     private float _currentHealth;
+    private Destructible _destructible;
+
 
     void Start() {
         _currentHealth = MaxHealth;
+        _destructible = GetComponentInChildren<Destructible>();
     }
 
     public void Damage(float damage) {
         _currentHealth -= damage;
+
+        if (_currentHealth <= 0.0f) {
+            if (_destructible != null) {
+                _destructible.Destruct();
+            }
+            Destroy(this.gameObject);
+        }
     }
 }
