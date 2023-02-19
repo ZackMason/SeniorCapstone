@@ -35,23 +35,14 @@ public class HEWeapon : MonoBehaviour, IWeapon
 
         if (Physics.Raycast(rayOrigin, -rayDirection, out hit, Mathf.Infinity, layerMask)) {
             ParticleManager.Instance.TrySpawn(ExplosionParticles, hit.point);
+            
             _fireTime = FireRate;
             var health = hit.transform.gameObject.GetComponent<Health>();
             if (health != null) {
                 health.Damage(Random.Range(DamagePower*0.5f, DamagePower*1.5f));
             }
-            var colliders = Physics.OverlapSphere(hit.point, ExplosionRadius);
-
-            foreach (Collider proximity in colliders)
-            {
-                Rigidbody body = proximity.GetComponent<Rigidbody>();
-
-                if (body != null) {
-                    body.AddExplosionForce(ExplosionPower, hit.point, ExplosionRadius);
-                } else {
-                    Debug.Log("No Rigidbody on collider");
-                }
-            }
+            
+            ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
         }
     }
 

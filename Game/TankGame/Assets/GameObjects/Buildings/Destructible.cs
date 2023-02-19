@@ -6,7 +6,7 @@ public class Destructible : MonoBehaviour
 {
     public GameObject DestroyedPrefab;
 
-    [Range(0, 10)]
+    [Range(0, 10000)]
     public float RamResistance;
 
     public void Destruct() {
@@ -21,10 +21,14 @@ public class Destructible : MonoBehaviour
         Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
 
         if (rb != null) {
-            // Debug.Log("rb hit: " + rb.velocity.magnitude);
             // TODO(Zack): Maybe add mass into this equation
-            if (rb.velocity.magnitude >= RamResistance) {
+            float kineticEnergy = rb.velocity.magnitude * rb.velocity.magnitude * rb.mass * 0.5f;
+            Debug.Log("rb hit: " + kineticEnergy);
+
+            if (kineticEnergy >= RamResistance) {
                 Destruct();
+
+                ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, 2.0f, kineticEnergy * 0.05f);
             }
         }
         
