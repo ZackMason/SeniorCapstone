@@ -55,12 +55,14 @@ public class HoverTankController : MonoBehaviour
         _tankRigidbody.AddTorque(Vector3.up * DriveInput.x * TorquePower);
         _tankRigidbody.AddForce(BodyForward * DriveInput.y * DrivePower);
 
-        if (_brain.WantToZoom()) {
-            _camera.fieldOfView = 30;
-        } else {
-            _camera.fieldOfView = 90;
+        if (_camera != null) {
+            if (_brain.WantToZoom()) {
+                _camera.fieldOfView = 30;
+            } else {
+                _camera.fieldOfView = 90;
+            }
         }
-        if (_brain.WantToFire()) {
+        if (_brain.WantToFire() && _weapon != null) {
             _weapon.Fire();
         }
     }

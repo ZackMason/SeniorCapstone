@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 3690876992367103236, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: m_Name
-      value: HoverTank Variant
+      value: EnemyHoverTank
       objectReference: {fileID: 0}
     - target: {fileID: 3690876992367103238, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
@@ -301,6 +301,11 @@ PrefabInstance:
       propertyPath: EnginePower
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 7087365357233322671, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: Brain
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7263394292450097575, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
@@ -316,7 +321,8 @@ PrefabInstance:
       propertyPath: Detectors.Array.size
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3690876992367103241, guid: 1686887f314c2424f9eb174b446e3a9f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1686887f314c2424f9eb174b446e3a9f, type: 3}
 --- !u!4 &616886987502938150 stripped
 Transform:
@@ -324,3 +330,48 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4340774183065051714}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1082313132265926470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3690876992367103236, guid: 1686887f314c2424f9eb174b446e3a9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4340774183065051714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6089857088546478575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082313132265926470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d57990705ee184eba545d4f02ad84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {x: 0, y: 0, z: 0}
+--- !u!114 &6447932331186496620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082313132265926470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de55b595480242e41a960a99e2ee69ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Brain: {fileID: 6089857088546478575}
+--- !u!114 &2198800242285372772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082313132265926470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acb45a9ab1118444aea5604c6700cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1

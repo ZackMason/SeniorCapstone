@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerTankBrain : MonoBehaviour, ITankBrain
 {
     public Vector2 GetDriveInput() {
+
         return new Vector2(
             Input.GetAxis("Horizontal"),
             Input.GetAxis("Vertical")
