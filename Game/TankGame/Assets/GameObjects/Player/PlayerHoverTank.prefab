@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHoverTank
       objectReference: {fileID: 0}
+    - target: {fileID: 7203981317721021188, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6089857088546478575, guid: bb7857b8c90aff3438742cdcf445408d, type: 3}
     - {fileID: 6447932331186496620, guid: bb7857b8c90aff3438742cdcf445408d, type: 3}
