@@ -27,7 +27,7 @@ public class ExplosionManager : MonoBehaviour
             if (body != null) {
                 body.AddExplosionForce(power, position, radius);
             } else {
-                Debug.Log("No Rigidbody on collider");
+                // Debug.Log("No Rigidbody on collider");
             }
         }
     }
