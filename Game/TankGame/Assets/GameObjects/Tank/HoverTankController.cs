@@ -5,7 +5,7 @@ using UnityEngine;
 public class HoverTankController : MonoBehaviour
 {
 
-    private ITankBrain  _brain;
+    public ITankBrain  _brain;
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
@@ -27,7 +27,9 @@ public class HoverTankController : MonoBehaviour
         Debug.Assert(TankTurret != null);
         Debug.Assert(TankHead != null);
 
-        _brain = GetComponent<ITankBrain>();
+        if (_brain == null) {
+            _brain = GetComponent<ITankBrain>();
+        }
         _weapon = GetComponentInChildren<IWeapon>();
         _camera = GetComponentInChildren<Camera>();
         _tankRigidbody = GetComponent<Rigidbody>();

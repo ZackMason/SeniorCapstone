@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: EnginePower
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 2361398691011095755, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3319749611546774308, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
@@ -362,16 +367,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Brain: {fileID: 6089857088546478575}
---- !u!114 &2198800242285372772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082313132265926470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acb45a9ab1118444aea5604c6700cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 1

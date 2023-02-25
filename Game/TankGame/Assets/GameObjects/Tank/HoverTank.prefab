@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3690876992367103239}
   - component: {fileID: 7611513640616111163}
   - component: {fileID: 6900686476271991110}
+  - component: {fileID: 2361398691011095755}
   m_Layer: 6
   m_Name: HoverTank
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+--- !u!114 &2361398691011095755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690876992367103236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acb45a9ab1118444aea5604c6700cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: -1
 --- !u!1 &3792292117760429997
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -373,23 +387,13 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: Detectors.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: Detectors.Array.data[0]
-      value: 
-      objectReference: {fileID: 8916885022911017715}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2, type: 3}
 --- !u!4 &8964138602801325670 stripped
@@ -468,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -901,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -986,23 +990,13 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: Detectors.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: Detectors.Array.data[0]
-      value: 
-      objectReference: {fileID: 8916885022911017715}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2, type: 3}
 --- !u!4 &4436400341291522259 stripped
@@ -1081,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 20000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}

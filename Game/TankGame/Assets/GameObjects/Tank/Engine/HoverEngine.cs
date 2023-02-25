@@ -6,8 +6,6 @@ public class HoverEngine : MonoBehaviour
 {
     public Rigidbody TankRigidbody;
 
-    public List<Detector> Detectors; 
-    
     [Range(1, 2000)]
     public float EnginePower;
     
@@ -32,12 +30,6 @@ public class HoverEngine : MonoBehaviour
 
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity, layerMask)) {
             Vector3 halfVector = Vector3.Normalize(-rayDirection + hit.normal);
-
-            foreach (var detector in Detectors) {
-                if (detector.GetDistance() > 0.0f) {
-                    halfVector = Vector3.Normalize(halfVector + Vector3.Normalize(detector.CorrectionVector));
-                }
-            }
 
             float cosFactor = Vector3.Dot(-rayDirection, hit.normal);
             // cosFactor = 1.0f;
