@@ -3493,6 +3493,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: DrivePower
+      value: 1692
+      objectReference: {fileID: 0}
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: TorquePower
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 6632582275650403936, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: m_Name

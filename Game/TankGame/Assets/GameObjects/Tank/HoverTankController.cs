@@ -40,10 +40,10 @@ public class HoverTankController : MonoBehaviour
         Debug.Assert(_weapon != null);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Vector2 TurretInput = _brain.GetTurretInput();
-        Vector2 DriveInput = _brain.GetDriveInput();
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
+        Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
 
         if (Cursor.lockState == CursorLockMode.Locked) {
             TankTurret.transform.Rotate(TurretInput.y, 0.0f, 0.0f, Space.Self);

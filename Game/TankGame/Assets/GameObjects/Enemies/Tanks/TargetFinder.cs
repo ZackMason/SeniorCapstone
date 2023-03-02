@@ -7,6 +7,7 @@ public class TargetFinder : MonoBehaviour
     public EnemyTankBrain Brain;
     private Faction _faction;
 
+
     void Start()
     {
         _faction = GetComponent<Faction>();
