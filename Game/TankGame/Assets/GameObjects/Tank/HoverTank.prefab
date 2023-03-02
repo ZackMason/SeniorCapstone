@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -387,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -472,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -905,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -990,7 +990,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -1075,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}

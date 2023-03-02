@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 2077437298407927084, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2361398691011095755, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 3319749611546774308, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 3319749611546774308, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
@@ -299,12 +299,12 @@ PrefabInstance:
     - target: {fileID: 5444542075907367741, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5921458090498457594, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7087365357233322671, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
@@ -314,12 +314,12 @@ PrefabInstance:
     - target: {fileID: 7263394292450097575, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8062666696884762001, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower
-      value: 800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8062666696884762001, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}

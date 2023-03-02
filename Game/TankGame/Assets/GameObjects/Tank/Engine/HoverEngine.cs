@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HoverEngine : MonoBehaviour
 {
     public Rigidbody TankRigidbody;
@@ -10,7 +11,7 @@ public class HoverEngine : MonoBehaviour
     public float EnginePower;
     
     private float _HoverPower(float groundDistance) {
-        return 1.0f / groundDistance;
+        return EnginePower / groundDistance;
     }
 
     void Start()
@@ -34,7 +35,7 @@ public class HoverEngine : MonoBehaviour
             float cosFactor = Vector3.Dot(-rayDirection, hit.normal);
             // cosFactor = 1.0f;
   
-            TankRigidbody.AddForceAtPosition(_HoverPower(hit.distance) * halfVector * cosFactor * EnginePower, rayOrigin);
+            TankRigidbody.AddForceAtPosition(_HoverPower(hit.distance) * halfVector * cosFactor * Time.fixedDeltaTime * 10.0f, rayOrigin);
 
             Debug.DrawRay(rayOrigin, halfVector * _HoverPower(hit.distance) * cosFactor, Color.blue);
             Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.yellow);
