@@ -11,7 +11,7 @@ public class HoverEngine : MonoBehaviour
     public float EnginePower;
     
     private float _HoverPower(float groundDistance) {
-        return EnginePower / groundDistance;
+        return EnginePower / Mathf.Max(1.0f, groundDistance);
     }
 
     void Start()
