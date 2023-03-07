@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
+  Cannon: {fileID: 1911579375453486601}
 --- !u!114 &1911579374213113825
 MonoBehaviour:
   m_ObjectHideFlags: 0

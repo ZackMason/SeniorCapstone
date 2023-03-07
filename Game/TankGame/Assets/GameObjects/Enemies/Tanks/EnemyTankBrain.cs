@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
     public Vector3 Target;
+    public Transform Cannon;
 
     
     public Vector2 GetDriveInput() {
@@ -19,9 +20,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
 
     public Vector2 GetTurretInput() {
         // TODO(ZACK): do turret
-        return new Vector2(
-            0.0f, 0.0f
-        );
+        Vector3 targetDirection = Vector3.Normalize(Target - transform.position);
+        float maxRotation = 90f;
+        Vector3 newDirection = Vector3.RotateTowards(Cannon.forward, targetDirection, maxRotation * Mathf.Deg2Rad, 0f);
+        return new Vector2(newDirection.x, newDirection.y).normalized;
     }
 
     public bool WantToZoom() {
@@ -29,8 +31,8 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
     
     public bool WantToFire() {
-        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(Target - transform.position));
-        return fuzzy_forward > 0.9f;
+        Vector2 cannonAim = GetTurretInput();
+        return cannonAim.y > 0.9f;
     }
 
 }

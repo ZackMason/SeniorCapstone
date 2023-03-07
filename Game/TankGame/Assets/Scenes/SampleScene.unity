@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -266,6 +266,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dd25dc45dcd87846bf3aae6da5f76af, type: 3}
+--- !u!4 &175000445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 616886987502938150, guid: bb7857b8c90aff3438742cdcf445408d,
+    type: 3}
+  m_PrefabInstance: {fileID: 514969716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &182422429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 26218c89b3e89a2418ea356d8fbd29d8,
@@ -771,7 +777,7 @@ PrefabInstance:
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
@@ -828,6 +834,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHoverTank
       objectReference: {fileID: 0}
+    - target: {fileID: 6089857088546478575, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: Cannon
+      value: 
+      objectReference: {fileID: 175000445}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7857b8c90aff3438742cdcf445408d, type: 3}
 --- !u!1 &553243659
@@ -2071,7 +2082,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 26218c89b3e89a2418ea356d8fbd29d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26218c89b3e89a2418ea356d8fbd29d8,
         type: 3}
@@ -3385,7 +3396,7 @@ PrefabInstance:
     - target: {fileID: 292671191399100389, guid: 9179cce6fa7769e48878a7245843e97d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 292671191399100389, guid: 9179cce6fa7769e48878a7245843e97d,
         type: 3}
@@ -3607,7 +3618,7 @@ PrefabInstance:
     - target: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
