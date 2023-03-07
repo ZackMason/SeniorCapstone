@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HEWeapon : MonoBehaviour, IWeapon
 {
+    public AudioSource eaudio;
     private float _fireTime;
 
     [Range(0, 2)]
@@ -43,6 +44,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
             }
             
             ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
+            eaudio.Play();
         }
     }
 
