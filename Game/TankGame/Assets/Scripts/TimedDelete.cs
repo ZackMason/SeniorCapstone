@@ -11,7 +11,6 @@ public class TimedDelete : MonoBehaviour
         LifeTime -= Time.fixedDeltaTime;
         if (LifeTime < 0.0f) {
             Destroy(this.gameObject);
-            Timer.score += 1;
         }        
     }
 }
