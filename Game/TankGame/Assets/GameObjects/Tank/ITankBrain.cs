@@ -7,6 +7,7 @@ public interface ITankBrain
     public Vector2 GetDriveInput();
     public Vector2 GetTurretInput();
     public bool WantToFire();
+    public float GetBoost();
 
     // NOTE(ZACK): only used by player
     public bool WantToZoom();
