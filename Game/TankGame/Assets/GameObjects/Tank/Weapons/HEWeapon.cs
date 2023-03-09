@@ -7,6 +7,8 @@ public class HEWeapon : MonoBehaviour, IWeapon
     public AudioSource eaudio;
     private float _fireTime;
 
+    [Range(-1, 1)]
+    public float ShootDir;
     [Range(0, 2)]
     public float FireRate;
 
@@ -25,7 +27,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
         if (_fireTime > 0.0f) {
             return;
         }
-        Vector3 rayDirection = transform.TransformDirection(Vector3.forward);
+        Vector3 rayDirection = ShootDir * transform.TransformDirection(Vector3.forward);
         Vector3 rayOrigin = transform.position;
 
         Debug.DrawRay(rayOrigin, rayDirection, Color.red); 
@@ -34,7 +36,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
 
         RaycastHit hit;
 
-        if (Physics.Raycast(rayOrigin, -rayDirection, out hit, Mathf.Infinity, layerMask)) {
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity, layerMask)) {
             ParticleManager.Instance.TrySpawn(ExplosionParticles, hit.point);
             
             _fireTime = FireRate;
@@ -44,7 +46,9 @@ public class HEWeapon : MonoBehaviour, IWeapon
             }
             
             ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
-            eaudio.Play();
+            if (eaudio != null) {
+                eaudio.Play();
+            }
         }
     }
 

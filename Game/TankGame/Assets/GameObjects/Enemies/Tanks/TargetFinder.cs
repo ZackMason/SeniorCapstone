@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TargetFinder : MonoBehaviour
 {
-    public EnemyTankBrain Brain;
     private Faction _faction;
 
+    public Vector3 Target;
 
     void Start()
     {
         _faction = GetComponent<Faction>();
+        Debug.Assert(_faction);
     }
 
     void Update()
@@ -23,7 +24,7 @@ public class TargetFinder : MonoBehaviour
                 float tooClose = 3.0f;
                 if (dist < closest && dist > tooClose) {
                     closest = dist;
-                    Brain.Target = faction.gameObject.transform.position; 
+                    Target = faction.gameObject.transform.position; 
                 }
             }
         }
