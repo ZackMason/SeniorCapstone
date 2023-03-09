@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: EnginePower
       value: 3000
       objectReference: {fileID: 0}
+    - target: {fileID: 7611513640616111163, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: LerpConstant
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8062666696884762001, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: EnginePower

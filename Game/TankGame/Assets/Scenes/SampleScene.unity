@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -848,6 +848,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: spinner_barrier (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089857088546478575, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: Cannon
+      value: 
+      objectReference: {fileID: 175000445}
+    - target: {fileID: 6168805911179677305, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: LerpConstant
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da02afb81c2513c4f8366ac4a646247e, type: 3}
