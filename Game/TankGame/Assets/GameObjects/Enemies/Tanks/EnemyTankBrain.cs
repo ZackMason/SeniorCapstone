@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
     public Vector3 Target;
+    public Transform Base;
     public Transform Cannon;
 
     
@@ -20,10 +21,26 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
 
     public Vector2 GetTurretInput() {
         // TODO(ZACK): do turret
-        Vector3 targetDirection = Vector3.Normalize(Target - transform.position);
-        float maxRotation = 90f;
-        Vector3 newDirection = Vector3.RotateTowards(Cannon.forward, targetDirection, maxRotation * Mathf.Deg2Rad, 0f);
-        return new Vector2(newDirection.x, newDirection.y).normalized;
+
+        Vector3 projectedVector = Vector3.ProjectOnPlane(Target - Base.position, -Base.up);
+        float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
+        float BarrelAngle = 90-Vector3.Angle(Target, Cannon.up);
+
+
+        // Cannon.up = Vector3.up;
+        // Vector3 right = Vector3.Cross(Cannon.forward, Vector3.up);
+        // Cannon.rotation = Quaternion.LookRotation(right, Vector3.up);
+
+        // Vector3 targetDirection = Target - transform.position;
+        // float maxRotation = 45f;
+        // Quaternion targetRotation = Quaternion.LookRotation(targetDirection - Cannon.position);
+        // Quaternion newRotation = Quaternion.RotateTowards(Cannon.rotation, targetRotation, maxRotation * Time.deltaTime);
+
+
+        // //Vector3 newDirection = Vector3.RotateTowards(Cannon.forward, targetDirection, maxRotation * Mathf.Deg2Rad, 0f);
+        
+
+        return new Vector2(BaseTurn, BarrelAngle).normalized;
     }
 
     public bool WantToZoom() {
@@ -32,7 +49,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     
     public bool WantToFire() {
         Vector2 cannonAim = GetTurretInput();
-        return cannonAim.y > 0.9f;
+        Vector3 targetDirection = Target - Cannon.position;
+        float accuracy = Vector2.Dot(cannonAim, new Vector2(targetDirection.x, targetDirection.z).normalized);
+        return accuracy > 0.9f;
     }
 
 }

@@ -27,10 +27,8 @@ public class Turret : MonoBehaviour
     {
         Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
 
-        if (Cursor.lockState == CursorLockMode.Locked) {
-            TurretBarrel.transform.Rotate(TurretInput.y, 0.0f, 0.0f, Space.Self);
-            TurretBody.transform.Rotate(0.0f, TurretInput.x, 0.0f, Space.Self);
-        }
+        TurretBarrel.transform.Rotate(TurretInput.y, 0.0f, 0.0f, Space.Self);
+        TurretBody.transform.Rotate(0.0f, TurretInput.x, 0.0f, Space.Self);
 
         if (_brain.WantToFire() && _weapon != null) {
             _weapon.Fire();
