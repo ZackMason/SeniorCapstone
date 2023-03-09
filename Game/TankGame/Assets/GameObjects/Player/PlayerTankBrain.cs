@@ -35,28 +35,18 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     public Vector2 GetDriveInput() {
         return _drive;
-        return new Vector2(
-            Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")
-        );
     }
 
     public Vector2 GetTurretInput() {
         return _turret;
-        return new Vector2(
-            Input.GetAxis("Mouse X") + Input.GetAxis("Right Stick Horizontal") * 0.1f,
-            Input.GetAxis("Mouse Y") + Input.GetAxis("Right Stick Vertical") * 0.1f
-        );
     }
 
     public float GetBoost() {
         return _boost;
-        return Input.GetAxis("Boost");
     }
 
     public bool WantToZoom() {
         return _zoom;
-        return Input.GetAxis("Fire2") > 0.0f;
     }
     
     public bool WantToFire() {

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
-    public Vector3 Target;
+    private TargetFinder TargetFinder;
     public Transform Base;
     public Transform Cannon;
 
-    
+    void Start() {
+        TargetFinder = GetComponent<TargetFinder>(); 
+    }
+
     public Vector2 GetDriveInput() {
-        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(Target - transform.position));
-        float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(Target - transform.position));
+        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.Target - transform.position));
+        float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.Target - transform.position));
 
         return new Vector2(
             Mathf.Clamp(fuzzy_right*2.0f, -1.0f, 1.0f),
@@ -24,10 +27,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
-
-        Vector3 projectedVector = Vector3.ProjectOnPlane(Target - Base.position, -Base.up);
+        Vector3 projectedVector = Vector3.ProjectOnPlane(TargetFinder.Target - Base.position, -Base.up);
         float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
-        float BarrelAngle = 90-Vector3.Angle(Target, Cannon.up);
+        float BarrelAngle = 90-Vector3.Angle(TargetFinder.Target, Cannon.up);
 
 
         // Cannon.up = Vector3.up;
@@ -52,7 +54,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     
     public bool WantToFire() {
         Vector2 cannonAim = GetTurretInput();
-        Vector3 targetDirection = Target - Cannon.position;
+        Vector3 targetDirection = TargetFinder.Target - Cannon.position;
         float accuracy = Vector2.Dot(cannonAim, new Vector2(targetDirection.x, targetDirection.z).normalized);
         return accuracy > 0.8f;
     }
