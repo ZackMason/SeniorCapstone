@@ -839,6 +839,11 @@ PrefabInstance:
       propertyPath: Cannon
       value: 
       objectReference: {fileID: 175000445}
+    - target: {fileID: 6168805911179677305, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: LerpConstant
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7857b8c90aff3438742cdcf445408d, type: 3}
 --- !u!1 &553243659
@@ -3684,6 +3689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TorquePower
       value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: LerpConstant
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6632582275650403936, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}

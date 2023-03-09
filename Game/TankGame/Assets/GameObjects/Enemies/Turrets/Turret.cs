@@ -25,10 +25,12 @@ public class Turret : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
+        Vector2 currentTurretInput = new Vector2(TurretBarrel.transform.rotation.eulerAngles.x, TurretBody.transform.rotation.eulerAngles.y);
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
+        currentTurretInput = Vector2.Lerp(currentTurretInput, TurretInput, 50 * Time.deltaTime);
 
-        TurretBarrel.transform.Rotate(TurretInput.y, 0.0f, 0.0f, Space.Self);
-        TurretBody.transform.Rotate(0.0f, TurretInput.x, 0.0f, Space.Self);
+        TurretBarrel.transform.Rotate(currentTurretInput.y, 0.0f, 0.0f, Space.Self);
+        TurretBody.transform.Rotate(0.0f, currentTurretInput.x, 0.0f, Space.Self);
 
         if (_brain.WantToFire() && _weapon != null) {
             _weapon.Fire();

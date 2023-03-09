@@ -20,7 +20,6 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
-        // TODO(ZACK): do turret
 
         Vector3 projectedVector = Vector3.ProjectOnPlane(Target - Base.position, -Base.up);
         float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
@@ -51,7 +50,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         Vector2 cannonAim = GetTurretInput();
         Vector3 targetDirection = Target - Cannon.position;
         float accuracy = Vector2.Dot(cannonAim, new Vector2(targetDirection.x, targetDirection.z).normalized);
-        return accuracy > 0.9f;
+        return accuracy > 0.8f;
     }
 
 }

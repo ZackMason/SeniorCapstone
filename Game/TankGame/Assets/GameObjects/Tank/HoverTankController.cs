@@ -14,6 +14,7 @@ public class HoverTankController : MonoBehaviour
     public GameObject   TankHead;
     public GameObject   TankTurret;
     public GameObject   TankBody;
+    public float        LerpConstant;
 
     [Range(1, 2000)]
     public float DrivePower;
@@ -42,12 +43,16 @@ public class HoverTankController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
+        Vector2 currentTurretInput = new Vector2(TankTurret.transform.rotation.x, TankHead.transform.rotation.y);
+        
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
 
+        currentTurretInput = Vector2.Lerp(currentTurretInput, TurretInput, LerpConstant * Time.deltaTime);
+
         if (Cursor.lockState == CursorLockMode.Locked) {
-            TankTurret.transform.Rotate(TurretInput.y, 0.0f, 0.0f, Space.Self);
-            TankHead.transform.Rotate(0.0f, TurretInput.x, 0.0f, Space.Self);
+            TankTurret.transform.Rotate(currentTurretInput.y, 0.0f, 0.0f, Space.Self);
+            TankHead.transform.Rotate(0.0f, currentTurretInput.x, 0.0f, Space.Self);
         }
 
         Vector3 TurretForward = -TankHead.transform.forward;
