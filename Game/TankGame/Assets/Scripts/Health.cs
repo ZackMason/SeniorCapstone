@@ -22,6 +22,7 @@ public class Health : MonoBehaviour
         if (_currentHealth <= 0.0f) {
             if (_destructible != null) {
                 _destructible.Destruct();
+                Timer.score += 100;
             }
             Destroy(this.gameObject);
         }

@@ -7,11 +7,11 @@ public class HoverEngine : MonoBehaviour
 {
     public Rigidbody TankRigidbody;
 
-    [Range(1, 2000)]
+    [Range(1, 6000)]
     public float EnginePower;
     
     private float _HoverPower(float groundDistance) {
-        return EnginePower / groundDistance;
+        return EnginePower / Mathf.Max(0.1f, groundDistance);
     }
 
     void Start()
@@ -34,6 +34,7 @@ public class HoverEngine : MonoBehaviour
 
             float cosFactor = Vector3.Dot(-rayDirection, hit.normal);
             // cosFactor = 1.0f;
+            // halfVector = -rayDirection;
   
             TankRigidbody.AddForceAtPosition(_HoverPower(hit.distance) * halfVector * cosFactor * Time.fixedDeltaTime * 10.0f, rayOrigin);
 

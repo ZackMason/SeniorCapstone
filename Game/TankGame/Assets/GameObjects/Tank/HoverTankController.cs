@@ -10,6 +10,10 @@ public class HoverTankController : MonoBehaviour
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
 
+    [Range(0, 15)]
+    public float BoostCooldownTime;
+    private float _boostTimer;
+
     public Vector3      CenterOfMass;
     public GameObject   TankHead;
     public GameObject   TankTurret;
@@ -45,8 +49,11 @@ public class HoverTankController : MonoBehaviour
     {
         Vector2 currentTurretInput = new Vector2(TankTurret.transform.rotation.x, TankHead.transform.rotation.y);
         
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
+        _boostTimer -= Time.fixedDeltaTime;
+
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
+        float BoostDir = _brain.GetBoost();
 
         currentTurretInput = Vector2.Lerp(currentTurretInput, TurretInput, LerpConstant * Time.deltaTime);
 
@@ -57,10 +64,17 @@ public class HoverTankController : MonoBehaviour
 
         Vector3 TurretForward = -TankHead.transform.forward;
         Vector3 BodyForward = -TankBody.transform.forward;
+        Vector3 BodyRight = -TankBody.transform.right;
         TurretForward.y = 0.0f;
+        BodyRight.y = 0.0f;
 
         _tankRigidbody.AddTorque(Vector3.up * DriveInput.x * TorquePower);
         _tankRigidbody.AddForce(BodyForward * DriveInput.y * DrivePower);
+
+        if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
+            _boostTimer = BoostCooldownTime;
+            _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 4.0f, ForceMode.Impulse);
+        }
 
         if (_camera != null) {
             if (_brain.WantToZoom()) {

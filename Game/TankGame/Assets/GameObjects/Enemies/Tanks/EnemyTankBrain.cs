@@ -19,6 +19,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         );
     }
 
+    public float GetBoost() {
+        return 0.0f;
+    }
+
     public Vector2 GetTurretInput() {
 
         Vector3 projectedVector = Vector3.ProjectOnPlane(Target - Base.position, -Base.up);
