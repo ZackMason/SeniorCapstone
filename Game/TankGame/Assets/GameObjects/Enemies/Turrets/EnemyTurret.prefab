@@ -51,8 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretBody: {fileID: 1911579375453486602}
   TurretBarrel: {fileID: 1911579375896261440}
-  TurnSpeed: 10.5
-  AimAccuracy: 0.911
+  TurnSpeed: 2
+  AimAccuracy: 1
 --- !u!114 &1911579374213113373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911579375654125594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.572}
+  m_LocalPosition: {x: 0, y: 0, z: 0.547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -251,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eaudio: {fileID: 0}
-  ShootDir: 1
   FireRate: 1
   ExplosionRadius: 5
   ExplosionPower: 420
@@ -367,8 +366,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911579375896261440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.845, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 2.47}
+  m_LocalPosition: {x: 0, y: 1.155, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1911579375927477209}
@@ -451,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911579375927477210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5720025}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5469971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

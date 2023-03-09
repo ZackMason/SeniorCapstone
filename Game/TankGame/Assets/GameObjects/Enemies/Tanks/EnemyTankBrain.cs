@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
-<<<<<<< Updated upstream
-    public Vector3 Target;
-=======
     private TargetFinder TargetFinder;
     public Transform Base;
     public Transform Cannon;
->>>>>>> Stashed changes
 
     void Start() {
         TargetFinder = GetComponent<TargetFinder>(); 
@@ -31,15 +27,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
-<<<<<<< Updated upstream
-        // TODO(ZACK): do turret
-        return new Vector2(
-            0.0f, 0.0f
-        );
-=======
         Vector3 projectedVector = Vector3.ProjectOnPlane(TargetFinder.Target - Base.position, -Base.up);
         float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
         float BarrelAngle = 90-Vector3.Angle(TargetFinder.Target, Cannon.up);
+
 
         // Cannon.up = Vector3.up;
         // Vector3 right = Vector3.Cross(Cannon.forward, Vector3.up);
@@ -55,7 +46,6 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         
 
         return new Vector2(BaseTurn, BarrelAngle).normalized;
->>>>>>> Stashed changes
     }
 
     public bool WantToZoom() {
@@ -63,15 +53,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
     
     public bool WantToFire() {
-<<<<<<< Updated upstream
-        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(Target - transform.position));
-        return fuzzy_forward > 0.9f;
-=======
         Vector2 cannonAim = GetTurretInput();
         Vector3 targetDirection = TargetFinder.Target - Cannon.position;
         float accuracy = Vector2.Dot(cannonAim, new Vector2(targetDirection.x, targetDirection.z).normalized);
         return accuracy > 0.8f;
->>>>>>> Stashed changes
     }
 
 }

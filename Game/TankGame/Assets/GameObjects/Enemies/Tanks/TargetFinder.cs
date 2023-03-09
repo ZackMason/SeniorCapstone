@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class TargetFinder : MonoBehaviour
 {
-    private Faction _faction;
-
     public Vector3 Target;
+    private Faction _faction;
 
     void Start()
     {
         _faction = GetComponent<Faction>();
-        Debug.Assert(_faction);
     }
 
     void Update()

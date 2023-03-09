@@ -8,7 +8,8 @@ public class HEWeapon : MonoBehaviour, IWeapon
     private float _fireTime;
 
     [Range(-1, 1)]
-    public float ShootDir;
+    public float AimDir;
+
     [Range(0, 2)]
     public float FireRate;
 
@@ -27,7 +28,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
         if (_fireTime > 0.0f) {
             return;
         }
-        Vector3 rayDirection = ShootDir * transform.TransformDirection(Vector3.forward);
+        Vector3 rayDirection = AimDir * transform.TransformDirection(Vector3.forward);
         Vector3 rayOrigin = transform.position;
 
         Debug.DrawRay(rayOrigin, rayDirection, Color.red); 
@@ -46,9 +47,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
             }
             
             ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
-            if (eaudio != null) {
-                eaudio.Play();
-            }
+            eaudio.Play();
         }
     }
 

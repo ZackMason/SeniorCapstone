@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-=======
     public GameObject   TurretBody;
     public GameObject   TurretBarrel;
     [Range(0, 100)]
@@ -67,6 +55,5 @@ public class Turret : MonoBehaviour
         if (_wantToFire() && _weapon != null) {
             _weapon.Fire();
         }
->>>>>>> Stashed changes
     }
 }
