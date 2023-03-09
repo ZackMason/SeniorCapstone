@@ -17,6 +17,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         );
     }
 
+    public float GetBoost() {
+        return 0.0f;
+    }
+
     public Vector2 GetTurretInput() {
         // TODO(ZACK): do turret
         return new Vector2(
