@@ -65,12 +65,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50261d97995ad5046ba824fa0033fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoostCooldownTime: 0
+  BoostCooldownTime: 1
   CenterOfMass: {x: 0, y: -0.45, z: 0}
   TankHead: {fileID: 4609936421520363742}
   TankTurret: {fileID: 4599075006056016002}
   TankBody: {fileID: 4609936422103297016}
-  LerpConstant: 0
+  LerpConstant: 50
   DrivePower: 2000
   TorquePower: 105
 --- !u!114 &6900686476271991110
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eaudio: {fileID: 0}
-  ShootDir: -1
+  AimDir: -1
   FireRate: 1
   ExplosionRadius: 5
   ExplosionPower: 420
