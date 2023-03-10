@@ -51,7 +51,7 @@ public class HoverTankController : MonoBehaviour
         
         _boostTimer -= Time.fixedDeltaTime;
 
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 100.0f;
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
         float BoostDir = _brain.GetBoost();
 

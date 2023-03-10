@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eaudio: {fileID: 0}
+  AimDir: 1
   FireRate: 1
   ExplosionRadius: 5
   ExplosionPower: 420
