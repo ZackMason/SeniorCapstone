@@ -134,7 +134,7 @@
                     "id": "9de49c9f-ac84-47a6-90f9-7fd7eff4d91e",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=0.1,y=0.1)",
                     "groups": "",
                     "action": "TurnTurret",
                     "isComposite": false,
