@@ -65,7 +65,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1580535799172915004, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
-  - {fileID: -876546973899608171, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
+  - {fileID: -6478536213147159724, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
   - {fileID: 5033703511601670329, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febf5e76e84331944bf56b20ef811b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyedPrefab: {fileID: 5830557713883978241, guid: 19abd22b4903b2a489e9d5753afda396,
+  DestroyedPrefab: {fileID: 5207052466328211589, guid: 19abd22b4903b2a489e9d5753afda396,
     type: 3}
   RamResistance: 5850
 --- !u!114 &5816705883824123217
@@ -129,4 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
   MaxHealth: 98
