@@ -20,7 +20,9 @@ public class Health : MonoBehaviour
         _destructible = GetComponentInChildren<Destructible>();
     }
     void Update() {
-        healthText.text = MaxHealth.ToString();
+        if (healthText != null) {
+            healthText.text = MaxHealth.ToString();
+        }
     }
     
 
