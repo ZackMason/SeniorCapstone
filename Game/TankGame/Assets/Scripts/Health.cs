@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
+    public TextMeshProUGUI healthText;
     [Range(0, 200)]
     public float MaxHealth;
+    
 
     private float _currentHealth;
     private Destructible _destructible;
@@ -15,6 +19,10 @@ public class Health : MonoBehaviour
         _currentHealth = MaxHealth;
         _destructible = GetComponentInChildren<Destructible>();
     }
+    void Update() {
+        healthText.text = MaxHealth.ToString();
+    }
+    
 
     public void Damage(float damage) {
         _currentHealth -= damage;
