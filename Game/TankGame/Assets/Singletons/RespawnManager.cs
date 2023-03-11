@@ -31,6 +31,7 @@ public class RespawnManager : MonoBehaviour
     }
 
     bool _isOnGround(Vector3 pos) {
+        return true;
         RaycastHit hit;
         return Physics.Raycast(pos, Vector3.down, out hit, 4.0f, 0);
     }
