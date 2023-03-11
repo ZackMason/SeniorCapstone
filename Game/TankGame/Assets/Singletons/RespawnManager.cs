@@ -16,6 +16,20 @@ public class RespawnManager : MonoBehaviour
     private float _spawnTimer = _OFF;
     private float _checkpointTimer = 0.0f;
 
+    public static RespawnManager Instance { get; private set; }
+    
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) 
+        {
+            Destroy(this);
+        }
+        else 
+        { 
+            Instance = this;
+        }
+    }
+
     bool _isOnGround(Vector3 pos) {
         RaycastHit hit;
         return Physics.Raycast(pos, Vector3.down, out hit, 4.0f, 0);
