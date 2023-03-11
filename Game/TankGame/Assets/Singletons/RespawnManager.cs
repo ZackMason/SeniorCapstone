@@ -7,32 +7,43 @@ public class RespawnManager : MonoBehaviour
     public GameObject Player;
     public GameObject PlayerPrefab;
 
+    [Range(1, 60)]
+    public float CheckpointTime;
+
     private Vector3 _lastPlayerPosition;
-    private float _spawnTimer = -1.0f;
+ 
+    private const float _OFF = -1.0f;
+    private float _spawnTimer = _OFF;
+    private float _checkpointTimer = 0.0f;
 
-    void Start()
-    {
-        
+    bool _isOnGround(Vector3 pos) {
+        RaycastHit hit;
+        return Physics.Raycast(pos, Vector3.down, out hit, 4.0f, 0);
     }
-
 
     // todo(zack): move out of update / use timer
     void FixedUpdate()
     {
+        _checkpointTimer -= Time.fixedDeltaTime;
         if (_spawnTimer > 0.0f) {
             _spawnTimer -= Time.fixedDeltaTime;
         }
 
-        if (Player == null) {
-            if (_spawnTimer == -1.0f) {
+        if (Player == null) { // player died
+            if (_spawnTimer == _OFF) {
                 _spawnTimer = 1.0f;
             }
-        } else {
-            _lastPlayerPosition = Player.transform.position;
+        } else { // player is alive
+            if (_checkpointTimer < 0.0f) {
+                if (_isOnGround(Player.transform.position)) {
+                    _lastPlayerPosition = Player.transform.position;
+                    _checkpointTimer = CheckpointTime;
+                }
+            }
         }
 
-        if (_spawnTimer < 0.0f && _spawnTimer != -1.0f) {
-            _spawnTimer = -1.0f;
+        if (_spawnTimer < 0.0f && _spawnTimer != _OFF) {
+            _spawnTimer = _OFF;
             Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, Quaternion.identity);
         }
     }
