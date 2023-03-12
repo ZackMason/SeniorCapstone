@@ -16,6 +16,8 @@ public class KillBox : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        _kill(other.attachedRigidbody.gameObject);
+        if (other.attachedRigidbody != null){
+            _kill(other.attachedRigidbody.gameObject);
+        }
     }
 }

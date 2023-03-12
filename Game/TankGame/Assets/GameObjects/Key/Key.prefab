@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7939316260351310880
+--- !u!1 &7624857379544094566
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7306473292545173146}
-  - component: {fileID: 5965603929978284351}
-  - component: {fileID: 8443935266851741173}
-  - component: {fileID: 7628035018889037566}
-  - component: {fileID: 7291534924876756819}
+  - component: {fileID: 5366205463252645419}
+  - component: {fileID: 1345016229998401270}
+  - component: {fileID: 35373146733714426}
+  - component: {fileID: 4964353315642627141}
+  - component: {fileID: 2568254737382928598}
   m_Layer: 0
-  m_Name: LevelBarrier
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7306473292545173146
+--- !u!4 &5366205463252645419
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316260351310880}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.792881, y: 4.0392685, z: 330.08545}
+  m_GameObject: {fileID: 7624857379544094566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 62.26198, y: 5.251096, z: 368.7224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5965603929978284351
+--- !u!33 &1345016229998401270
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316260351310880}
-  m_Mesh: {fileID: 4493585093827132993, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
---- !u!23 &8443935266851741173
+  m_GameObject: {fileID: 7624857379544094566}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &35373146733714426
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316260351310880}
+  m_GameObject: {fileID: 7624857379544094566}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,9 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1580535799172915004, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
-  - {fileID: 2100000, guid: 4f14133b2cbedac428dc2e03d91e9736, type: 2}
-  - {fileID: 5033703511601670329, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,29 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7628035018889037566
-MeshCollider:
+--- !u!135 &4964353315642627141
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316260351310880}
+  m_GameObject: {fileID: 7624857379544094566}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 5d0b9ef6067e8924985fc9a7b477b349, type: 3}
---- !u!114 &7291534924876756819
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2568254737382928598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316260351310880}
+  m_GameObject: {fileID: 7624857379544094566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65065036ffef1cd4a9eb4d689b3e984a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5da6a6cd80d0c854090f04bbff7ad73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
