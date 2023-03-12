@@ -16,24 +16,16 @@ public class KeyManager : MonoBehaviour
         { 
             Instance = this;
         }
-
-        _collectedKeys = new HashSet<string>();
     }
-
-    
-    private HashSet<string> _collectedKeys;
 
     public void PickupKey(string keyName) {
-        // Debug.Assert(_collectedKeys.Contains(keyName) == false); // Dont add duplicate keynames
-        _collectedKeys.Add(keyName);
-
-        UpdateBarriers();
+        UpdateBarriers(keyName);
     }
 
-    private void UpdateBarriers() {
+    private void UpdateBarriers(string keyName) {
         LevelBarrier[] barriers = FindObjectsOfType(typeof(LevelBarrier)) as LevelBarrier[];
         foreach(LevelBarrier barrier in barriers) {
-            if (_collectedKeys.Contains(barrier.KeyName)) {
+            if (keyName == barrier.KeyName) {
                 barrier.OpenBarrier();
             }
         }
