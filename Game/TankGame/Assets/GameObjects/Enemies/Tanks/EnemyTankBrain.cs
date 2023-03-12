@@ -22,6 +22,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         );
     }
 
+    public bool GetAirbrake() {
+        return true;
+    }
+
     public float GetBoost() {
         return 0.0f;
     }
