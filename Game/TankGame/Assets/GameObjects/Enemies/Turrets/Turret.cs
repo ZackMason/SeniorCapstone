@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
 {
     public GameObject   TurretBody;
     public GameObject   TurretBarrel;
-    [Range(0, 100)]
+    [Range(0, 1)]
     public float        TurnSpeed;
 
     [Range(0, 1)]
@@ -14,6 +14,8 @@ public class Turret : MonoBehaviour
 
     private TargetFinder _targetFinder;
     private IWeapon     _weapon;
+
+    private float _variance = 4.0f;
 
     void Awake()
     {
@@ -38,7 +40,12 @@ public class Turret : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 toTarget = Vector3.Normalize(_targetFinder.Target - TurretBarrel.transform.position);
+        Vector3 variance = new Vector3(
+            Random.Range(-_variance, _variance),
+            Random.Range(-_variance, _variance),
+            Random.Range(-_variance, _variance)
+        );
+        Vector3 toTarget = Vector3.Normalize(_targetFinder.Target - TurretBarrel.transform.position + variance);
         float stepSize = TurnSpeed * Time.fixedDeltaTime;
 
         Vector3 nextRotation = Vector3.RotateTowards(TurretBarrel.transform.forward, toTarget, stepSize, 0.0f);
