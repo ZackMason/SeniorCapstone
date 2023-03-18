@@ -12,7 +12,10 @@ public class Destructible : MonoBehaviour
     public void Destruct() {
         Debug.Assert(DestroyedPrefab != null);
 
-        Instantiate(DestroyedPrefab, transform.position, transform.rotation);
+
+        var savedScale = transform.localScale;
+        var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
+        newObject.transform.localScale = savedScale;
         Destroy(this.gameObject);
     }
 
