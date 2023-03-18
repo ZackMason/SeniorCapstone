@@ -47,9 +47,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
             }
             
             ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
-            if (eaudio != null) {
-                eaudio.Play();
-            }
+            SoundManager.Instance.PlaySound(SoundAsset.Explosion);
         }
     }
 
