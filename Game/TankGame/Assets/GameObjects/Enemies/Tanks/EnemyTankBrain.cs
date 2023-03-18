@@ -31,6 +31,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
+        return new Vector2(0.0f, 0.0f);
         Vector3 projectedVector = Vector3.ProjectOnPlane(TargetFinder.Target - Base.position, -Base.up);
         float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
         float BarrelAngle = 90-Vector3.Angle(TargetFinder.Target, Cannon.up);
