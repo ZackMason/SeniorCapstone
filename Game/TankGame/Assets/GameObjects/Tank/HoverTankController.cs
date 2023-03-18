@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HoverTankController : MonoBehaviour
 {
-    public AudioSource saudio;
     public ITankBrain  _brain;
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
@@ -50,8 +49,10 @@ public class HoverTankController : MonoBehaviour
     }
     public void OnCollisionEnter(Collision col)
     {
-        if (col.relativeVelocity.magnitude > 2)
-            saudio.Play();
+        if (col.relativeVelocity.magnitude > 2) {
+            SoundManager.Instance.PlaySound(SoundAsset.Collision);
+        }
+            // saudio.Play();
 
     }
     void FixedUpdate()
