@@ -26,6 +26,8 @@ public class HoverTankController : MonoBehaviour
     [Range(0, 200)]
     public float TorquePower;
 
+    private float _startDrag;
+
     void Awake()
     {
         Debug.Assert(TankBody != null);
@@ -40,6 +42,8 @@ public class HoverTankController : MonoBehaviour
         _tankRigidbody = GetComponent<Rigidbody>();
 
         _tankRigidbody.centerOfMass = CenterOfMass;
+
+        _startDrag = _tankRigidbody.drag;
 
         Debug.Assert(_brain != null);
         Debug.Assert(_weapon != null);
@@ -61,6 +65,9 @@ public class HoverTankController : MonoBehaviour
         Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
         float BoostDir = _brain.GetBoost();
+        bool Airbrake = _brain.GetAirbrake();
+
+        _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
 
         currentTurretInput = Vector2.Lerp(currentTurretInput, TurretInput, LerpConstant * Time.deltaTime);
 

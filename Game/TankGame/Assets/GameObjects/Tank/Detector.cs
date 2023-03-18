@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-    public float ScanDistance = 200;
-
-    public Vector3 CorrectionVector;
-
     private float DetectedDistance;
 
     public GameObject Reticle;
@@ -21,7 +17,7 @@ public class Detector : MonoBehaviour
         int layerMask = 1 << 6 | 1 << 7;
         layerMask = ~layerMask;
 
-        Vector3 rayDirection = transform.TransformDirection(Vector3.forward);
+        Vector3 rayDirection = transform.forward;
         Vector3 rayOrigin = transform.position;
 
         RaycastHit hit;
@@ -33,7 +29,7 @@ public class Detector : MonoBehaviour
             Debug.DrawRay(rayOrigin, rayDirection * hit.distance, rayColor);
         } else {
             DetectedDistance = 1000.0f;
-            Debug.DrawRay(rayOrigin, rayDirection * ScanDistance, rayColor);
+            Debug.DrawRay(rayOrigin, rayDirection * 1000.0f, rayColor);
         }
 
         if (Reticle) {
