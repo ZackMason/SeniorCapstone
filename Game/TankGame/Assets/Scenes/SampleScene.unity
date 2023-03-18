@@ -7875,17 +7875,17 @@ PrefabInstance:
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 141.06679
+      value: 24.8
       objectReference: {fileID: 0}
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.170061
+      value: 4.609
       objectReference: {fileID: 0}
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 192.38869
+      value: 378.4
       objectReference: {fileID: 0}
     - target: {fileID: 1082313132265926468, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
@@ -7926,6 +7926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyHoverTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447932331186496620, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: NeedsVision
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7857b8c90aff3438742cdcf445408d, type: 3}

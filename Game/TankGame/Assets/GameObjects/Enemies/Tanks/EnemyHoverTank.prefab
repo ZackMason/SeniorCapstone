@@ -364,7 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d57990705ee184eba545d4f02ad84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {x: 0, y: 0, z: 0}
   Base: {fileID: 616886987502938150}
   Cannon: {fileID: 623016186576081018}
 --- !u!114 &6447932331186496620
@@ -379,4 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de55b595480242e41a960a99e2ee69ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Brain: {fileID: 6089857088546478575}
+  Target: {x: 0, y: 0, z: 0}
+  NeedsVision: 1
+  SearchTime: 1
