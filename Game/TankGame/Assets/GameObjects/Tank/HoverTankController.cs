@@ -22,7 +22,7 @@ public class HoverTankController : MonoBehaviour
     [Range(1, 2000)]
     public float DrivePower;
 
-    [Range(0, 200)]
+    [Range(0, 800)]
     public float TorquePower;
 
     private float _startDrag;
