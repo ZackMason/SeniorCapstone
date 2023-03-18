@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HoverTankController : MonoBehaviour
 {
-
+    public AudioSource saudio;
     public ITankBrain  _brain;
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
@@ -48,9 +48,16 @@ public class HoverTankController : MonoBehaviour
         Debug.Assert(_brain != null);
         Debug.Assert(_weapon != null);
     }
+    public void OnCollisionEnter(Collision col)
+    {
+        if (col.relativeVelocity.magnitude > 2)
+            saudio.Play();
 
+    }
     void FixedUpdate()
     {
+
+        
         Vector2 currentTurretInput = new Vector2(TankTurret.transform.rotation.x, TankHead.transform.rotation.y);
         
         _boostTimer -= Time.fixedDeltaTime;
