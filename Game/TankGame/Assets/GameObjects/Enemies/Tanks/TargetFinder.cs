@@ -7,7 +7,7 @@ public class TargetFinder : MonoBehaviour
     public Vector3 Target;
     private Faction _faction;
 
-    public bool NeedsVision = false;
+    public bool NeedsVision = true;
     public float SearchTime = 1;
     private float _searchTimer;
 
@@ -55,6 +55,15 @@ public class TargetFinder : MonoBehaviour
                         Target = faction.gameObject.transform.position; 
                     }
                 }
+            }
+
+            if (closest == float.MaxValue) {
+                Vector3 randomOffset = new Vector3(
+                    Random.Range(-10.0f, 10.0f),
+                    0.0f,
+                    Random.Range(-10.0f, 10.0f)
+                );
+                Target = transform.position + randomOffset;
             }
         }
     }

@@ -7,6 +7,8 @@ public class HEWeapon : MonoBehaviour, IWeapon
     public AudioSource eaudio;
     private float _fireTime;
 
+    public bool MakeNoise = false;
+
     [Range(-1, 1)]
     public float AimDir;
 
@@ -47,7 +49,9 @@ public class HEWeapon : MonoBehaviour, IWeapon
             }
             
             ExplosionManager.Instance.SpawnExplosion(hit.point, ExplosionRadius, ExplosionPower);
-            SoundManager.Instance.PlaySound(SoundAsset.Explosion);
+            if (MakeNoise) {
+                SoundManager.Instance.PlaySound(SoundAsset.Explosion);
+            }
         }
     }
 
