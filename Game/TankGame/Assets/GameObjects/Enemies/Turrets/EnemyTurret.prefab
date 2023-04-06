@@ -52,7 +52,7 @@ MonoBehaviour:
   TurretBody: {fileID: 4428575580310980695}
   TurretBarrel: {fileID: 1560280134773172062}
   TurnSpeed: 0.03
-  AimAccuracy: 1
+  AimTolerance: 0.7
 --- !u!114 &1911579374213113373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
+  NeedsVision: 1
+  SearchTime: 1
 --- !u!54 &1961641404754456219
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -282,7 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95214a0e73ab1874c9fde3c0ec2c7a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectilePrefab: {fileID: 0}
   eaudio: {fileID: 0}
+  MakeNoise: 0
   AimDir: 1
   FireRate: 1
   ExplosionRadius: 5
