@@ -2307,6 +2307,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8736133357747525062, guid: c9b4b29e0b69af84687837577de047fe,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8736133357604731055, guid: c9b4b29e0b69af84687837577de047fe, type: 3}
     - {fileID: 8736133357604731048, guid: c9b4b29e0b69af84687837577de047fe, type: 3}
