@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ExplosionManager : MonoBehaviour
 {
-    public static ExplosionManager Instance { get; private set; }
+    public GameObject ExplosionParticles;
     
+    public static ExplosionManager Instance { get; private set; }
     private void Awake() 
     { 
         if (Instance != null && Instance != this) 
@@ -19,6 +20,9 @@ public class ExplosionManager : MonoBehaviour
     }
 
     public void SpawnExplosion(Vector3 position, float radius, float power) {
+        ParticleManager.Instance.TrySpawn(ExplosionParticles, position);
+        SoundManager.Instance.PlaySound(SoundAsset.Explosion);
+        
         var colliders = Physics.OverlapSphere(position, radius);
 
         foreach (Collider proximity in colliders) {
