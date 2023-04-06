@@ -10,12 +10,11 @@ public class Destructible : MonoBehaviour
     public float RamResistance;
 
     public void Destruct() {
-        Debug.Assert(DestroyedPrefab != null);
-
-
-        var savedScale = transform.localScale;
-        var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
-        newObject.transform.localScale = savedScale;
+        if (DestroyedPrefab) {
+            var savedScale = transform.localScale;
+            var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
+            newObject.transform.localScale = savedScale;
+        }
         Destroy(this.gameObject);
     }
 
