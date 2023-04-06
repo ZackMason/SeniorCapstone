@@ -32,9 +32,13 @@ public class Turret : MonoBehaviour
 
     private bool _wantToFire() {
         Vector3 cannonAim = TurretBarrel.transform.forward;
-        Vector3 targetDirection = _targetFinder.Target - TurretBarrel.transform.position;
-        float accuracy = Vector3.Dot(-cannonAim, targetDirection);
-        return accuracy > AimTolerance;
+        Vector3 targetDirection = Vector3.Normalize(_targetFinder.Target - TurretBarrel.transform.position);
+        float accuracy = Vector3.Dot(cannonAim, targetDirection);
+        bool result = accuracy > AimTolerance;
+
+        Debug.DrawRay(TurretBarrel.transform.position, cannonAim, result ? Color.red : Color.yellow); 
+
+        return result;
     }
 
     void FixedUpdate()
