@@ -65,7 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50261d97995ad5046ba824fa0033fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saudio: {fileID: 1791691155255500497, guid: 52bfb65d2abc60d468bb21fc7398dc00, type: 3}
   BoostCooldownTime: 1
   CenterOfMass: {x: 0, y: -0.45, z: 0}
   TankHead: {fileID: 4609936421520363742}
@@ -191,7 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95214a0e73ab1874c9fde3c0ec2c7a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectilePrefab: {fileID: 1897103433111165607, guid: 0f380e9da25317f47b81794784f00290,
+    type: 3}
   eaudio: {fileID: 0}
+  MakeNoise: 0
   AimDir: -1
   FireRate: 1
   ExplosionRadius: 5
