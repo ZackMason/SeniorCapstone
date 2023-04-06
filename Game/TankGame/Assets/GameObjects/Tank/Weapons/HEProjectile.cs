@@ -33,5 +33,7 @@ public class HEProjectile : MonoBehaviour {
         
         ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, ExplosionRadius, ExplosionPower);
         SoundManager.Instance.PlaySound(SoundAsset.Explosion);
+
+        Destroy(gameObject);
     }
 }
