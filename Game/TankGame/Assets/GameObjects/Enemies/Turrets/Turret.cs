@@ -36,7 +36,6 @@ public class Turret : MonoBehaviour
         float accuracy = Vector3.Dot(cannonAim, targetDirection);
         bool result = accuracy > AimTolerance;
 
-    Debug.DrawRay(TurretBarrel.transform.position, targetDirection, result ? Color.red : Color.yellow); 
         Debug.DrawRay(TurretBarrel.transform.position, cannonAim, result ? Color.red : Color.yellow); 
 
         return result;

@@ -35,7 +35,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
         Vector3 rayOrigin = transform.position;
 
         if (ProjectilePrefab != null) {
-            Instantiate(ProjectilePrefab, rayOrigin, transform.rotation);
+            var projectile = Instantiate(ProjectilePrefab, rayOrigin, transform.rotation);
         }
 
         Debug.DrawRay(rayOrigin, rayDirection, Color.red); 
