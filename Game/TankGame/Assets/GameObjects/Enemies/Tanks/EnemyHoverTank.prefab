@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Base: {fileID: 616886987502938150}
   Cannon: {fileID: 623016186576081018}
---- !u!114 &6447932331186496620
+--- !u!114 &4808007601360238864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082313132265926470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de55b595480242e41a960a99e2ee69ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 80d8e82683b3f654bb0ac2cb9afaa261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
   NeedsVision: 1
   SearchTime: 1
+  MinDistance: 25
