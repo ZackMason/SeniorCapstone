@@ -19,7 +19,8 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
     }
 
     void OnTurnTurret(InputValue value) {
-        _turret = value.Get<Vector2>();
+        var v = value.Get<Vector2>();
+        _turret = new Vector2(-v.x, v.y);
     }
 
     void OnZoom(InputValue value) {
