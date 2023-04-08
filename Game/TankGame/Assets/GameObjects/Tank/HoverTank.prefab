@@ -71,7 +71,7 @@ MonoBehaviour:
   TankBody: {fileID: 4609936422103297016}
   LerpConstant: 50
   DrivePower: 2000
-  TorquePower: 105
+  TorquePower: 125
 --- !u!114 &2361398691011095755
 MonoBehaviour:
   m_ObjectHideFlags: 0

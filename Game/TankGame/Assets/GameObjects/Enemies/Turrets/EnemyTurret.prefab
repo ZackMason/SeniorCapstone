@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretBody: {fileID: 4428575580310980695}
   TurretBarrel: {fileID: 1560280134773172062}
-  TurnSpeed: 0.03
-  AimTolerance: 0.7
+  TurnSpeed: 0.06
+  AimTolerance: 0.95
 --- !u!114 &1911579374213113373
 MonoBehaviour:
   m_ObjectHideFlags: 0
