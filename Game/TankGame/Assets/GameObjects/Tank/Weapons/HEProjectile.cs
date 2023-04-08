@@ -5,6 +5,9 @@ using UnityEngine;
 public class HEProjectile : MonoBehaviour {
     private Rigidbody _rb;
 
+    [Range(0, 100)]
+    public float BounceChance = 10.0f;
+
     [Range(0, 20)]
     public float ExplosionRadius;
 
@@ -26,13 +29,17 @@ public class HEProjectile : MonoBehaviour {
     }
 
     public void OnCollisionEnter(Collision col) {
-        // var health = col.transform.gameObject.GetComponent<Health>();
-        // if (health != null) {
-            
-        // }
-        
-        ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, ExplosionRadius, ExplosionPower, DamagePower);
+        ExplosionManager.Instance.SpawnExplosion(
+            col.contacts[0].point, 
+            ExplosionRadius, 
+            ExplosionPower, 
+            DamagePower
+        );
 
-        Destroy(gameObject);
+        //Note(Zack): If we roll over bounce change, delete the projectile
+        // IE, 25% Bounce Chance -> 75% are deleted
+        if (Random.Range(0.0f, 100.0f) > BounceChance) {
+            Destroy(gameObject);
+        }
     }
 }

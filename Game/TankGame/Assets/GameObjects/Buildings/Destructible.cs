@@ -23,8 +23,7 @@ public class Destructible : MonoBehaviour
         Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
 
         if (rb != null) {
-            // TODO(Zack): Maybe add mass into this equation
-            float kineticEnergy = rb.velocity.magnitude * rb.velocity.magnitude * rb.mass * 0.5f;
+            float kineticEnergy = col.relativeVelocity.magnitude * col.relativeVelocity.magnitude * rb.mass * 0.5f;
             // Debug.Log("rb hit: " + kineticEnergy);
 
             if (kineticEnergy >= RamResistance) {
