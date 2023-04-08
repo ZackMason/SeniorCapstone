@@ -9,7 +9,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     public Transform Cannon;
 
     void Start() {
-        TargetFinder = GetComponent<TargetFinder>(); 
+        TargetFinder = GetComponent<CombatPositionFinder>();
     }
 
     public Vector2 GetDriveInput() {

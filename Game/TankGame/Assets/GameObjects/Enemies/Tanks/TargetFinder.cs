@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Faction))]
 public class TargetFinder : MonoBehaviour
 {
     public Vector3 Target;
@@ -18,7 +19,11 @@ public class TargetFinder : MonoBehaviour
 
     void Update()
     {
-        if ((_searchTimer -= Time.deltaTime) < 0.0f) {
+        Search(Time.deltaTime);
+    }
+
+    public void Search(float dt) {
+        if ((_searchTimer -= dt) < 0.0f) {
             _searchTimer = SearchTime;
 
             float closest = float.MaxValue;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class HEProjectile : MonoBehaviour {
     private Rigidbody _rb;
 
@@ -22,9 +23,6 @@ public class HEProjectile : MonoBehaviour {
     
     void Start() {
         _rb = GetComponent<Rigidbody>();
-
-        Debug.Assert(_rb);
-
         _rb.AddRelativeForce(new Vector3(0, 0, -LaunchPower));
     }
 
