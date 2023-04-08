@@ -8,6 +8,7 @@ public class HoverTankController : MonoBehaviour
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
+    private Vector2     _tankPitchYaw;
 
     [Range(0, 15)]
     public float BoostCooldownTime;
@@ -62,25 +63,38 @@ public class HoverTankController : MonoBehaviour
         }
     }
 
+    Vector3 _turretDirection(Vector2 yawPitch) {
+        var yaw = yawPitch.x;
+        var pitch = yawPitch.y;
+        return new Vector3(
+            Mathf.Cos((yaw)) * Mathf.Cos((pitch)),
+            Mathf.Sin((pitch)),
+            Mathf.Sin((yaw)) * Mathf.Cos((pitch))
+        );
+    }
+
     void FixedUpdate()
     {
         if (IsAlive() == false) { return; }
-        Vector2 currentTurretInput = new Vector2(TankTurret.transform.rotation.x, TankHead.transform.rotation.y);
-        
         _boostTimer -= Time.fixedDeltaTime;
 
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 50.0f;
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 0.1f;
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
 
+        _tankPitchYaw += TurretInput;
         _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
 
-        currentTurretInput = Vector2.Lerp(currentTurretInput, TurretInput, LerpConstant * Time.deltaTime);
-
         if (Cursor.lockState == CursorLockMode.Locked) {
-            TankTurret.transform.Rotate(currentTurretInput.y, 0.0f, 0.0f, Space.Self);
-            TankHead.transform.Rotate(0.0f, currentTurretInput.x, 0.0f, Space.Self);
+            Vector3 toTarget = _turretDirection(_tankPitchYaw);
+
+            Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
+            float stepSize = 0.5f * Time.fixedDeltaTime;
+
+            Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
+
+            TankHead.transform.rotation = Quaternion.LookRotation(nextRotation);
         }
 
         Vector3 TurretForward = -TankHead.transform.forward;
