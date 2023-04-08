@@ -17,6 +17,10 @@ public class Turret : MonoBehaviour
 
     private float _variance = 4.0f;
 
+    private bool _isAlive() {
+        return TurretBody != null && TurretBarrel != null;
+    }
+
     void Awake()
     {
         Debug.Assert(TurretBody != null);
@@ -43,6 +47,11 @@ public class Turret : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_isAlive() == false) {
+            Destroy(this.gameObject);
+            return;
+        }
+
         Vector3 variance = new Vector3(
             Random.Range(-_variance, _variance),
             Random.Range(-_variance, _variance),
@@ -55,8 +64,8 @@ public class Turret : MonoBehaviour
 
         TurretBarrel.transform.rotation = Quaternion.LookRotation(nextRotation);
 
-        if (_wantToFire() && _weapon != null) {
-            _weapon.Fire();
+        if (_wantToFire()) {
+            _weapon?.Fire();
         }
     }
 }

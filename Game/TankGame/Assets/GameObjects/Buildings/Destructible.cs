@@ -30,7 +30,7 @@ public class Destructible : MonoBehaviour
             if (kineticEnergy >= RamResistance) {
                 Destruct();
 
-                ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, 2.0f, kineticEnergy * 0.05f);
+                ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, 2.0f, kineticEnergy * 0.05f, 1.0f);
             }
         }
         

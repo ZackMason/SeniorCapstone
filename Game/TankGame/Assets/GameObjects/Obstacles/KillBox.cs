@@ -5,10 +5,7 @@ using UnityEngine;
 public class KillBox : MonoBehaviour
 {
     private void _kill(GameObject go) {
-        Health health = go.GetComponent<Health>();
-        if (health != null) {
-            health.Damage(1000000);
-        }
+        go?.GetComponent<Health>()?.Damage(1000000);
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -16,8 +13,7 @@ public class KillBox : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.attachedRigidbody != null){
-            _kill(other.attachedRigidbody.gameObject);
-        }
+        _kill(other.gameObject);
+        _kill(other.attachedRigidbody?.gameObject);
     }
 }

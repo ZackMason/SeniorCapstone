@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3690876992367103238}
   - component: {fileID: 3690876992367103239}
   - component: {fileID: 7611513640616111163}
-  - component: {fileID: 6900686476271991110}
   - component: {fileID: 2361398691011095755}
   m_Layer: 6
   m_Name: HoverTank
@@ -73,20 +72,6 @@ MonoBehaviour:
   LerpConstant: 50
   DrivePower: 2000
   TorquePower: 105
---- !u!114 &6900686476271991110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3690876992367103236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  MaxHealth: 100
 --- !u!114 &2361398691011095755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -393,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -478,7 +463,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -674,6 +659,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1973893103929547111, guid: caf28629ec0e871439104077bf747d45, type: 3}
+--- !u!114 &1769223619249696256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609936422103297016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febf5e76e84331944bf56b20ef811b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedPrefab: {fileID: 0}
+  RamResistance: 10000
+--- !u!114 &6983869520267055822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609936422103297016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  MaxHealth: 100
 --- !u!1001 &3690876992738454927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,7 +924,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -996,7 +1009,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -1081,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
       propertyPath: EnginePower
-      value: 2000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
