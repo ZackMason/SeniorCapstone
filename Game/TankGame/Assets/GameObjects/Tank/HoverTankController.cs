@@ -47,18 +47,24 @@ public class HoverTankController : MonoBehaviour
         Debug.Assert(_brain != null);
         Debug.Assert(_weapon != null);
     }
+
+    // Note(Zack): Called by Respawn Manager to know when to respawn the tank.
+    public bool IsAlive() {
+        return  TankBody != null && 
+                TankHead != null && 
+                TankTurret != null;
+    }
+
     public void OnCollisionEnter(Collision col)
     {
         if (col.relativeVelocity.magnitude > 2) {
             SoundManager.Instance.PlaySound(SoundAsset.Collision);
         }
-            // saudio.Play();
-
     }
+
     void FixedUpdate()
     {
-
-        
+        if (IsAlive() == false) { return; }
         Vector2 currentTurretInput = new Vector2(TankTurret.transform.rotation.x, TankHead.transform.rotation.y);
         
         _boostTimer -= Time.fixedDeltaTime;

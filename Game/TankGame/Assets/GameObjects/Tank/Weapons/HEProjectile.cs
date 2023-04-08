@@ -26,13 +26,12 @@ public class HEProjectile : MonoBehaviour {
     }
 
     public void OnCollisionEnter(Collision col) {
-        var health = col.transform.gameObject.GetComponent<Health>();
-        if (health != null) {
-            health.Damage(Random.Range(DamagePower*0.5f, DamagePower*1.5f));
-        }
+        // var health = col.transform.gameObject.GetComponent<Health>();
+        // if (health != null) {
+            
+        // }
         
-        ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, ExplosionRadius, ExplosionPower);
-        SoundManager.Instance.PlaySound(SoundAsset.Explosion);
+        ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, ExplosionRadius, ExplosionPower, DamagePower);
 
         Destroy(gameObject);
     }

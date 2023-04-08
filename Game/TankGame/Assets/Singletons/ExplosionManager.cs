@@ -19,7 +19,7 @@ public class ExplosionManager : MonoBehaviour
         } 
     }
 
-    public void SpawnExplosion(Vector3 position, float radius, float power) {
+    public void SpawnExplosion(Vector3 position, float radius, float power, float damage) {
         ParticleManager.Instance.TrySpawn(ExplosionParticles, position);
         SoundManager.Instance.PlaySound(SoundAsset.Explosion);
         
@@ -27,6 +27,12 @@ public class ExplosionManager : MonoBehaviour
 
         foreach (Collider proximity in colliders) {
             Rigidbody body = proximity.GetComponent<Rigidbody>();
+            Health health = proximity.GetComponent<Health>();
+
+            if (health != null) {
+                float falloff = 1.0f / Mathf.Max(1.0f, (proximity.transform.position - position).sqrMagnitude);
+                health.Damage(Random.Range(damage*0.5f, damage*1.5f) * falloff);
+            }
 
             if (body != null) {
                 body.AddExplosionForce(power, position, radius);

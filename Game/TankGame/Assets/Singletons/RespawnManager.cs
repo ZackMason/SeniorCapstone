@@ -44,7 +44,9 @@ public class RespawnManager : MonoBehaviour
             _spawnTimer -= Time.fixedDeltaTime;
         }
 
-        if (Player == null) { // player died
+        HoverTankController playerController = Player?.GetComponent<HoverTankController>();
+
+        if (Player == null || playerController?.IsAlive() == false) { // player died
             if (_spawnTimer == _OFF) {
                 _spawnTimer = 1.0f;
             }
@@ -59,6 +61,7 @@ public class RespawnManager : MonoBehaviour
 
         if (_spawnTimer < 0.0f && _spawnTimer != _OFF) {
             _spawnTimer = _OFF;
+            Destroy(Player);
             Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, Quaternion.identity);
         }
     }
