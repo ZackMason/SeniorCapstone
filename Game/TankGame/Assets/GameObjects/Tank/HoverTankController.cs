@@ -73,29 +73,29 @@ public class HoverTankController : MonoBehaviour
         );
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (IsAlive() == false) { return; }
-        _boostTimer -= Time.fixedDeltaTime;
+        _boostTimer -= Time.deltaTime;
 
-        Vector2 TurretInput = _brain.GetTurretInput() * Time.fixedDeltaTime * 0.1f;
-        Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
+        Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
+        Vector2 DriveInput = _brain.GetDriveInput() * Time.deltaTime * 100.0f;
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
 
         _tankPitchYaw += TurretInput;
         _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
+        
+        Vector3 toTarget = _turretDirection(_tankPitchYaw);
+        // toTarget = TankBody.transform.TransformDirection(toTarget);
 
-        if (Cursor.lockState == CursorLockMode.Locked) {
-            Vector3 toTarget = _turretDirection(_tankPitchYaw);
+        Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
+        float stepSize = 0.5f * Time.deltaTime;
 
-            Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
-            float stepSize = 0.5f * Time.fixedDeltaTime;
+        Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 
-            Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
+        TankHead.transform.rotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
 
-            TankHead.transform.rotation = Quaternion.LookRotation(nextRotation);
-        }
 
         Vector3 TurretForward = -TankHead.transform.forward;
         Vector3 BodyForward = -TankBody.transform.forward;

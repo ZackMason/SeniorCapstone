@@ -20,10 +20,18 @@ public class HEProjectile : MonoBehaviour {
     
     [Range(0, 80000)]
     public float LaunchPower = 4300.0f;
+
+    private float _lifeTime = 10.0f;
+
+    IEnumerator KillProjectile() {
+        yield return new WaitForSeconds(_lifeTime);
+        Destroy(this.gameObject);
+    }
     
     void Start() {
         _rb = GetComponent<Rigidbody>();
         _rb.AddRelativeForce(new Vector3(0, 0, -LaunchPower));
+        StartCoroutine(KillProjectile());
     }
 
     public void OnCollisionEnter(Collision col) {
