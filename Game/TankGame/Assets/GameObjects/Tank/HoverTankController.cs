@@ -8,7 +8,9 @@ public class HoverTankController : MonoBehaviour
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
-    private Vector2     _tankPitchYaw;
+    private Vector2     _tankPitchYaw = new Vector2(
+        0.0f, Mathf.PI
+    );
 
     [Range(0, 15)]
     public float BoostCooldownTime;
@@ -28,8 +30,7 @@ public class HoverTankController : MonoBehaviour
 
     private float _startDrag;
 
-    void Awake()
-    {
+    void Start() {
         Debug.Assert(TankBody != null);
         Debug.Assert(TankTurret != null);
         Debug.Assert(TankHead != null);
@@ -47,6 +48,8 @@ public class HoverTankController : MonoBehaviour
 
         Debug.Assert(_brain != null);
         Debug.Assert(_weapon != null);
+
+        _setTurretForward();
     }
 
     // Note(Zack): Called by Respawn Manager to know when to respawn the tank.
@@ -73,9 +76,18 @@ public class HoverTankController : MonoBehaviour
         );
     }
 
+    private void _setTurretForward() {
+        _tankPitchYaw.y = 0.0f;
+        var forwardDir = -TankBody.transform.forward;
+        _tankPitchYaw.x = Mathf.Atan2(forwardDir.z, forwardDir.x); 
+    }
+
     void Update()
     {
-        if (IsAlive() == false) { return; }
+        if (IsAlive() == false) { 
+            _tankRigidbody.centerOfMass = new Vector3(0,0,0);
+            return; 
+        }
         _boostTimer -= Time.deltaTime;
 
         Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
