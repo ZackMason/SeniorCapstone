@@ -10,11 +10,12 @@ public class RespawnManager : MonoBehaviour
     [Range(1, 60)]
     public float CheckpointTime;
 
+    [Range(1, 30)]
+    public float RespawnTime;
+
     private Vector3 _lastPlayerPosition;
  
-    private const float _OFF = -1.0f;
-    private float _spawnTimer = _OFF;
-    private float _checkpointTimer = 0.0f;
+    private Coroutine RespawnCoroutine;
 
     public static RespawnManager Instance { get; private set; }
     
@@ -27,6 +28,7 @@ public class RespawnManager : MonoBehaviour
         else 
         { 
             Instance = this;
+            StartCoroutine(SetCheckpoint());
         }
     }
 
@@ -36,33 +38,31 @@ public class RespawnManager : MonoBehaviour
         // return Physics.Raycast(pos, Vector3.down, out hit, 4.0f, 0);
     }
 
-    // todo(zack): move out of update / use timer
+    IEnumerator RespawnPlayer() {
+        yield return new WaitForSeconds(RespawnTime);
+        Destroy(Player);
+        Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, Quaternion.identity);
+        RespawnCoroutine = null;
+    }
+
+    IEnumerator SetCheckpoint() {
+        while(true) {
+            if (_isOnGround(Player.transform.position) && RespawnCoroutine == null) {
+                _lastPlayerPosition = Player.transform.position;
+            }
+            yield return new WaitForSeconds(CheckpointTime);
+        }
+    }
+
     void FixedUpdate()
     {
-        _checkpointTimer -= Time.fixedDeltaTime;
-        if (_spawnTimer > 0.0f) {
-            _spawnTimer -= Time.fixedDeltaTime;
-        }
-
         HoverTankController playerController = Player?.GetComponent<HoverTankController>();
 
-        if (Player == null || playerController?.IsAlive() == false) { // player died
-            if (_spawnTimer == _OFF) {
-                _spawnTimer = 1.0f;
-            }
-        } else { // player is alive
-            if (_checkpointTimer < 0.0f) {
-                if (_isOnGround(Player.transform.position)) {
-                    _lastPlayerPosition = Player.transform.position;
-                    _checkpointTimer = CheckpointTime;
-                }
-            }
-        }
-
-        if (_spawnTimer < 0.0f && _spawnTimer != _OFF) {
-            _spawnTimer = _OFF;
-            Destroy(Player);
-            Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, Quaternion.identity);
-        }
+        if ((Player == null || 
+            playerController?.IsAlive() == false) &&
+            RespawnCoroutine == null
+        ) { // player died
+            RespawnCoroutine = StartCoroutine(RespawnPlayer());
+        } 
     }
 }

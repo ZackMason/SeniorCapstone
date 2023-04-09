@@ -51,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &7611513640616111163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febf5e76e84331944bf56b20ef811b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyedPrefab: {fileID: 0}
+  DestroyedPrefab: {fileID: 6835414811654080071, guid: 6b6b6561895707b47b93970cd6376a3c,
+    type: 3}
   RamResistance: 10000
 --- !u!114 &6983869520267055822
 MonoBehaviour:

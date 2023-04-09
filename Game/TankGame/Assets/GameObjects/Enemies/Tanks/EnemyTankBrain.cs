@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
     private TargetFinder TargetFinder;
-    public Transform Base;
-    public Transform Cannon;
+    
+    public Transform Cannon; // Note(Zack): tank_turret
 
     void Start() {
         TargetFinder = GetComponent<CombatPositionFinder>();
@@ -23,7 +23,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public bool GetAirbrake() {
-        return true;
+        return false;
     }
 
     public float GetBoost() {
@@ -31,26 +31,13 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
-        return new Vector2(0.0f, 0.0f);
-        // Vector3 projectedVector = Vector3.ProjectOnPlane(TargetFinder.Target - Base.position, -Base.up);
-        // float BaseTurn = Vector3.SignedAngle(projectedVector, Base.forward, Base.up);
-        // float BarrelAngle = 90-Vector3.Angle(TargetFinder.Target, Cannon.up);
-
-
-        // Cannon.up = Vector3.up;
-        // Vector3 right = Vector3.Cross(Cannon.forward, Vector3.up);
-        // Cannon.rotation = Quaternion.LookRotation(right, Vector3.up);
-
-        // Vector3 targetDirection = Target - transform.position;
-        // float maxRotation = 45f;
-        // Quaternion targetRotation = Quaternion.LookRotation(targetDirection - Cannon.position);
-        // Quaternion newRotation = Quaternion.RotateTowards(Cannon.rotation, targetRotation, maxRotation * Time.deltaTime);
-
-
-        // //Vector3 newDirection = Vector3.RotateTowards(Cannon.forward, targetDirection, maxRotation * Mathf.Deg2Rad, 0f);
-        
-
-        // return new Vector2(BaseTurn, BarrelAngle).normalized;
+        var target = TargetFinder.Target;
+        var dir = (target - transform.position).normalized;
+        var turretDir = Cannon.forward;
+        var yaw = Mathf.Atan2(dir.z, dir.x);// - 3.14159f * 0.5f;
+        var relDir = transform.TransformDirection(dir);
+        // var pitch = Mathf.Atan2(dir.y, dir.z);
+        return new Vector2(yaw, 0.0f);
     }
 
     public bool WantToZoom() {
@@ -58,9 +45,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
     
     public bool WantToFire() {
-        Vector2 cannonAim = GetTurretInput();
-        Vector3 targetDirection = TargetFinder.Target - Cannon.position;
-        float accuracy = Vector2.Dot(cannonAim, new Vector2(targetDirection.x, targetDirection.z).normalized);
+        Vector3 cannonAim = Cannon.forward;
+        Vector3 targetDirection = (TargetFinder.Target - Cannon.position).normalized;
+        float accuracy = Vector3.Dot(cannonAim, targetDirection);
         return accuracy > 0.8f;
     }
 
