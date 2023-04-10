@@ -17,9 +17,9 @@ public class CombatPositionFinder : TargetFinder
         var minPoint = (position - target).normalized * MinDistance + target;
 
         if (Vector3.Distance(target, halfway) < MinDistance) {
-            Target = minPoint;
+            MoveTarget = minPoint;
         } else {
-            Target = halfway;
+            MoveTarget = halfway;
         }
     }
 }

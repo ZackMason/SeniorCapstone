@@ -13,8 +13,8 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetDriveInput() {
-        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.Target - transform.position));
-        float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.Target - transform.position));
+        float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
+        float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
 
         return new Vector2(
             Mathf.Clamp(fuzzy_right*2.0f, -1.0f, 1.0f),
@@ -34,10 +34,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         var target = TargetFinder.Target;
         var dir = (target - transform.position).normalized;
         var turretDir = Cannon.forward;
-        var yaw = Mathf.Atan2(dir.z, dir.x);// - 3.14159f * 0.5f;
-        var relDir = transform.TransformDirection(dir);
-        // var pitch = Mathf.Atan2(dir.y, dir.z);
-        return new Vector2(yaw, 0.0f);
+        var turretSideDir = Cannon.right;
+        var fuzzyAim = Vector3.Dot(turretSideDir, dir) * 4.0f;
+
+        return new Vector2(fuzzyAim, 0.0f);
     }
 
     public bool WantToZoom() {

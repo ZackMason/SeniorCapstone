@@ -6,6 +6,7 @@ using UnityEngine;
 public class TargetFinder : MonoBehaviour
 {
     public Vector3 Target;
+    public Vector3 MoveTarget;
     private Faction _faction;
 
     public bool NeedsVision = true;
@@ -71,5 +72,6 @@ public class TargetFinder : MonoBehaviour
                 Target = transform.position + randomOffset;
             }
         }
+        MoveTarget = Target;
     }
 }
