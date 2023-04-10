@@ -12,6 +12,8 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         TargetFinder = GetComponent<CombatPositionFinder>();
     }
 
+    // Todo(Zack): Add raycast to avoid running into walls
+    // Maybe boost if we are stuck
     public Vector2 GetDriveInput() {
         float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
         float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
@@ -36,7 +38,8 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         var turretDir = Cannon.forward;
         var turretSideDir = Cannon.right;
         var fuzzyAim = Vector3.Dot(turretSideDir, dir);
-        fuzzyAim = Mathf.Sqrt(Mathf.Abs(fuzzyAim)) * Mathf.Sign(fuzzyAim);
+        fuzzyAim = Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(fuzzyAim)) * Mathf.Sign(fuzzyAim) + 
+                    0.5f * Mathf.Pow(fuzzyAim, 3), -1.0f, 1.0f);
 
         return new Vector2(fuzzyAim * 3.0f, 0.0f);
     }
