@@ -50,6 +50,7 @@ public class HoverTankController : MonoBehaviour
         Debug.Assert(_weapon != null);
 
         _setTurretForward();
+        UnitManager.Instance.AddUnit(gameObject);
     }
 
     // Note(Zack): Called by Respawn Manager to know when to respawn the tank.
