@@ -356,20 +356,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1830241927057758735}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4635468389429875360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560280134773172062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  MaxHealth: 100
 --- !u!4 &2228413375676726756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c296a0213c47b0e4796aa38794fe8c25,
