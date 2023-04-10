@@ -54,7 +54,8 @@ public class TargetFinder : MonoBehaviour
                                     continue;
                                 }
                             } else {
-                                Debug.Log("Target finder cant see anything?");
+                                // Debug.Log("Target finder cant see anything?");
+                                continue;
                             }
                         }
                         closest = dist;
@@ -73,5 +74,13 @@ public class TargetFinder : MonoBehaviour
             }
         }
         MoveTarget = Target;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(Target, .2f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(Target, .2f);
     }
 }
