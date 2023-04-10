@@ -35,9 +35,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         var dir = (target - transform.position).normalized;
         var turretDir = Cannon.forward;
         var turretSideDir = Cannon.right;
-        var fuzzyAim = Vector3.Dot(turretSideDir, dir) * 4.0f;
+        var fuzzyAim = Vector3.Dot(turretSideDir, dir);
+        fuzzyAim = Mathf.Sqrt(Mathf.Abs(fuzzyAim)) * Mathf.Sign(fuzzyAim);
 
-        return new Vector2(fuzzyAim, 0.0f);
+        return new Vector2(fuzzyAim * 3.0f, 0.0f);
     }
 
     public bool WantToZoom() {
@@ -45,7 +46,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
     
     public bool WantToFire() {
-        Vector3 cannonAim = Cannon.forward;
+        Vector3 cannonAim = -Cannon.forward;
         Vector3 targetDirection = (TargetFinder.Target - Cannon.position).normalized;
         float accuracy = Vector3.Dot(cannonAim, targetDirection);
         return accuracy > 0.8f;
