@@ -132,7 +132,7 @@
                     "id": "31598c3e-4d94-45a5-b4b5-5f58f9876fd9",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=5,y=5)",
                     "groups": "",
                     "action": "TurnTurret",
                     "isComposite": false,
