@@ -13,6 +13,11 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
     private float _fire;
     private bool _zoom;
     private bool _airbrake;
+    private bool _switchMode;
+
+    void OnSwitchMode(InputValue value) {
+        _switchMode = value.Get<float>() > 0.1f;
+    }
 
     void OnDrive(InputValue value) {
         _drive = value.Get<Vector2>();
@@ -66,5 +71,11 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     public bool GetAirbrake() {
         return _airbrake;
+    }
+
+    public bool WantToSwitchMode() {
+        var result = _switchMode;
+        _switchMode = false;
+        return result;
     }
 }

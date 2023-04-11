@@ -12,4 +12,5 @@ public interface ITankBrain
 
     // NOTE(ZACK): only used by player
     public bool WantToZoom();
+    public bool WantToSwitchMode();
 }

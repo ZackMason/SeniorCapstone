@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TankMode {
+    DRIVE, COMBAT, SIZE
+};
+
 public class HoverTankController : MonoBehaviour
 {
     public ITankBrain  _brain;
@@ -11,6 +15,8 @@ public class HoverTankController : MonoBehaviour
     private Vector2     _tankPitchYaw = new Vector2(
         0.0f, Mathf.PI
     );
+
+    private TankMode _mode = TankMode.COMBAT;
 
     [Range(0, 15)]
     public float BoostCooldownTime;
@@ -96,7 +102,11 @@ public class HoverTankController : MonoBehaviour
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
 
-        _tankPitchYaw += TurretInput;
+        if (_mode == TankMode.COMBAT) {
+            _tankPitchYaw += TurretInput;
+        } else if (_mode == TankMode.DRIVE) {
+            _setTurretForward();
+        }
         _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
         
         Vector3 toTarget = _turretDirection(_tankPitchYaw);
@@ -112,7 +122,6 @@ public class HoverTankController : MonoBehaviour
         } else {
             Debug.Log($"{name}: has weird rotation, turret = {_tankPitchYaw}, {toTarget}");
         }
-
 
         Vector3 TurretForward = -TankHead.transform.forward;
         Vector3 BodyForward = -TankBody.transform.forward;
@@ -137,6 +146,9 @@ public class HoverTankController : MonoBehaviour
         }
         if (_brain.WantToFire() && _weapon != null) {
             _weapon.Fire();
+        }
+        if (_brain.WantToSwitchMode()) {
+            _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
         }
     }
 }
