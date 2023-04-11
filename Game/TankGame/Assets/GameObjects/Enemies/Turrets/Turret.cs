@@ -21,7 +21,7 @@ public class Turret : MonoBehaviour
         return TurretBody != null && TurretBarrel != null;
     }
 
-    void Awake()
+    void Start()
     {
         Debug.Assert(TurretBody != null);
         Debug.Assert(TurretBarrel != null);
@@ -32,6 +32,7 @@ public class Turret : MonoBehaviour
         _weapon = GetComponentInChildren<IWeapon>();
 
         Debug.Assert(_weapon != null);
+        UnitManager.Instance.AddUnit(gameObject);
     }
 
     private bool _wantToFire() {

@@ -28,8 +28,10 @@ public class RespawnManager : MonoBehaviour
         else 
         { 
             Instance = this;
-            StartCoroutine(SetCheckpoint());
         }
+    }
+    void Start() {
+        StartCoroutine(SetCheckpoint());
     }
 
     bool _isOnGround(Vector3 pos) {

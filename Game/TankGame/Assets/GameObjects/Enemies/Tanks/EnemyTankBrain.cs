@@ -43,7 +43,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
 
         return new Vector2(fuzzyAim * 3.0f, 0.0f);
     }
-
+    
+    public bool WantToSwitchMode(){
+        return false;
+    }
     public bool WantToZoom() {
         return false;
     }
