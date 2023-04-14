@@ -35,6 +35,7 @@ public class HoverTankController : MonoBehaviour
     public float TorquePower;
 
     private float _startDrag;
+    private float _deathTimer = 5.0f;
 
     void Start() {
         Debug.Assert(TankBody != null);
@@ -57,6 +58,11 @@ public class HoverTankController : MonoBehaviour
 
         _setTurretForward();
         UnitManager.Instance.AddUnit(gameObject);
+    }
+
+    public void OnDestroy() {
+        // Debug.Log($"{name} Destroyed");
+        UnitManager.Instance.RemoveUnit(gameObject);
     }
 
     // Note(Zack): Called by Respawn Manager to know when to respawn the tank.
@@ -93,6 +99,9 @@ public class HoverTankController : MonoBehaviour
     {
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
+            if ((_deathTimer -= Time.deltaTime) < 0.0f) {
+                Destroy(gameObject);
+            }
             return; 
         }
         _boostTimer -= Time.deltaTime;

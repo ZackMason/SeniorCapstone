@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         }
     }    
 
-    public void Damage(float damage) {
+    public bool Damage(float damage) {
         _currentHealth -= damage;
 
         if (_currentHealth <= 0.0f) {
@@ -33,6 +33,8 @@ public class Health : MonoBehaviour
                 Timer.score += 100;
             }
             Destroy(this.gameObject);
+            return true;
         }
+        return false;
     }
 }

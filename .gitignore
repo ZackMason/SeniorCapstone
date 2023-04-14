@@ -1,5 +1,7 @@
-[Ee]xport
+[Ee]xport/
 .vs/
+ML/venv/
+
 
 # Compiled Object files
 *.slo
