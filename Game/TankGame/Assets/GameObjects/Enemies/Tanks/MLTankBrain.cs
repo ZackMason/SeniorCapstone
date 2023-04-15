@@ -80,35 +80,46 @@ public class MLTankBrain : Agent, ITankBrain
     }
 
     public override void CollectObservations(VectorSensor sensor) {
-        if (_tank != null) {
+        if (_tank != null && 
+            Body != null && 
+            Cannon != null) {
             sensor.AddObservation(_tank.transform.position);
+            sensor.AddObservation(-Body.transform.forward);
+            sensor.AddObservation(Cannon.transform.forward);
+            sensor.AddObservation((_tank.transform.position - TargetFinder.Target).magnitude);
+            sensor.AddObservation((_tank.transform.position - TargetFinder.MoveTarget).magnitude);
+            sensor.AddObservation(Vector3.Dot(Cannon.transform.right, (_tank.transform.position - TargetFinder.MoveTarget).normalized));
+            sensor.AddObservation(TargetFinder.Target);
+            sensor.AddObservation(TargetFinder.MoveTarget);
+            int rayCount = 10;
+            for (int i = 0; i < rayCount; i++) {
+                float angle = i * 2.0f * Mathf.PI / rayCount;
+                var rayOrigin = _tank.transform.position;
+                
+                Vector3 dir = new Vector3(
+                    Mathf.Cos(angle), 0.0f, Mathf.Sin(angle)
+                );
+                
+                float clostestDistance = 1000f;
+                if (Physics.Raycast(rayOrigin, dir, out RaycastHit hit, clostestDistance, _rayLayer)) {
+                    float distance = hit.distance;
+                    clostestDistance = Mathf.Min(clostestDistance, distance);
+                }
+                // Debug.DrawRay(rayOrigin, dir * clostestDistance, clostestDistance == 1000f ? Color.white : Color.red);
+                sensor.AddObservation(clostestDistance);
+            }
         } else {
             sensor.AddObservation(transform.position);
-        }
-        sensor.AddObservation(TargetFinder.Target);
-        sensor.AddObservation(TargetFinder.MoveTarget);
-        sensor.AddObservation(-Body.transform.forward);
-        sensor.AddObservation(Cannon.transform.forward);
-        sensor.AddObservation((_tank.transform.position - TargetFinder.Target).magnitude);
-        sensor.AddObservation((_tank.transform.position - TargetFinder.MoveTarget).magnitude);
-        sensor.AddObservation(Vector3.Dot(Cannon.transform.right, (_tank.transform.position - TargetFinder.MoveTarget).normalized));
-
-        int rayCount = 10;
-        for (int i = 0; i < rayCount; i++) {
-            float angle = i * 2.0f * Mathf.PI / rayCount;
-            var rayOrigin = _tank.transform.position;
-            // rayOrigin.y -= 0.3f;
-            Vector3 dir = new Vector3(
-                Mathf.Cos(angle), 0.0f, Mathf.Sin(angle)
-            );
-            // dir = ((dir*200f+_tank.transform.position) - rayOrigin).normalized;
-            float clostestDistance = 1000f;
-            if (Physics.Raycast(rayOrigin, dir, out RaycastHit hit, clostestDistance, _rayLayer)) {
-                float distance = (rayOrigin - hit.point).magnitude;
-                clostestDistance = Mathf.Min(clostestDistance, distance);
+            sensor.AddObservation(Vector3.zero);
+            sensor.AddObservation(Vector3.zero);
+            sensor.AddObservation(Vector3.zero);
+            sensor.AddObservation(Vector3.zero);
+            sensor.AddObservation(-1f);
+            sensor.AddObservation(-1f);
+            sensor.AddObservation(-1f);
+            for (int i = 0; i < 10; i++) {
+                sensor.AddObservation(0f);
             }
-            // Debug.DrawRay(rayOrigin, dir * clostestDistance, clostestDistance == 1000f ? Color.white : Color.red);
-            sensor.AddObservation(clostestDistance);
         }
     }
 
