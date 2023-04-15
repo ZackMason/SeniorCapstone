@@ -7,6 +7,7 @@ using Unity.MLAgents.Sensors;
 
 public class MLTankBrain : Agent, ITankBrain
 {
+    [SerializeField] private int _faction;
     [SerializeField] private GameObject _tankPrefab;
     [SerializeField] private GameObject _tank;
     [SerializeField] private EnemyTankBrain _trainingBrain;
@@ -16,13 +17,14 @@ public class MLTankBrain : Agent, ITankBrain
     [SerializeField] private float _boost;
     [SerializeField] private float _fire;
 
+    public Transform Body; // Note(Zack): tank_body
     public Transform Cannon; // Note(Zack): tank_turret
     public Faction Faction;
     [SerializeField] private TargetFinder TargetFinder;
 
     [SerializeField] LayerMask _rayLayer = ~0;
     [SerializeField]
-    private bool _useML = true;
+    private bool _useML = false;
 
     void Start() {
         Faction = GetComponent<Faction>();
@@ -32,6 +34,8 @@ public class MLTankBrain : Agent, ITankBrain
         if (_tank == null) {
             _tank = Instantiate(_tankPrefab, transform.position, Quaternion.identity);
             _tank.GetComponent<EnemyTankBrain>().MLBrain = this;
+            _tank.GetComponent<Faction>().ID = _faction;
+            Body = _tank.transform.Find("tank_body");
             Cannon = _tank.transform.Find("tank_head/tank_turret");
             TargetFinder = _tank.GetComponent<TargetFinder>();
             Faction = _tank.GetComponent<Faction>();
@@ -49,9 +53,9 @@ public class MLTankBrain : Agent, ITankBrain
     public void OnKill(Faction faction) {
         if (faction.ID != Faction.ID) {
             Debug.Log("Kill Rewarded");
-            AddReward(100);
+            AddReward(1000);
         } else {
-            Debug.Log("Tank Suicided");
+            Debug.Log("Tank Shot Itself");
             // AddReward(-200);
         }
     }
@@ -62,9 +66,17 @@ public class MLTankBrain : Agent, ITankBrain
         _turret.x = actions.ContinuousActions[2];
         // _turret.y = actions.ContinuousActions[3];
         _fire = actions.ContinuousActions[4];
+
+        // Note(Zack):
+        // Reward based off predictions of how it should act
+        // in order to try to speed up training
         if (_fire > 0.0f) {
             AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
         }
+        // prefer driving forward
+        // AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
+        // AddReward(Vector2.Dot(_drive, new Vector2(0.0f, 1.0f)) * 0.01f);
+        AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
     }
 
     public override void CollectObservations(VectorSensor sensor) {
@@ -75,19 +87,28 @@ public class MLTankBrain : Agent, ITankBrain
         }
         sensor.AddObservation(TargetFinder.Target);
         sensor.AddObservation(TargetFinder.MoveTarget);
+        sensor.AddObservation(-Body.transform.forward);
         sensor.AddObservation(Cannon.transform.forward);
         sensor.AddObservation((_tank.transform.position - TargetFinder.Target).magnitude);
         sensor.AddObservation((_tank.transform.position - TargetFinder.MoveTarget).magnitude);
+        sensor.AddObservation(Vector3.Dot(Cannon.transform.right, (_tank.transform.position - TargetFinder.MoveTarget).normalized));
 
         int rayCount = 10;
         for (int i = 0; i < rayCount; i++) {
-            float angle = 2.0f * Mathf.PI / rayCount;
+            float angle = i * 2.0f * Mathf.PI / rayCount;
+            var rayOrigin = _tank.transform.position;
+            // rayOrigin.y -= 0.3f;
             Vector3 dir = new Vector3(
                 Mathf.Cos(angle), 0.0f, Mathf.Sin(angle)
             );
-            RaycastHit hit;
-            Physics.Raycast(_tank.transform.position, dir, out hit, Mathf.Infinity, _rayLayer);
-            sensor.AddObservation(hit.distance);
+            // dir = ((dir*200f+_tank.transform.position) - rayOrigin).normalized;
+            float clostestDistance = 1000f;
+            if (Physics.Raycast(rayOrigin, dir, out RaycastHit hit, clostestDistance, _rayLayer)) {
+                float distance = (rayOrigin - hit.point).magnitude;
+                clostestDistance = Mathf.Min(clostestDistance, distance);
+            }
+            // Debug.DrawRay(rayOrigin, dir * clostestDistance, clostestDistance == 1000f ? Color.white : Color.red);
+            sensor.AddObservation(clostestDistance);
         }
     }
 
@@ -120,7 +141,7 @@ public class MLTankBrain : Agent, ITankBrain
 
     public Vector2 GetTurretInput() {
         if (_useML) {
-            return _turret;
+            return _turret * 3.0f;
         }
         var target = TargetFinder.Target;
         var dir = (target - transform.position).normalized;

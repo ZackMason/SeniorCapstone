@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 24
+    VectorObservationSize: 28
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 5
@@ -81,6 +81,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  _faction: 0
   _tankPrefab: {fileID: 4957173159247528767, guid: 54499ec1eac77e3449c755be21043ed6,
     type: 3}
   _tank: {fileID: 4944907770616165733}
@@ -89,6 +90,7 @@ MonoBehaviour:
   _turret: {x: 0, y: 0}
   _boost: 0
   _fire: 0
+  Body: {fileID: 4833890816008866083}
   Cannon: {fileID: 4845755068273248857}
   Faction: {fileID: 6296641287908545706}
   TargetFinder: {fileID: 658519593071026995}
@@ -182,11 +184,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainingEnemyHoverTank
       objectReference: {fileID: 0}
-    - target: {fileID: 6284373271411499760, guid: 54499ec1eac77e3449c755be21043ed6,
-        type: 3}
-      propertyPath: ID
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7087825871192603024, guid: 54499ec1eac77e3449c755be21043ed6,
         type: 3}
       propertyPath: m_DetectableTags.Array.size
@@ -222,6 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d8e82683b3f654bb0ac2cb9afaa261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4833890816008866083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4846387514381090681, guid: 54499ec1eac77e3449c755be21043ed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 23852609121678938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4845755068273248857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4858022106170932227, guid: 54499ec1eac77e3449c755be21043ed6,

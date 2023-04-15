@@ -12,7 +12,7 @@ public class HoverTankController : MonoBehaviour
     private IWeapon     _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
-    private Vector2     _tankPitchYaw = new Vector2(
+    private Vector2     _tankYawPitch = new Vector2(
         0.0f, Mathf.PI
     );
 
@@ -90,9 +90,9 @@ public class HoverTankController : MonoBehaviour
     }
 
     private void _setTurretForward() {
-        _tankPitchYaw.y = 0.0f;
+        _tankYawPitch.y = 0.0f;
         var forwardDir = -TankBody.transform.forward;
-        _tankPitchYaw.x = Mathf.Atan2(forwardDir.z, forwardDir.x); 
+        _tankYawPitch.x = Mathf.Atan2(forwardDir.z, forwardDir.x); 
     }
 
     void Update()
@@ -112,13 +112,18 @@ public class HoverTankController : MonoBehaviour
         bool Airbrake = _brain.GetAirbrake();
 
         if (_mode == TankMode.COMBAT) {
-            _tankPitchYaw += TurretInput;
+            _tankYawPitch += TurretInput;
+            float maxPitch = 12f * Mathf.PI / 180f;
+            if (_tankYawPitch.y > 180f) {
+                _tankYawPitch.y -= 360f;
+            }
+            _tankYawPitch.y = Mathf.Clamp(_tankYawPitch.y, -maxPitch, maxPitch);
         } else if (_mode == TankMode.DRIVE) {
             _setTurretForward();
         }
         _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
         
-        Vector3 toTarget = _turretDirection(_tankPitchYaw);
+        Vector3 toTarget = _turretDirection(_tankYawPitch);
         // toTarget = TankBody.transform.TransformDirection(toTarget);
 
         Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
@@ -127,9 +132,17 @@ public class HoverTankController : MonoBehaviour
         Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 
         if (nextRotation.magnitude > 0.0f) {
-            TankHead.transform.rotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
+            float maxPitchAngle = 12f;
+            Quaternion newRotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
+            Vector3 euler = newRotation.eulerAngles;
+            if (euler.x > 180f) {
+                euler.x -= 360f;
+            }
+            euler.x = Mathf.Clamp(euler.x, -maxPitchAngle, maxPitchAngle);
+            newRotation.eulerAngles = euler;
+            TankHead.transform.rotation = newRotation;
         } else {
-            Debug.Log($"{name}: has weird rotation, turret = {_tankPitchYaw}, {toTarget}");
+            Debug.Log($"{name}: has weird rotation, turret = {_tankYawPitch}, {toTarget}");
         }
 
         Vector3 TurretForward = -TankHead.transform.forward;

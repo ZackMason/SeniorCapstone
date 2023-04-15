@@ -2,22 +2,22 @@
     "TankBehavior": {
         "checkpoints": [
             {
-                "steps": 496682,
-                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-496682.onnx",
-                "reward": -6.6265711571489065,
-                "creation_time": 1681512589.7585936,
+                "steps": 164,
+                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-164.onnx",
+                "reward": -3.481000542640686,
+                "creation_time": 1681586993.6783004,
                 "auxillary_file_paths": [
-                    "results\\ppo\\TankBehavior\\TankBehavior-496682.pt"
+                    "results\\ppo\\TankBehavior\\TankBehavior-164.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 496682,
+            "steps": 164,
             "file_path": "results\\ppo\\TankBehavior.onnx",
-            "reward": -6.6265711571489065,
-            "creation_time": 1681512589.7585936,
+            "reward": -3.481000542640686,
+            "creation_time": 1681586993.6783004,
             "auxillary_file_paths": [
-                "results\\ppo\\TankBehavior\\TankBehavior-496682.pt"
+                "results\\ppo\\TankBehavior\\TankBehavior-164.pt"
             ]
         }
     },
