@@ -37,6 +37,8 @@ public class HoverTankController : MonoBehaviour
     private float _startDrag;
     private float _deathTimer = 5.0f;
 
+    public void OverrideDeathTimer() => _deathTimer = 10000.0f;
+
     void Start() {
         Debug.Assert(TankBody != null);
         Debug.Assert(TankTurret != null);

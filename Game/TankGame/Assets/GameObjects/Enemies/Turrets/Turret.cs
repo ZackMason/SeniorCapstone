@@ -32,7 +32,7 @@ public class Turret : MonoBehaviour
         _weapon = GetComponentInChildren<IWeapon>();
 
         Debug.Assert(_weapon != null);
-        UnitManager.Instance.AddUnit(gameObject);
+        UnitManager.Instance?.AddUnit(gameObject);
     }
 
     private bool _wantToFire() {
