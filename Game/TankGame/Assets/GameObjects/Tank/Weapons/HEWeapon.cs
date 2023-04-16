@@ -27,17 +27,20 @@ public class HEWeapon : MonoBehaviour, IWeapon
 
     public GameObject ExplosionParticles;
 
+    public MLTankBrain MLBrain;
+
     public void Fire() {
         if (_fireTime > 0.0f) {
             return;
         }
         Vector3 rayDirection = AimDir * transform.TransformDirection(Vector3.forward);
         Vector3 rayOrigin = transform.position;
-
-        if (ProjectilePrefab != null) {
-            var projectile = Instantiate(ProjectilePrefab, rayOrigin, transform.rotation);
+        
+        var projectile = Instantiate(ProjectilePrefab, rayOrigin, transform.rotation);
+        if (MLBrain != null) {
+            projectile.GetComponent<HEProjectile>().OnKill += MLBrain.OnKill;
         }
-
+        
         Debug.DrawRay(rayOrigin, rayDirection, Color.red); 
 
         _fireTime = FireRate;

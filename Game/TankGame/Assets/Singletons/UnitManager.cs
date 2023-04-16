@@ -6,6 +6,7 @@ public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance { get; private set; }
 
+    [SerializeField]
     public List<GameObject> Units { get; private set; }
     
     private void Awake() 
@@ -25,5 +26,7 @@ public class UnitManager : MonoBehaviour
         Units.Add(unit);
     }
 
-
+    public void RemoveUnit(GameObject unit) {
+        Units.Remove(unit);
+    }
 }

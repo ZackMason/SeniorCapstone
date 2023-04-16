@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class HEProjectile : MonoBehaviour {
 
     private float _lifeTime = 10.0f;
 
+    public event Action<Faction> OnKill;
+
     IEnumerator KillProjectile() {
         yield return new WaitForSeconds(_lifeTime);
         Destroy(this.gameObject);
@@ -35,16 +38,21 @@ public class HEProjectile : MonoBehaviour {
     }
 
     public void OnCollisionEnter(Collision col) {
-        ExplosionManager.Instance.SpawnExplosion(
+        List<Health> killed = ExplosionManager.Instance.SpawnExplosion(
             col.contacts[0].point, 
             ExplosionRadius, 
             ExplosionPower, 
             DamagePower
         );
 
+        foreach (var kill in killed) {
+            Faction faction = kill.transform.parent.gameObject.GetComponent<Faction>();
+            OnKill?.Invoke(faction);
+        }
+
         //Note(Zack): If we roll over bounce change, delete the projectile
         // IE, 25% Bounce Chance -> 75% are deleted
-        if (Random.Range(0.0f, 100.0f) > BounceChance) {
+        if (UnityEngine.Random.Range(0.0f, 100.0f) > BounceChance) {
             Destroy(gameObject);
         }
     }

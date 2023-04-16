@@ -6,7 +6,6 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI bestTime;
     public TextMeshProUGUI scoretext;

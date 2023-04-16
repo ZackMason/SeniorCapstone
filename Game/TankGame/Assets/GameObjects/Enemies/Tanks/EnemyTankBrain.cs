@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyTankBrain : MonoBehaviour, ITankBrain
 {
-    private TargetFinder TargetFinder;
+    public MLTankBrain MLBrain;
+    public TargetFinder TargetFinder;
     
     public Transform Cannon; // Note(Zack): tank_turret
 
@@ -15,6 +16,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     // Todo(Zack): Add raycast to avoid running into walls
     // Maybe boost if we are stuck
     public Vector2 GetDriveInput() {
+        if (MLBrain != null) {
+            return MLBrain.GetDriveInput();
+        }
         float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
         float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
 
@@ -33,6 +37,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
 
     public Vector2 GetTurretInput() {
+        if (MLBrain != null) {
+            return MLBrain.GetTurretInput();
+        }
         var target = TargetFinder.Target;
         var dir = (target - transform.position).normalized;
         var turretDir = Cannon.forward;
@@ -52,6 +59,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     }
     
     public bool WantToFire() {
+        if (MLBrain != null) {
+            return MLBrain.WantToFire();
+        }        
+
         Vector3 cannonAim = -Cannon.forward;
         Vector3 targetDirection = (TargetFinder.Target - Cannon.position).normalized;
         float accuracy = Vector3.Dot(cannonAim, targetDirection);

@@ -156,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5937175144218195071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.051, z: -1.6193}
+  m_LocalPosition: {x: 0, y: 0.051, z: -2.124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,6 +186,7 @@ MonoBehaviour:
   DamagePower: 100
   ExplosionParticles: {fileID: 6929585628132928082, guid: 0d079d4d27c3b374c99e2f2e8ffce0c1,
     type: 3}
+  MLBrain: {fileID: 0}
 --- !u!1 &8036351306094611173
 GameObject:
   m_ObjectHideFlags: 0
