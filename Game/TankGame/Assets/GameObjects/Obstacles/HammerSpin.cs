@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class HammerSpin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private Rigidbody _rb;
+    [SerializeField] private Transform _centerPosition;
+
+    void Start() {
+        _rb = GetComponent<Rigidbody>();
+        _rb.centerOfMass = _centerPosition.position - transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(0f, 500 * Time.deltaTime, 0f, Space.Self);
+        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(new Vector3(0f, 500f * Time.fixedDeltaTime, 0f)));
     }
 }

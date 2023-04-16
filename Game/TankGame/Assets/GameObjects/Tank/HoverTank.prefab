@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50261d97995ad5046ba824fa0033fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoostCooldownTime: 1
+  BoostCooldownTime: 5
   CenterOfMass: {x: 0, y: -0.45, z: 0}
   TankHead: {fileID: 4609936421520363742}
   TankTurret: {fileID: 4599075006056016002}

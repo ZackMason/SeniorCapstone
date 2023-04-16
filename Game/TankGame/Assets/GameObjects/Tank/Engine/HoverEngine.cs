@@ -11,11 +11,14 @@ public class HoverEngine : MonoBehaviour
     public float EnginePower;
     
     private float _HoverPower(float groundDistance) {
-        return EnginePower / Mathf.Max(0.1f, groundDistance);
+        return EnginePower / Mathf.Clamp(groundDistance, 0.1f, 10.0f);
     }
 
     void Start()
     {
+        if (TankRigidbody == null) {
+            TankRigidbody = GetComponentInParent<Rigidbody>();
+        }
         Debug.Assert(TankRigidbody != null);
     }
 
@@ -38,7 +41,7 @@ public class HoverEngine : MonoBehaviour
   
             TankRigidbody.AddForceAtPosition(_HoverPower(hit.distance) * halfVector * cosFactor * Time.fixedDeltaTime * 10.0f, rayOrigin);
 
-            Debug.DrawRay(rayOrigin, halfVector * _HoverPower(hit.distance) * cosFactor, Color.blue);
+            Debug.DrawRay(rayOrigin, halfVector * _HoverPower(hit.distance) * cosFactor * 0.1f, Color.blue);
             Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.yellow);
         } else {
             Debug.DrawRay(rayOrigin, rayDirection * 100.0f, Color.yellow);

@@ -58,12 +58,10 @@ public class RespawnManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        HoverTankController playerController = Player?.GetComponent<HoverTankController>();
-
-        if ((Player == null || 
-            playerController?.IsAlive() == false) &&
+        if (Player?.GetComponent<HoverTankController>()?.IsAlive() == false &&
             RespawnCoroutine == null
         ) { // player died
+            Player?.GetComponent<HoverTankController>()?.OverrideDeathTimer();
             RespawnCoroutine = StartCoroutine(RespawnPlayer());
         } 
     }
