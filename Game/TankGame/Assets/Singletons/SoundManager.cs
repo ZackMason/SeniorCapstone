@@ -24,11 +24,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    // Todo(Zack): Cache sounds each frame to stop sound from
+    // stacking on top of each other
     public void PlaySound(SoundAsset asset, Vector3 position) {
         switch(asset) {
             case SoundAsset.Collision: AudioSource.PlayClipAtPoint(CollisionAudio, position); break;
             case SoundAsset.Explosion: AudioSource.PlayClipAtPoint(ExplosionAudio, position); break;
-
         }
     }
 }
