@@ -12,12 +12,15 @@ public class DeletePerc : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float Perc;
 
+    [SerializeField] private AnimationCurve _scaleCurve;
+
     void Start()
     {
         foreach(Transform child in gameObject.transform) {
             if (Random.Range(0.0f, 1.0f) < Perc) {
                 TimedDelete timer = child.gameObject.AddComponent(typeof(TimedDelete)) as TimedDelete;
                 timer.LifeTime = LifeTime;
+                timer.ScaleCurve = _scaleCurve;
             }
         }
     }

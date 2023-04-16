@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c352cc2821d3041882b01e84a325a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceChance: 80
-  ExplosionRadius: 5.26
+  BounceChance: 8
+  ExplosionRadius: 0.9
   ExplosionPower: 100
   DamagePower: 100
   LaunchPower: 8000
