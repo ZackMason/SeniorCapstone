@@ -75,7 +75,7 @@ public class HoverTankController : MonoBehaviour
     public void OnCollisionEnter(Collision col)
     {
         if (col.relativeVelocity.magnitude > 2) {
-            SoundManager.Instance.PlaySound(SoundAsset.Collision);
+            SoundManager.Instance?.PlaySound(SoundAsset.Collision);
         }
     }
 

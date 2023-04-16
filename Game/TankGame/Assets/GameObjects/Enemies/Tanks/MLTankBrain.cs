@@ -43,10 +43,12 @@ public class MLTankBrain : Agent, ITankBrain
             weapon.MLBrain = this;
             _tank.transform.SetParent(transform);
             
-            AddReward(-10);
+            AddReward(-100);
             EndEpisode();
         } else {
+            AddReward(-Mathf.Abs(_drive.x*Time.fixedDeltaTime*5f));
             AddReward(Time.fixedDeltaTime * 0.1f);
+            AddReward(Time.fixedDeltaTime * 0.1f / Mathf.Max((TargetFinder.MoveTarget-_tank.transform.position).magnitude, 0.1f));
         }
     }
 
@@ -56,7 +58,7 @@ public class MLTankBrain : Agent, ITankBrain
             AddReward(1000);
         } else {
             Debug.Log("Tank Shot Itself");
-            // AddReward(-200);
+            AddReward(-50);
         }
     }
 
@@ -74,8 +76,8 @@ public class MLTankBrain : Agent, ITankBrain
             AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
         }
         // prefer driving forward
-        // AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
         // AddReward(Vector2.Dot(_drive, new Vector2(0.0f, 1.0f)) * 0.01f);
+        // AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
         AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
     }
 

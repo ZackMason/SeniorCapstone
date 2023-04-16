@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BounceChance: 8
-  ExplosionRadius: 5.26
+  ExplosionRadius: 0.9
   ExplosionPower: 100
   DamagePower: 100
   LaunchPower: 8000
