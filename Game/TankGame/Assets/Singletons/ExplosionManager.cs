@@ -21,7 +21,7 @@ public class ExplosionManager : MonoBehaviour
 
     public List<Health> SpawnExplosion(Vector3 position, float radius, float power, float damage) {
         ParticleManager.Instance?.TrySpawn(ExplosionParticles, position);
-        SoundManager.Instance?.PlaySound(SoundAsset.Explosion);
+        SoundManager.Instance?.PlaySound(SoundAsset.Explosion, position);
         
         var colliders = Physics.OverlapSphere(position, radius);
         List<Health> killed = new List<Health>();
