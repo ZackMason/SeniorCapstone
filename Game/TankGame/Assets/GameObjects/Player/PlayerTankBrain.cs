@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerTankBrain : MonoBehaviour, ITankBrain
 {
+    public AudioSource DriveAudio;
+
     private Vector2 _drive;
     private Vector2 _turret;
     private float _boost;
@@ -21,6 +23,8 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     void OnDrive(InputValue value) {
         _drive = value.Get<Vector2>();
+        DriveAudio.volume = _drive.y * 0.2f;
+        DriveAudio.Play();
     }
 
     void OnTurnTurret(InputValue value) {

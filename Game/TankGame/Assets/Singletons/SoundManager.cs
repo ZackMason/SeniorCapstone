@@ -9,8 +9,8 @@ public enum SoundAsset {
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
-    public AudioSource ExplosionAudio;
-    public AudioSource CollisionAudio;
+    public AudioClip ExplosionAudio;
+    public AudioClip CollisionAudio;
 
     private void Awake() 
     {
@@ -24,10 +24,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(SoundAsset asset) {
+    public void PlaySound(SoundAsset asset, Vector3 position) {
         switch(asset) {
-            case SoundAsset.Collision: CollisionAudio.Play(); break;
-            case SoundAsset.Explosion: ExplosionAudio.Play(); break;
+            case SoundAsset.Collision: AudioSource.PlayClipAtPoint(CollisionAudio, position); break;
+            case SoundAsset.Explosion: AudioSource.PlayClipAtPoint(ExplosionAudio, position); break;
+
         }
     }
 }
