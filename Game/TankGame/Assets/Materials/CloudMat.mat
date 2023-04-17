@@ -80,7 +80,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _BaseScale: 0.0733
+    - _BaseScale: 0.04
     - _BaseSpeed: 0.3
     - _BaseStrength: 1.16
     - _Blend: 0
@@ -97,10 +97,10 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NoisePower: 1
-    - _NoiseScale: 0.04
+    - _NoisePower: 0.39
+    - _NoiseScale: 0.1
     - _NoiseSpeed: 0.5
-    - _NoiseStep: 0.11
+    - _NoiseStep: 0.08
     - _NoiseThres: 0.2
     - _NormalHeight: 0.5
     - _OcclusionStrength: 1
