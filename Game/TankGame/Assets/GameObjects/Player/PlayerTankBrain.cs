@@ -23,8 +23,10 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     void OnDrive(InputValue value) {
         _drive = value.Get<Vector2>();
-        DriveAudio.volume = _drive.y * 0.2f;
-        DriveAudio.Play();
+        if (DriveAudio != null) {
+            DriveAudio.volume = _drive.y * 0.2f;
+            DriveAudio.Play();
+        }
     }
 
     void OnTurnTurret(InputValue value) {

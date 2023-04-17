@@ -14,16 +14,14 @@ public class HoverEngine : MonoBehaviour
         return EnginePower / Mathf.Clamp(groundDistance, 0.1f, 10.0f);
     }
 
-    void Start()
-    {
+    void Start() {
         if (TankRigidbody == null) {
             TankRigidbody = GetComponentInParent<Rigidbody>();
         }
         Debug.Assert(TankRigidbody != null);
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         int layerMask = 1 << 6 | 1 << 7;
         layerMask = ~layerMask;
 

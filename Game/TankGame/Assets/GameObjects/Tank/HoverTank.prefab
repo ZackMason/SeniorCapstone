@@ -674,7 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyedPrefab: {fileID: 6835414811654080071, guid: 6b6b6561895707b47b93970cd6376a3c,
     type: 3}
-  RamResistance: 10000
+  RamResistance: 0
 --- !u!114 &6983869520267055822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,9 +16,28 @@ public class TimedDelete : MonoBehaviour
     private IEnumerator _scale() {
         var start = Time.time;
         var end = Time.time + LifeTime - 0.1f;
+        var startPos = transform.position;
+        var rb = transform.GetComponent<Rigidbody>();
+
         while (Time.time < end && transform != null) {
             float t = (Time.time-start) / (end-start);
-            transform.localScale = new Vector3(1,1,1) * ScaleCurve.Evaluate(t);
+            float s = ScaleCurve.Evaluate(t);
+            transform.localScale = new Vector3(1,1,1) * s;
+
+            if (t > 0.5f){
+                // TODO(Zack): @hardcoded 
+                if (rb != null) {
+                    if (rb.velocity.magnitude < 10f) {
+                        // TODO(Zack): @hardcoded 
+                        startPos = transform.position - new Vector3(0,-2.5f,0) * (1f-s);
+                        Destroy(rb);
+                    }
+                } else {
+                    // TODO(Zack): @hardcoded 
+                    transform.position = startPos + new Vector3(0,-2.5f,0) * (1f-s);
+                }
+            }
+            
             yield return null;
         }
     }
