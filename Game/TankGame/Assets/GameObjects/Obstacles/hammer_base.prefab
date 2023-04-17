@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _centerPosition: {fileID: 1365944199092588185}
+  _radius: 3.5
 --- !u!54 &6803399255504703397
 Rigidbody:
   m_ObjectHideFlags: 0

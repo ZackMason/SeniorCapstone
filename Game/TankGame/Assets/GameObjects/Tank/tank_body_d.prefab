@@ -2544,6 +2544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6167562190781259005}
   - component: {fileID: 2574853720728990310}
+  - component: {fileID: 817854603409706477}
   m_Layer: 0
   m_Name: tank_body_d
   m_TagString: Untagged
@@ -2610,6 +2611,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cde75cfa86a4944fa1c68c545150ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &817854603409706477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835414811654080071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e362b2f3d908dc44cb04e4d9ef3e8aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 20
+  Perc: 1
+  _scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.99905396
+      inSlope: 0.010428052
+      outSlope: 0.010428052
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.31666666
+    - serializedVersion: 3
+      time: 1
+      value: 0.0009417236
+      inSlope: -2.9817665
+      outSlope: -2.9817665
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04583335
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6839207957139519134
 GameObject:
   m_ObjectHideFlags: 0
