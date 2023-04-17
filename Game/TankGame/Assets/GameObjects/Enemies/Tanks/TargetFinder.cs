@@ -54,7 +54,7 @@ public class TargetFinder : MonoBehaviour
                                     continue;
                                 }
                             } else {
-                                // Debug.Log("Target finder cant see anything?");
+                                Debug.Log("Target finder cant see anything?");
                                 continue;
                             }
                         }
