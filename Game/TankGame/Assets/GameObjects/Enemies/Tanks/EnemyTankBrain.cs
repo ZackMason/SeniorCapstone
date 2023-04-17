@@ -22,6 +22,8 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
         float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
 
+        fuzzy_right *= 1f - Mathf.Clamp(_getAccuracy(), 0f, 1f);
+
         return new Vector2(
             Mathf.Clamp(fuzzy_right*2.0f, -1.0f, 1.0f),
             fuzzy_forward
@@ -58,15 +60,17 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         return false;
     }
     
+    private float _getAccuracy() {
+        Vector3 cannonAim = -Cannon.forward;
+        Vector3 targetDirection = (TargetFinder.Target - Cannon.position).normalized;
+        return Vector3.Dot(cannonAim, targetDirection);
+    }
+
     public bool WantToFire() {
         if (MLBrain != null) {
             return MLBrain.WantToFire();
         }        
 
-        Vector3 cannonAim = -Cannon.forward;
-        Vector3 targetDirection = (TargetFinder.Target - Cannon.position).normalized;
-        float accuracy = Vector3.Dot(cannonAim, targetDirection);
-        return accuracy > 0.8f;
+        return _getAccuracy() > 0.8f;
     }
-
 }

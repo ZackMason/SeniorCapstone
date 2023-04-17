@@ -5,8 +5,10 @@ using UnityEngine;
 public class RespawnCheckpoint : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
-        RespawnManager.Instance.SetRespawnPosition(other.transform.position);
-        Destroy(gameObject);
+        if (other.attachedRigidbody?.tag == "Player") {
+            RespawnManager.Instance.SetRespawnPosition(other.transform.position);
+            Destroy(gameObject);
+        }
     }
 
 }
