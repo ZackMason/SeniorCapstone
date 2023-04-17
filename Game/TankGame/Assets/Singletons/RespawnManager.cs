@@ -30,8 +30,12 @@ public class RespawnManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    public void SetRespawnPosition(Vector3 pos) => _lastPlayerPosition = pos;
+    
     void Start() {
-        StartCoroutine(SetCheckpoint());
+        // StartCoroutine(SetCheckpoint());
+        SetRespawnPosition(Player.transform.position);
     }
 
     bool _isOnGround(Vector3 pos) {
