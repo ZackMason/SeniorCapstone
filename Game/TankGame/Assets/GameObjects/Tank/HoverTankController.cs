@@ -176,4 +176,9 @@ public class HoverTankController : MonoBehaviour
             _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
         }
     }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position + CenterOfMass, 0.2f);
+    }
 }
