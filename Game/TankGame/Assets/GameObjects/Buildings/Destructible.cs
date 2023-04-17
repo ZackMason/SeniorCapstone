@@ -20,7 +20,7 @@ public class Destructible : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-        Rigidbody otherBody = col.gameObject.GetComponent<Rigidbody>();
+        Rigidbody otherBody = col.rigidbody;
         Rigidbody body = GetComponent<Rigidbody>();
         float otherKineticEnergy = 0f;
         float selfKineticEnergy = 0f;
