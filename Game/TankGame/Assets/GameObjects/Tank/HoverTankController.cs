@@ -124,7 +124,7 @@ public class HoverTankController : MonoBehaviour
         } else if (_mode == TankMode.DRIVE) {
             _setTurretForward();
         }
-        _tankRigidbody.drag = Airbrake ? 0.99f : _startDrag;
+        _tankRigidbody.drag = Airbrake ? 2.99f : _startDrag;
         
         Vector3 toTarget = _turretDirection(_tankYawPitch);
         // toTarget = TankBody.transform.TransformDirection(toTarget);

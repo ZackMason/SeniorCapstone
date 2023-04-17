@@ -33,10 +33,7 @@ public class RespawnManager : MonoBehaviour
 
     public void SetRespawnPosition(Vector3 pos) => _lastPlayerPosition = pos;
     
-    void Start() {
-        // StartCoroutine(SetCheckpoint());
-        SetRespawnPosition(Player.transform.position);
-    }
+    void Start() => SetRespawnPosition(Player.transform.position);
 
     bool _isOnGround(Vector3 pos) {
         return true;

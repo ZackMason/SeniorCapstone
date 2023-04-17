@@ -28,6 +28,7 @@ public class TargetFinder : MonoBehaviour
             _searchTimer = SearchTime;
 
             float closest = float.MaxValue;
+            // TODO(Zack): Fix this
             Faction[] factions = FindObjectsOfType(typeof(Faction)) as Faction[];
             foreach(Faction faction in factions) {
                 if (faction.ID != _faction.ID) {

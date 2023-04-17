@@ -7,8 +7,7 @@ public class ObjectLock : MonoBehaviour
 {
     public List<GameObject> Locks = new List<GameObject>();
 
-    void Start() =>
-        StartCoroutine(_checkLock());
+    void Start() => StartCoroutine(_checkLock());
     
     IEnumerator _checkLock() {
         while(true) {
