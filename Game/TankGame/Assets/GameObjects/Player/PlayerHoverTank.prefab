@@ -150,6 +150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHoverTank
       objectReference: {fileID: 0}
+    - target: {fileID: 3690876992367103236, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3690876992367103238, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: m_RootOrder
