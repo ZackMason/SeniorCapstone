@@ -20,18 +20,27 @@ public class Destructible : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-        Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
+        Rigidbody otherBody = col.gameObject.GetComponent<Rigidbody>();
+        Rigidbody body = GetComponent<Rigidbody>();
+        float otherKineticEnergy = 0f;
+        float selfKineticEnergy = 0f;
 
-        if (rb != null) {
-            float kineticEnergy = col.relativeVelocity.magnitude * col.relativeVelocity.magnitude * rb.mass * 0.5f;
-            // Debug.Log("rb hit: " + kineticEnergy);
-
-            if (kineticEnergy >= RamResistance) {
-                Destruct();
-
-                ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, 2.0f, kineticEnergy * 0.05f, 1.0f);
-            }
+        if (body == null) {
+            body = GetComponentInParent<Rigidbody>();
         }
         
+        if (body != null) {
+            selfKineticEnergy = body.velocity.magnitude * body.velocity.magnitude * body.mass * 0.5f;
+        }
+        if (otherBody != null) {
+            otherKineticEnergy = otherBody.velocity.magnitude * otherBody.velocity.magnitude * otherBody.mass * 0.5f;
+        }
+
+        float totalKineticEnergy = (otherKineticEnergy + selfKineticEnergy);
+        if (totalKineticEnergy >= RamResistance) {
+            Destruct();
+
+            ExplosionManager.Instance.SpawnExplosion(col.contacts[0].point, 2.0f, totalKineticEnergy * 0.05f, 1.0f);
+        }
     }
 }
