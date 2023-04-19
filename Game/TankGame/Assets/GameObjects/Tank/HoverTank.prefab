@@ -46,7 +46,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1000
   m_Drag: 0.33
-  m_AngularDrag: 0.95
+  m_AngularDrag: 0.85
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -293,11 +293,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
-      propertyPath: EnginePower
-      value: 6000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
@@ -378,11 +373,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
-      propertyPath: EnginePower
-      value: 6000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
@@ -460,11 +450,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HoverEngine (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: EnginePower
-      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -939,11 +924,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
-      propertyPath: EnginePower
-      value: 6000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
@@ -1021,11 +1001,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HoverEngine (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
-      propertyPath: EnginePower
-      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
@@ -1109,14 +1084,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
         type: 3}
-      propertyPath: EnginePower
-      value: 6000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
-        type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 3690876992367103239}
+    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
+        type: 3}
+      propertyPath: _pidController.integralGain
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
+        type: 3}
+      propertyPath: _pidController.derivativeGain
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139344382678981881, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2,
+        type: 3}
+      propertyPath: _pidController.proportionGain
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cf9fb5cdd452340a2ca6ae8a659ba2, type: 3}
 --- !u!4 &1105587544024071899 stripped

@@ -7,6 +7,8 @@ public class TargetFinder : MonoBehaviour
 {
     public Vector3 Target;
     public Vector3 MoveTarget;
+    public bool HasTarget = false;
+
     private Faction _faction;
 
     public bool NeedsVision = true;
@@ -61,6 +63,7 @@ public class TargetFinder : MonoBehaviour
                         }
                         closest = dist;
                         Target = faction.gameObject.transform.position; 
+                        HasTarget = true;
                     }
                 }
             }
@@ -72,6 +75,7 @@ public class TargetFinder : MonoBehaviour
                     Random.Range(-10.0f, 10.0f)
                 );
                 Target = transform.position + randomOffset;
+                HasTarget = false;
             }
         }
         MoveTarget = Target;
