@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: _faction
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4944907770616165733, guid: 75b2ec946aaa9d24184f8aefedca55e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6296641287908545706, guid: 75b2ec946aaa9d24184f8aefedca55e4,
         type: 3}
       propertyPath: ID
@@ -241,6 +246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MLHoverTank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254107134691541777, guid: 75b2ec946aaa9d24184f8aefedca55e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b2ec946aaa9d24184f8aefedca55e4, type: 3}
@@ -534,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MLHoverTank (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254107134691541777, guid: 75b2ec946aaa9d24184f8aefedca55e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b2ec946aaa9d24184f8aefedca55e4, type: 3}

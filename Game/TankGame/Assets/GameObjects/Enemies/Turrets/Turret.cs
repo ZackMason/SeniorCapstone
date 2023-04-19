@@ -58,15 +58,18 @@ public class Turret : MonoBehaviour
             Random.Range(-_variance, _variance),
             Random.Range(-_variance, _variance)
         );
-        Vector3 toTarget = Vector3.Normalize(_targetFinder.Target - TurretBarrel.transform.position);
-        float stepSize = TurnSpeed * Time.fixedDeltaTime;
 
-        Vector3 nextRotation = Vector3.RotateTowards(TurretBarrel.transform.forward, toTarget, stepSize, 0.0f);
+        if (_targetFinder.HasTarget) {
+            Vector3 toTarget = Vector3.Normalize(_targetFinder.Target - TurretBarrel.transform.position);
+            float stepSize = TurnSpeed * Time.fixedDeltaTime;
 
-        TurretBarrel.transform.rotation = Quaternion.LookRotation(nextRotation);
+            Vector3 nextRotation = Vector3.RotateTowards(TurretBarrel.transform.forward, toTarget, stepSize, 0.0f);
 
-        if (_wantToFire()) {
-            _weapon?.Fire();
+            TurretBarrel.transform.rotation = Quaternion.LookRotation(nextRotation);
+
+            if (_wantToFire()) {
+                _weapon?.Fire();
+            }
         }
     }
 }
