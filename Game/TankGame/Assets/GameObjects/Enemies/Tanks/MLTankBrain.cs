@@ -42,6 +42,10 @@ public class MLTankBrain : Agent, ITankBrain
             HEWeapon weapon = _tank.GetComponentInChildren<HEWeapon>();
             weapon.MLBrain = this;
             _tank.transform.SetParent(transform);
+            _tank.transform.localPosition = new Vector3(
+                UnityEngine.Random.Range(-20.0f, 40.0f), 
+                0f,
+                UnityEngine.Random.Range(-20.0f, 40.0f));
             
             AddReward(-100);
             EndEpisode();

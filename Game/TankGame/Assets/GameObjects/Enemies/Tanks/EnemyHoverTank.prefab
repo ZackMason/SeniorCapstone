@@ -134,7 +134,7 @@ MonoBehaviour:
   HasTarget: 0
   NeedsVision: 1
   SearchTime: 1
-  MinDistance: 25
+  MinDistance: 15
 --- !u!114 &6089857088546478575
 MonoBehaviour:
   m_ObjectHideFlags: 0
