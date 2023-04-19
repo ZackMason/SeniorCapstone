@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretBody: {fileID: 4428575580310980695}
   TurretBarrel: {fileID: 1560280134773172062}
-  TurnSpeed: 0.06
+  TurnSpeed: 0.16
   AimTolerance: 0.95
 --- !u!114 &1911579374213113373
 MonoBehaviour:
@@ -281,6 +281,7 @@ MonoBehaviour:
   DamagePower: 100
   ExplosionParticles: {fileID: 6929585628132928082, guid: 0d079d4d27c3b374c99e2f2e8ffce0c1,
     type: 3}
+  MLBrain: {fileID: 0}
 --- !u!1001 &1830241927057758735
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         if (MLBrain != null) {
             return MLBrain.GetDriveInput();
         }
+        if (TargetFinder.HasTarget == false) {
+            return Vector3.zero;
+        }
         float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
         float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
 
@@ -41,6 +44,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
     public Vector2 GetTurretInput() {
         if (MLBrain != null) {
             return MLBrain.GetTurretInput();
+        }
+        if (TargetFinder.HasTarget == false) {
+            return Vector3.zero;
         }
         var target = TargetFinder.Target;
         var dir = (target - transform.position).normalized;
@@ -70,6 +76,9 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         if (MLBrain != null) {
             return MLBrain.WantToFire();
         }        
+        if (TargetFinder.HasTarget == false) {
+            return false;
+        }
 
         return _getAccuracy() > 0.8f;
     }

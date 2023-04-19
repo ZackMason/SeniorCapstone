@@ -99,8 +99,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b4953196267f5459ae36ea23fdc568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pidRotController:
+    proportionGain: 0.2
+    derivativeGain: 0.2
+    integralGain: 0.1
+    integralSaturation: 0
+    outputMin: -0.1
+    outputMax: 1
+    integrationStored: 0
+    errorLast: 0
+    valueLast: 0
+    derivativeMeasurement: 1
+    derivativeInitialized: 0
+  _pidDistanceController:
+    proportionGain: 0.7
+    derivativeGain: 0.1
+    integralGain: 0.2
+    integralSaturation: 0.2
+    outputMin: -0.1
+    outputMax: 1
+    integrationStored: 0
+    errorLast: 0
+    valueLast: 0
+    derivativeMeasurement: 1
+    derivativeInitialized: 0
   TankRigidbody: {fileID: 0}
-  EnginePower: 0
+  EnginePower: 60000
 --- !u!54 &7356919729556935980
 Rigidbody:
   m_ObjectHideFlags: 0
