@@ -2,49 +2,31 @@
     "TankBehavior": {
         "checkpoints": [
             {
-                "steps": 499957,
-                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-499957.onnx",
-                "reward": -126.97495345146426,
-                "creation_time": 1681927554.2208352,
+                "steps": 44661,
+                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-44661.onnx",
+                "reward": 17.49659456147088,
+                "creation_time": 1682058563.5693505,
                 "auxillary_file_paths": [
-                    "results\\ppo\\TankBehavior\\TankBehavior-499957.pt"
+                    "results\\ppo\\TankBehavior\\TankBehavior-44661.pt"
                 ]
             },
             {
-                "steps": 530484,
-                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-530484.onnx",
-                "reward": -70.12860104394338,
-                "creation_time": 1681927680.5153966,
+                "steps": 374042,
+                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-374042.onnx",
+                "reward": null,
+                "creation_time": 1682108383.854848,
                 "auxillary_file_paths": [
-                    "results\\ppo\\TankBehavior\\TankBehavior-530484.pt"
-                ]
-            },
-            {
-                "steps": 533439,
-                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-533439.onnx",
-                "reward": -102.65103846724315,
-                "creation_time": 1681927834.0074236,
-                "auxillary_file_paths": [
-                    "results\\ppo\\TankBehavior\\TankBehavior-533439.pt"
-                ]
-            },
-            {
-                "steps": 982399,
-                "file_path": "results\\ppo\\TankBehavior\\TankBehavior-982399.onnx",
-                "reward": -34.96053467856513,
-                "creation_time": 1681929501.2483833,
-                "auxillary_file_paths": [
-                    "results\\ppo\\TankBehavior\\TankBehavior-982399.pt"
+                    "results\\ppo\\TankBehavior\\TankBehavior-374042.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 982399,
+            "steps": 374042,
             "file_path": "results\\ppo\\TankBehavior.onnx",
-            "reward": -34.96053467856513,
-            "creation_time": 1681929501.2483833,
+            "reward": null,
+            "creation_time": 1682108383.854848,
             "auxillary_file_paths": [
-                "results\\ppo\\TankBehavior\\TankBehavior-982399.pt"
+                "results\\ppo\\TankBehavior\\TankBehavior-374042.pt"
             ]
         }
     },
