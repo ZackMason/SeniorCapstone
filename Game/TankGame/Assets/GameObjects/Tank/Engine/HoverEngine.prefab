@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pidRotController:
-    proportionGain: 0.2
-    derivativeGain: 0.2
-    integralGain: 0.1
+    proportionGain: 0
+    derivativeGain: 0
+    integralGain: 0
     integralSaturation: 0
     outputMin: -0.1
     outputMax: 1
@@ -112,8 +112,8 @@ MonoBehaviour:
     derivativeMeasurement: 1
     derivativeInitialized: 0
   _pidDistanceController:
-    proportionGain: 0.7
-    derivativeGain: 0.1
+    proportionGain: 0.5
+    derivativeGain: 0.05
     integralGain: 0.2
     integralSaturation: 0.2
     outputMin: -0.1

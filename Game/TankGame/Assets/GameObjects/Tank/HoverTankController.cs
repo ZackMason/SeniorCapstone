@@ -9,8 +9,8 @@ public enum TankMode {
 
 public class HoverTankController : MonoBehaviour
 {
-    public ITankBrain  _brain;
-    private IWeapon     _weapon;
+    public ITankBrain   _brain;
+    private HEWeapon    _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
     private Vector2     _tankYawPitch = new Vector2(
@@ -49,7 +49,7 @@ public class HoverTankController : MonoBehaviour
         if (_brain == null) {
             _brain = GetComponent<ITankBrain>();
         }
-        _weapon = GetComponentInChildren<IWeapon>();
+        _weapon = GetComponentInChildren<HEWeapon>();
         _camera = GetComponentInChildren<Camera>();
         _tankRigidbody = GetComponent<Rigidbody>();
 
@@ -171,7 +171,9 @@ public class HoverTankController : MonoBehaviour
             }
         }
         if (_brain.WantToFire() && _weapon != null) {
-            _weapon.Fire();
+            if (_weapon.Fire()) {
+                _tankRigidbody.AddForceAtPosition(_weapon.transform.forward * 100f, _weapon.transform.position, ForceMode.Impulse);
+            }
         }
         if (_brain.WantToSwitchMode()) {
             _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;

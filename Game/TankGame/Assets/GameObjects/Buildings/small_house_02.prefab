@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
   MaxHealth: 100
 --- !u!114 &253749247272709913
 MonoBehaviour:
@@ -128,4 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyedPrefab: {fileID: 5729591935706910446, guid: 703a4dc5ef5bfeb459e64b31a2926860,
     type: 3}
-  RamResistance: 5000
+  RamResistance: 2458
