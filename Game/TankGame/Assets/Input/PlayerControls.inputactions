@@ -159,6 +159,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "ded79a24-bd66-48d0-a0f5-e479440332db",
+                    "path": "<WebGLGamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=5,y=5)",
+                    "groups": "",
+                    "action": "TurnTurret",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Axis",
                     "id": "4fb65093-7163-49dc-ab9d-e446c710cf78",
                     "path": "1DAxis",
@@ -326,7 +337,7 @@
                 {
                     "name": "",
                     "id": "903afc20-afb0-4edd-b37e-7eb285ffa436",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

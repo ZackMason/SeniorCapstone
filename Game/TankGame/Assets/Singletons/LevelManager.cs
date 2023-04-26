@@ -9,9 +9,14 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
+    [SerializeField] private GameObject _optionsCanvas;
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private Image _progressBar;
     private float _progressTarget;
+
+    private void _showLoader(bool on) => _loaderCanvas.SetActive(on);
+    public void ShowOptions(bool on) => _optionsCanvas.SetActive(on);
+    public bool IsShowingOptions() => _optionsCanvas.activeSelf;
     
     private void Awake() 
     {
@@ -26,26 +31,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update() =>
         _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _progressTarget, 3f * Time.deltaTime);
-    }
+    
+    public void LoadScene(string sceneName) =>
+        StartCoroutine(_loadScene(sceneName));
 
-    public async void LoadScene(string sceneName) {
+    IEnumerator _loadScene(string sceneName) {
         _progressBar.fillAmount = 0f;
         _progressTarget = 0f;
 
         var scene = SceneManager.LoadSceneAsync(sceneName);
         scene.allowSceneActivation = false;
-        _loaderCanvas.SetActive(true);
+        _showLoader(true);
 
         do {
-            await Task.Delay(100);
+            yield return null;
             _progressTarget = scene.progress;
         } while(scene.progress < 0.9f);
-        await Task.Delay(100);
-        scene.allowSceneActivation = true;
-        await Task.Delay(900);
 
-        _loaderCanvas.SetActive(false);
+        scene.allowSceneActivation = true;
+        _showLoader(false);
     }
 }
