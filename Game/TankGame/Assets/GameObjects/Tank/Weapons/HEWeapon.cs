@@ -29,9 +29,9 @@ public class HEWeapon : MonoBehaviour, IWeapon
 
     public MLTankBrain MLBrain;
 
-    public void Fire() {
+    public bool Fire() {
         if (_fireTime > 0.0f) {
-            return;
+            return false;
         }
         Vector3 rayDirection = AimDir * transform.TransformDirection(Vector3.forward);
         Vector3 rayOrigin = transform.position;
@@ -44,6 +44,8 @@ public class HEWeapon : MonoBehaviour, IWeapon
         Debug.DrawRay(rayOrigin, rayDirection, Color.red); 
 
         _fireTime = FireRate;
+
+        return true;
     }
 
     public void FixedUpdate() {

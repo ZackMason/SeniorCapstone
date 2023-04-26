@@ -103,7 +103,7 @@ MonoBehaviour:
     proportionGain: 0.2
     derivativeGain: 0.2
     integralGain: 0.1
-    integralSaturation: 0
+    integralSaturation: 0.2
     outputMin: -0.1
     outputMax: 1
     integrationStored: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
     derivativeMeasurement: 1
     derivativeInitialized: 0
   _pidDistanceController:
-    proportionGain: 0.7
+    proportionGain: 0.4
     derivativeGain: 0.1
     integralGain: 0.2
     integralSaturation: 0.2

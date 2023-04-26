@@ -9,8 +9,8 @@ public enum TankMode {
 
 public class HoverTankController : MonoBehaviour
 {
-    public ITankBrain  _brain;
-    private IWeapon     _weapon;
+    public ITankBrain   _brain;
+    private HEWeapon    _weapon;
     private Rigidbody   _tankRigidbody;
     private Camera      _camera;
     private Vector2     _tankYawPitch = new Vector2(
@@ -39,6 +39,8 @@ public class HoverTankController : MonoBehaviour
     private float _startDrag;
     private float _deathTimer = 5.0f;
 
+    [SerializeField] private PIDController _torqueController;
+
     public void OverrideDeathTimer() => _deathTimer = 10000.0f;
 
     void Start() {
@@ -49,7 +51,7 @@ public class HoverTankController : MonoBehaviour
         if (_brain == null) {
             _brain = GetComponent<ITankBrain>();
         }
-        _weapon = GetComponentInChildren<IWeapon>();
+        _weapon = GetComponentInChildren<HEWeapon>();
         _camera = GetComponentInChildren<Camera>();
         _tankRigidbody = GetComponent<Rigidbody>();
 
@@ -99,8 +101,7 @@ public class HoverTankController : MonoBehaviour
         _tankYawPitch.x = Mathf.Atan2(forwardDir.z, forwardDir.x); 
     }
 
-    void Update()
-    {
+    void Update() {
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
             if ((_deathTimer -= Time.deltaTime) < 0.0f) {
@@ -111,10 +112,6 @@ public class HoverTankController : MonoBehaviour
         _boostTimer -= Time.deltaTime;
 
         Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
-        Vector2 DriveInput = _brain.GetDriveInput() * Time.deltaTime * 100.0f;
-        float BoostDir = _brain.GetBoost();
-        bool Airbrake = _brain.GetAirbrake();
-
         if (_mode == TankMode.COMBAT) {
             _tankYawPitch += TurretInput;
             float maxPitch = 12f * Mathf.PI / 180f;
@@ -125,11 +122,7 @@ public class HoverTankController : MonoBehaviour
         } else if (_mode == TankMode.DRIVE) {
             _setTurretForward();
         }
-        _tankRigidbody.drag = Airbrake ? 2.99f : _startDrag;
-        
         Vector3 toTarget = _turretDirection(_tankYawPitch);
-        // toTarget = TankBody.transform.TransformDirection(toTarget);
-
         Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
         float stepSize = 0.5f * Time.deltaTime;
 
@@ -149,6 +142,40 @@ public class HoverTankController : MonoBehaviour
             Debug.Log($"{name}: has weird rotation, turret = {_tankYawPitch}, {toTarget}");
         }
 
+        if (_camera != null) {
+            if (_brain.WantToZoom()) {
+                _camera.fieldOfView = 30;
+            } else {
+                _camera.fieldOfView = 90;
+            }
+        }
+
+        if (_brain.WantToFire() && _weapon != null) {
+            if (_weapon.Fire()) {
+                _tankRigidbody.AddForceAtPosition(_weapon.transform.forward * 100f, _weapon.transform.position, ForceMode.Impulse);
+            }
+        }
+
+        if (_brain.WantToSwitchMode()) {
+            _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
+        }
+    }
+
+    void FixedUpdate() {
+        if (IsAlive() == false) { 
+            return;
+        }
+        Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
+        float BoostDir = _brain.GetBoost();
+        bool Airbrake = _brain.GetAirbrake();
+
+        var tankRotation = _tankRigidbody.rotation.eulerAngles;
+        var pidTorque = _torqueController.Calculate(Time.fixedDeltaTime, tankRotation.x, 0f);
+        _tankRigidbody.AddTorque(Vector3.right * TorquePower * pidTorque);
+
+
+        _tankRigidbody.drag = Airbrake ? 2.99f : _startDrag;
+        
         Vector3 TurretForward = -TankHead.transform.forward;
         Vector3 BodyForward = -TankBody.transform.forward;
         Vector3 BodyRight = -TankBody.transform.right;
@@ -161,20 +188,6 @@ public class HoverTankController : MonoBehaviour
         if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
             _boostTimer = BoostCooldownTime;
             _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 4.0f, ForceMode.Impulse);
-        }
-
-        if (_camera != null) {
-            if (_brain.WantToZoom()) {
-                _camera.fieldOfView = 30;
-            } else {
-                _camera.fieldOfView = 90;
-            }
-        }
-        if (_brain.WantToFire() && _weapon != null) {
-            _weapon.Fire();
-        }
-        if (_brain.WantToSwitchMode()) {
-            _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
         }
     }
 

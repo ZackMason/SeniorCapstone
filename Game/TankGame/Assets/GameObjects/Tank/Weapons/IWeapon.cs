@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    public void Fire(); 
+    public bool Fire(); 
 }

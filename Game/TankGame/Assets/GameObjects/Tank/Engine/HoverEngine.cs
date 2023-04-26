@@ -57,8 +57,8 @@ public class PIDController {
         } else {
             derivativeInitialized = true;
         }
-
-        return Mathf.Clamp(P + D + I, outputMin, outputMax);
+ 
+        return Mathf.Clamp(P + I + D, outputMin, outputMax);
     }    
 }
 

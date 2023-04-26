@@ -47,22 +47,23 @@ public class MLTankBrain : Agent, ITankBrain
                 0f,
                 UnityEngine.Random.Range(-20.0f, 40.0f));
             
-            AddReward(-100);
+            AddReward(-10);
             EndEpisode();
         } else {
-            AddReward(-Mathf.Abs(_drive.x*Time.fixedDeltaTime*5f));
+            // AddReward(-Mathf.Abs(_drive.x*Time.fixedDeltaTime*50f));
             AddReward(Time.fixedDeltaTime * 0.1f);
-            AddReward(Time.fixedDeltaTime * 0.1f / Mathf.Max((TargetFinder.MoveTarget-_tank.transform.position).magnitude, 0.1f));
+            AddReward(_computeAccuracy());
+            // AddReward(Time.fixedDeltaTime * 0.1f / Mathf.Max((TargetFinder.MoveTarget-_tank.transform.position).magnitude, 0.1f));
         }
     }
 
     public void OnKill(Faction faction) {
         if (faction.ID != Faction.ID) {
             Debug.Log("Kill Rewarded");
-            AddReward(1000);
+            AddReward(100);
         } else {
             Debug.Log("Tank Shot Itself");
-            AddReward(-50);
+            // AddReward(-50);
         }
     }
 
@@ -70,19 +71,19 @@ public class MLTankBrain : Agent, ITankBrain
         _drive.x = actions.ContinuousActions[0];
         _drive.y = actions.ContinuousActions[1];
         _turret.x = actions.ContinuousActions[2];
+        _fire = actions.ContinuousActions[3];
         // _turret.y = actions.ContinuousActions[3];
-        _fire = actions.ContinuousActions[4];
 
         // Note(Zack):
         // Reward based off predictions of how it should act
         // in order to try to speed up training
-        if (_fire > 0.0f) {
-            AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
-        }
+        // if (_fire > 0.0f) {
+        //     AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
+        // }
         // prefer driving forward
         // AddReward(Vector2.Dot(_drive, new Vector2(0.0f, 1.0f)) * 0.01f);
         // AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
-        AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
+        // AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
     }
 
     public override void CollectObservations(VectorSensor sensor) {
