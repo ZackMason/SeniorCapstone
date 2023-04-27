@@ -166,6 +166,12 @@ public class HoverTankController : MonoBehaviour
             return;
         }
         Vector2 DriveInput = _brain.GetDriveInput() * Time.fixedDeltaTime * 100.0f;
+
+        if (DriveInput == Vector2.zero && 
+            _tankRigidbody.velocity.magnitude < 0.1f) {
+            _tankRigidbody.velocity = Vector3.zero;
+        }
+
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
 
