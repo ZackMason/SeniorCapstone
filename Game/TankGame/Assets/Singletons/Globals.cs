@@ -7,7 +7,7 @@ public class Globals : MonoBehaviour
     public static Globals Instance { get; private set; }
 
     // Gameplay
-    public float MouseSensitivity { get; set; } = 0f;
+    public float MouseSensitivity { get; set; } = 1f;
 
     // Audio
     public float MainAudio { get; set; } = 1f;
