@@ -76,7 +76,7 @@ public class HoverEngine : MonoBehaviour
         
         float rotError = Vector3.Dot(Vector3.up, TankRigidbody.transform.up);
         float pidRotPower = _pidRotController.Calculate(Time.fixedDeltaTime, rotError, 1f);
-        float pidDistPower = _pidDistanceController.Calculate(Time.fixedDeltaTime, groundDistance, 1.2f);
+        float pidDistPower = _pidDistanceController.Calculate(Time.fixedDeltaTime, groundDistance, 1.2f + Mathf.PerlinNoise(1f, Time.time)*.2f-.1f);
                 
         return EnginePower * pidDistPower + EnginePower * pidRotPower * 0.1f;
         // return (EnginePower * 0.1f) / Mathf.Max(0.1f, groundDistance);
