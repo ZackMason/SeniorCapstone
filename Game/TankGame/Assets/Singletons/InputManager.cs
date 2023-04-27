@@ -21,17 +21,18 @@ public class InputManager : MonoBehaviour
 
     void Update() {
         if (Input.GetMouseButtonDown(0) && 
-            !LevelManager.Instance.IsShowingOptions()) {
+            (!LevelManager.Instance?.IsShowingOptions() ?? true)) {
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
         }
         if (Input.GetKeyDown(KeyCode.Escape) ||
             (Gamepad.current?.selectButton.wasPressedThisFrame ?? false)) {
-            if (LevelManager.Instance.IsShowingOptions()) {
-                LevelManager.Instance.ShowOptions(false);
+            if (LevelManager.Instance?.IsShowingOptions() ?? false) {
+                LevelManager.Instance?.ShowOptions(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
             } else {
-                LevelManager.Instance.ShowOptions(true);
+                LevelManager.Instance?.ShowOptions(true);
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0f;
             }
