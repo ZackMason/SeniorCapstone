@@ -39,7 +39,8 @@ public class HoverTankController : MonoBehaviour
     private float _startDrag;
     private float _deathTimer = 5.0f;
 
-    [SerializeField] private PIDController _torqueController;
+    [SerializeField] private PIDController _torqueXController;
+    [SerializeField] private PIDController _torqueZController;
 
     public void OverrideDeathTimer() => _deathTimer = 10000.0f;
 
@@ -175,9 +176,11 @@ public class HoverTankController : MonoBehaviour
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
 
-        var tankRotation = _tankRigidbody.rotation.eulerAngles;
-        var pidTorque = _torqueController.Calculate(Time.fixedDeltaTime, tankRotation.x, 0f);
-        _tankRigidbody.AddTorque(Vector3.right * TorquePower * pidTorque);
+        // var tankRotation = Vector3.Dot(TankBody.transform.up, Vector3.up);
+        // var pidXTorque = _torqueXController.Calculate(Time.fixedDeltaTime, tankRotation, 0f);
+        // var pidZTorque = _torqueZController.Calculate(Time.fixedDeltaTime, tankRotation, 0f);
+        // _tankRigidbody.AddTorque(-Vector3.right * TorquePower * pidXTorque);
+        // _tankRigidbody.AddTorque(Vector3.forward * TorquePower * pidZTorque);
 
 
         _tankRigidbody.drag = Airbrake ? 2.99f : _startDrag;
