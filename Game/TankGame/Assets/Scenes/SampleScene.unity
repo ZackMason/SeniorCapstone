@@ -7517,8 +7517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a35c574a9dbca4bbf11578fdaf5b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1710077788}
-  PlayerPrefab: {fileID: 6632582275650403936, guid: 327fff65a4524f84cb711e84e7838dea,
+  Player: {fileID: 1170064392}
+  PlayerPrefab: {fileID: 3965532462013608422, guid: 79a61e1481c958649a7a529359153400,
     type: 3}
   CheckpointTime: 4
   RespawnTime: 5
@@ -11099,6 +11099,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 935633486}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &940449554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3036228228006115270, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: EnginePower
+      value: 15500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.861374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 371.84195
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608420, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965532462013608422, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: m_Name
+      value: SpiderPlayerHoverTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770010589801073011, guid: 79a61e1481c958649a7a529359153400,
+        type: 3}
+      propertyPath: EnginePower
+      value: 15500
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79a61e1481c958649a7a529359153400, type: 3}
 --- !u!4 &945354645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 58487710450702886, guid: da02afb81c2513c4f8366ac4a646247e,
@@ -12730,6 +12809,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1651371991216658293, guid: 21eb3cb07a9c04a48b987bd00abd402e,
     type: 3}
   m_PrefabInstance: {fileID: 2058592718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1170064392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3965532462013608422, guid: 79a61e1481c958649a7a529359153400,
+    type: 3}
+  m_PrefabInstance: {fileID: 940449554}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171251703
 PrefabInstance:
@@ -18174,12 +18259,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8efba0b7af7a9954c829fa432caf5838, type: 3}
---- !u!1 &1710077788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6632582275650403936, guid: 327fff65a4524f84cb711e84e7838dea,
-    type: 3}
-  m_PrefabInstance: {fileID: 7584983236241569252}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1710077794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
@@ -20806,7 +20885,7 @@ Transform:
   - {fileID: 572542380}
   - {fileID: 395829326}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1943672090 stripped
 Transform:
@@ -21037,7 +21116,7 @@ Transform:
   - {fileID: 868181181}
   - {fileID: 1083624022}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1970405267
 PrefabInstance:
@@ -24148,6 +24227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerHoverTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632582275650403936, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
