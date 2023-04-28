@@ -12,6 +12,7 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
     private Vector2 _drive;
     private Vector2 _turret;
     private float _boost;
+    private float _turbo;
     private float _fire;
     private bool _zoom;
     private bool _airbrake;
@@ -48,6 +49,10 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
         _boost = value.Get<float>();
     }
 
+    void OnTurbo(InputValue value) {
+        _turbo = value.Get<float>();
+    }
+
     void OnFire(InputValue value) {
         _fire = value.Get<float>();
     }
@@ -66,6 +71,10 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     public float GetBoost() {
         return _boost;
+    }
+
+    public float GetTurbo() {
+        return _turbo;
     }
 
     public bool WantToZoom() {
