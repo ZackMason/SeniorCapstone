@@ -8799,6 +8799,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.784
       objectReference: {fileID: 0}
+    - target: {fileID: 1911579374213113825, guid: c3a0aaaaa4a558c4db3d7041413e6f17,
+        type: 3}
+      propertyPath: tooFar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911579374213113825, guid: c3a0aaaaa4a558c4db3d7041413e6f17,
+        type: 3}
+      propertyPath: VisionRadius
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1911579374213113826, guid: c3a0aaaaa4a558c4db3d7041413e6f17,
         type: 3}
       propertyPath: m_Name
@@ -11804,7 +11814,7 @@ PrefabInstance:
     - target: {fileID: 7349479640682850858, guid: a1b0c1c525aefa841985c5e8fdaa334c,
         type: 3}
       propertyPath: m_Name
-      value: Checkpoint (3)
+      value: Checkpoint-Section2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1b0c1c525aefa841985c5e8fdaa334c, type: 3}
@@ -24071,7 +24081,7 @@ PrefabInstance:
     - target: {fileID: 7349479640682850858, guid: a1b0c1c525aefa841985c5e8fdaa334c,
         type: 3}
       propertyPath: m_Name
-      value: Checkpoint
+      value: Checkpoint-Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 8194934272476015082, guid: a1b0c1c525aefa841985c5e8fdaa334c,
         type: 3}

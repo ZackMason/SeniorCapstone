@@ -12,6 +12,7 @@ public class TargetFinder : MonoBehaviour
     private Faction _faction;
 
     public bool NeedsVision = true;
+    public float VisionRadius = 50.0f;
     public float SearchTime = 1;
     private float _searchTimer;
 
@@ -36,7 +37,7 @@ public class TargetFinder : MonoBehaviour
                 if (faction.ID != _faction.ID) {
                     float dist = Vector3.Magnitude(faction.gameObject.transform.position - transform.position);
                     float tooClose = 3.0f;
-                    if (dist < closest && dist > tooClose) {
+                    if (dist < closest && dist > tooClose && dist < VisionRadius) {
                         if (NeedsVision) {
                             int layerMask = ~0;
                             Vector3 rayOrigin = transform.position;
