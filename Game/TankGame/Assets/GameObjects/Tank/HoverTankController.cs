@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum TankMode {
     DRIVE, COMBAT, SIZE
@@ -9,6 +10,7 @@ public enum TankMode {
 
 public class HoverTankController : MonoBehaviour
 {
+
     public ITankBrain   _brain;
     private HEWeapon    _weapon;
     private Rigidbody   _tankRigidbody;
@@ -103,6 +105,7 @@ public class HoverTankController : MonoBehaviour
     }
 
     void Update() {
+        
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
             if ((_deathTimer -= Time.deltaTime) < 0.0f) {
@@ -160,6 +163,8 @@ public class HoverTankController : MonoBehaviour
         if (_brain.WantToSwitchMode()) {
             _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
         }
+
+
     }
 
     void FixedUpdate() {
@@ -172,6 +177,7 @@ public class HoverTankController : MonoBehaviour
             _tankRigidbody.velocity.magnitude < 0.1f) {
             _tankRigidbody.velocity = Vector3.zero;
         }
+
 
         float BoostDir = _brain.GetBoost();
         bool Airbrake = _brain.GetAirbrake();
@@ -198,6 +204,7 @@ public class HoverTankController : MonoBehaviour
             _boostTimer = BoostCooldownTime;
             _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 4.0f, ForceMode.Impulse);
         }
+
     }
 
     void OnDrawGizmos() {

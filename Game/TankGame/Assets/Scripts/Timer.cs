@@ -6,10 +6,11 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public RawImage needle;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI bestTime;
     public TextMeshProUGUI scoretext;
-    //public TextMeshProUGUI boosttext;
+    public GameObject player;
     public static int score = 0;
     public float startTime;
     // Start is called before the first frame update
@@ -27,6 +28,14 @@ public class Timer : MonoBehaviour
         string seconds = (t % 60).ToString("f2");
         string realscore = score.ToString();
         //string boostcooldown = HoverTankController.BoostCooldownTime.ToString();
+
+        
+
+        float velocityMagnitude = 180.0f - player.GetComponent<Rigidbody>().velocity.magnitude * 10.0f;
+        Vector3 needlerot = needle.rectTransform.rotation.eulerAngles;
+        needlerot.z = velocityMagnitude;
+        needle.rectTransform.rotation = Quaternion.Euler(needlerot);
+
         if (score == 0)
         {
             realscore = "000";
