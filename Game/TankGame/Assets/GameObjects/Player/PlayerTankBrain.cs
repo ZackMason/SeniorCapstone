@@ -11,6 +11,7 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
 
     private Vector2 _drive;
     private Vector2 _turret;
+    
     private float _boost;
     private float _fire;
     private bool _zoom;
@@ -81,8 +82,11 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
     }
 
     public bool WantToSwitchMode() {
+
         var result = _switchMode;
+
         _switchMode = false;
+        
         return result;
     }
 }

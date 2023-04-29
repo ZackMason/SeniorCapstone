@@ -21,6 +21,7 @@ public class HoverTankController : MonoBehaviour
 
     [SerializeField]
     private TankMode _mode = TankMode.DRIVE;
+    public TankMode Mode() => _mode;
 
     [Range(0, 15)]
     public float BoostCooldownTime;

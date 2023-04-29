@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum SoundAsset {
-    Explosion, Collision
+    Explosion, Collision, DriveMode, CombatMode
 }
 
 public class SoundManager : MonoBehaviour
@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
     public AudioClip ExplosionAudio;
     public AudioClip CollisionAudio;
+    public AudioSource DriveModeA;
+    public AudioSource CombatModeA;
 
     private void Awake() 
     {
@@ -30,6 +32,8 @@ public class SoundManager : MonoBehaviour
         switch(asset) {
             case SoundAsset.Collision: AudioSource.PlayClipAtPoint(CollisionAudio, position); break;
             case SoundAsset.Explosion: AudioSource.PlayClipAtPoint(ExplosionAudio, position); break;
+            case SoundAsset.DriveMode: DriveModeA.Play(); break;
+            case SoundAsset.CombatMode: CombatModeA.Play(); break;
         }
     }
 }
