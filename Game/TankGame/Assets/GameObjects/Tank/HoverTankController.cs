@@ -118,7 +118,7 @@ public class HoverTankController : MonoBehaviour
         Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
         if (_mode == TankMode.COMBAT) {
             _tankYawPitch += TurretInput;
-            float maxPitch = 12f * Mathf.PI / 180f;
+            float maxPitch = 20f * Mathf.PI / 180f;
             if (_tankYawPitch.y > 180f) {
                 _tankYawPitch.y -= 360f;
             }
@@ -201,13 +201,13 @@ public class HoverTankController : MonoBehaviour
         if (TurboActive != 0.0f && _turboTimer <= 0.0f){
             _turboTimer = TurboCooldownTime;
             _boostTimer = BoostCooldownTime * 0.5f;
-            Debug.Log("turbo");
+            //Debug.Log("turbo");
             _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .3f, ForceMode.Impulse);
         }
 
         else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
             _boostTimer = BoostCooldownTime;
-            Debug.Log("boost");
+            //Debug.Log("boost");
             _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 3.0f, ForceMode.Impulse);
         }
         
