@@ -11,14 +11,23 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI bestTime;
     public TextMeshProUGUI scoretext;
     public TextMeshProUGUI healthtext;
+    public TextMeshProUGUI CDT;
+    public TextMeshProUGUI FCDT;
+
+    public Image BCD;
+    public Image FCD;
+
+    public AudioSource DriveAudio;
+    public AudioSource BoostAudio;
 
     public RawImage CM;
-
     public RawImage DM;
 
     public RespawnManager respawnManager;
     public GameObject player;
     public static int score = 0;
+    public float boosty;
+    public float fire;
     public float startTime;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +43,32 @@ public class Timer : MonoBehaviour
         //int healthy = player.GetComponent<Health>().GetCurrentHealth();
         //healthtext.text = healthy.ToString();
 
+        boosty = player.GetComponent<HoverTankController>()._boostTimer;
+        if (boosty > 0)
+        {
+            //BoostAudio.Play();
+            CDT.text = boosty.ToString("f0");
+            BCD.fillAmount = 0.2f * boosty;
+        }
+        else
+        {
+            CDT.text = " ";
+            BCD.fillAmount = 0.0f;
+        }
+
+        fire = player.GetComponentInChildren<HEWeapon>()._fireTime;
+        //healthtext.text = fire.ToString();
+        if (fire > 0)
+        {
+            FCDT.text = fire.ToString("f1");
+            FCD.fillAmount = fire;
+        }
+        else
+        {
+            FCDT.text = " ";
+            FCD.fillAmount = 0.0f;
+        }
+
         string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f2");
         string realscore = score.ToString();
@@ -44,22 +79,31 @@ public class Timer : MonoBehaviour
         Vector3 needlerot = needle.rectTransform.rotation.eulerAngles;
         needlerot.z = velocityMagnitude;
         needle.rectTransform.rotation = Quaternion.Euler(needlerot);
+        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f;
+        //DriveAudio.Play();
+
 
         Vector3 none = new Vector3(0, 0, 0);
-        
         if (player.GetComponent<HoverTankController>().Mode() == TankMode.DRIVE)
         {
-            SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, none);
+            
             Texture2D newTexture = LoadTextureFromFile("drive mode a.png");
             Texture2D cTexture = LoadTextureFromFile("combat mode.png");
+            if (DM.texture != newTexture)
+            {
+                SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, none);
+            }
             DM.texture = newTexture;
             CM.texture = cTexture;
         }
         else
         {
-            SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, none);
             Texture2D newTexture = LoadTextureFromFile("drive mode.png");
             Texture2D cTexture = LoadTextureFromFile("combat mode a.png");
+            if (DM.texture != newTexture)
+            {
+                SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, none);
+            }
             DM.texture = newTexture;
             CM.texture = cTexture;
         }

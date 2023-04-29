@@ -25,7 +25,7 @@ public class HoverTankController : MonoBehaviour
 
     [Range(0, 15)]
     public float BoostCooldownTime;
-    private float _boostTimer;
+    public float _boostTimer;
 
     public Vector3      CenterOfMass;
     public GameObject   TankHead;
