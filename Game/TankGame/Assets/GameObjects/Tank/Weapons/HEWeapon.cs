@@ -6,7 +6,7 @@ public class HEWeapon : MonoBehaviour, IWeapon
 {
     public GameObject ProjectilePrefab;
     public AudioSource eaudio;
-    private float _fireTime;
+    public float _fireTime;
 
     public bool MakeNoise = false;
 

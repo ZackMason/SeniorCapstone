@@ -6,11 +6,28 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public RawImage needle;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI bestTime;
     public TextMeshProUGUI scoretext;
-    //public TextMeshProUGUI boosttext;
+    public TextMeshProUGUI healthtext;
+    public TextMeshProUGUI CDT;
+    public TextMeshProUGUI FCDT;
+
+    public Image BCD;
+    public Image FCD;
+
+    public AudioSource DriveAudio;
+    public AudioSource BoostAudio;
+
+    public RawImage CM;
+    public RawImage DM;
+
+    public RespawnManager respawnManager;
+    public GameObject player;
     public static int score = 0;
+    public float boosty;
+    public float fire;
     public float startTime;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +39,75 @@ public class Timer : MonoBehaviour
     void Update()
     {
         float t = Time.time - startTime;
+        player = respawnManager.Player;
+        //int healthy = player.GetComponent<Health>().GetCurrentHealth();
+        //healthtext.text = healthy.ToString();
+
+        boosty = player.GetComponent<HoverTankController>()._boostTimer;
+        if (boosty > 0)
+        {
+            //BoostAudio.Play();
+            CDT.text = boosty.ToString("f0");
+            BCD.fillAmount = 0.2f * boosty;
+        }
+        else
+        {
+            CDT.text = " ";
+            BCD.fillAmount = 0.0f;
+        }
+
+        fire = player.GetComponentInChildren<HEWeapon>()._fireTime;
+        //healthtext.text = fire.ToString();
+        if (fire > 0)
+        {
+            FCDT.text = fire.ToString("f1");
+            FCD.fillAmount = fire;
+        }
+        else
+        {
+            FCDT.text = " ";
+            FCD.fillAmount = 0.0f;
+        }
 
         string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f2");
         string realscore = score.ToString();
         //string boostcooldown = HoverTankController.BoostCooldownTime.ToString();
+
+
+        float velocityMagnitude = 180.0f - player.GetComponent<Rigidbody>().velocity.magnitude * 10.0f;
+        Vector3 needlerot = needle.rectTransform.rotation.eulerAngles;
+        needlerot.z = velocityMagnitude;
+        needle.rectTransform.rotation = Quaternion.Euler(needlerot);
+        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f;
+        //DriveAudio.Play();
+
+
+        Vector3 none = new Vector3(0, 0, 0);
+        if (player.GetComponent<HoverTankController>().Mode() == TankMode.DRIVE)
+        {
+            
+            Texture2D newTexture = LoadTextureFromFile("drive mode a.png");
+            Texture2D cTexture = LoadTextureFromFile("combat mode.png");
+            if (DM.texture != newTexture)
+            {
+                SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, none);
+            }
+            DM.texture = newTexture;
+            CM.texture = cTexture;
+        }
+        else
+        {
+            Texture2D newTexture = LoadTextureFromFile("drive mode.png");
+            Texture2D cTexture = LoadTextureFromFile("combat mode a.png");
+            if (DM.texture != newTexture)
+            {
+                SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, none);
+            }
+            DM.texture = newTexture;
+            CM.texture = cTexture;
+        }
+
         if (score == 0)
         {
             realscore = "000";
@@ -34,5 +115,13 @@ public class Timer : MonoBehaviour
         scoretext.text = realscore;
         timerText.text = minutes + ":" + seconds;
         //boosttext.text = boostcooldown;
+    }
+
+    Texture2D LoadTextureFromFile(string filePath)
+    {
+        Texture2D texture = new Texture2D(2, 2);
+        byte[] bytes = System.IO.File.ReadAllBytes(filePath);
+        texture.LoadImage(bytes);
+        return texture;
     }
 }
