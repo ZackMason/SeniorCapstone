@@ -41,6 +41,10 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         return 0.0f;
     }
 
+    public float GetTurbo() {
+        return 0.0f;
+    }
+
     public Vector2 GetTurretInput() {
         if (MLBrain != null) {
             return MLBrain.GetTurretInput();

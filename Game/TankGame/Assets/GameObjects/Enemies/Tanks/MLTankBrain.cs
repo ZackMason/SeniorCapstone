@@ -157,6 +157,10 @@ public class MLTankBrain : Agent, ITankBrain
         return 0.0f;
     }
 
+    public float GetTurbo() {
+        return 0.0f;
+    }
+
     public Vector2 GetTurretInput() {
         if (_useML) {
             return _turret * 3.0f;

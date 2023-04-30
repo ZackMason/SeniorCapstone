@@ -142,6 +142,16 @@ PrefabInstance:
       propertyPath: TankBody
       value: 
       objectReference: {fileID: 5647558271033602758}
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: BoostCooldownTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: TurboCooldownTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1392755713152079106, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: m_LocalPosition.x

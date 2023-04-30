@@ -25,7 +25,10 @@ public class HoverTankController : MonoBehaviour
 
     [Range(0, 15)]
     public float BoostCooldownTime;
-    public float _boostTimer;
+    [Range(0, 15)]
+    public float TurboCooldownTime;
+    private float _boostTimer;
+    private float _turboTimer;
 
     public Vector3      CenterOfMass;
     public GameObject   TankHead;
@@ -115,11 +118,12 @@ public class HoverTankController : MonoBehaviour
             return; 
         }
         _boostTimer -= Time.deltaTime;
+        _turboTimer -= Time.deltaTime;
 
         Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
         if (_mode == TankMode.COMBAT) {
             _tankYawPitch += TurretInput;
-            float maxPitch = 12f * Mathf.PI / 180f;
+            float maxPitch = 20f * Mathf.PI / 180f;
             if (_tankYawPitch.y > 180f) {
                 _tankYawPitch.y -= 360f;
             }
@@ -134,7 +138,7 @@ public class HoverTankController : MonoBehaviour
         Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 
         if (nextRotation.magnitude > 0.0f) {
-            float maxPitchAngle = 12f;
+            float maxPitchAngle = 45f;
             Quaternion newRotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
             Vector3 euler = newRotation.eulerAngles;
             if (euler.x > 180f) {
@@ -181,6 +185,7 @@ public class HoverTankController : MonoBehaviour
 
 
         float BoostDir = _brain.GetBoost();
+        float TurboActive = _brain.GetTurbo();
         bool Airbrake = _brain.GetAirbrake();
 
         // var tankRotation = Vector3.Dot(TankBody.transform.up, Vector3.up);
@@ -201,9 +206,17 @@ public class HoverTankController : MonoBehaviour
         _tankRigidbody.AddTorque(Vector3.up * DriveInput.x * TorquePower);
         _tankRigidbody.AddForce(BodyForward * DriveInput.y * DrivePower);
 
-        if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
+        if (TurboActive != 0.0f && _turboTimer <= 0.0f){
+            _turboTimer = TurboCooldownTime;
+            _boostTimer = BoostCooldownTime * 0.5f;
+            //Debug.Log("turbo");
+            _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .5f, ForceMode.Impulse);
+        }
+
+        else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
             _boostTimer = BoostCooldownTime;
-            _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 4.0f, ForceMode.Impulse);
+            //Debug.Log("boost");
+            _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 3.0f, ForceMode.Impulse);
         }
 
     }
