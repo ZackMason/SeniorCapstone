@@ -134,7 +134,7 @@ public class HoverTankController : MonoBehaviour
         Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 
         if (nextRotation.magnitude > 0.0f) {
-            float maxPitchAngle = 12f;
+            float maxPitchAngle = 45f;
             Quaternion newRotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
             Vector3 euler = newRotation.eulerAngles;
             if (euler.x > 180f) {
