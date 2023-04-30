@@ -27,7 +27,7 @@ public class HoverTankController : MonoBehaviour
     public float BoostCooldownTime;
     [Range(0, 15)]
     public float TurboCooldownTime;
-    private float _boostTimer;
+    public float _boostTimer;
     private float _turboTimer;
 
     public Vector3      CenterOfMass;
@@ -210,7 +210,7 @@ public class HoverTankController : MonoBehaviour
             _turboTimer = TurboCooldownTime;
             _boostTimer = BoostCooldownTime * 0.5f;
             //Debug.Log("turbo");
-            _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .5f, ForceMode.Impulse);
+            _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .75f, ForceMode.Impulse);
         }
 
         else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {

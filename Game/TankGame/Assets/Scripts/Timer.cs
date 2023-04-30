@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,17 +29,18 @@ public class Timer : MonoBehaviour
     public static int score = 0;
     public float boosty;
     public float fire;
-    public float startTime;
+    public float timeCounter;
+    private TimeSpan timePlaying;
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.time;
+        timeCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float t = Time.time - startTime;
+        timeCounter += Time.deltaTime;
         player = respawnManager.Player;
         //int healthy = player.GetComponent<Health>().GetCurrentHealth();
         //healthtext.text = healthy.ToString();
@@ -69,8 +71,8 @@ public class Timer : MonoBehaviour
             FCD.fillAmount = 0.0f;
         }
 
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f2");
+        // string minutes = ((int)t / 60).ToString();
+        // string seconds = (t % 60).ToString("f2");
         string realscore = score.ToString();
         //string boostcooldown = HoverTankController.BoostCooldownTime.ToString();
 
@@ -113,7 +115,9 @@ public class Timer : MonoBehaviour
             realscore = "000";
         }
         scoretext.text = realscore;
-        timerText.text = minutes + ":" + seconds;
+        timePlaying = TimeSpan.FromSeconds(timeCounter);
+        string timeDisplayed = timePlaying.ToString("mm':'ss");
+        timerText.text = timeDisplayed;
         //boosttext.text = boostcooldown;
     }
 
