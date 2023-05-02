@@ -32,8 +32,14 @@ public class Timer : MonoBehaviour
     public float timeCounter;
     private TimeSpan timePlaying;
     // Start is called before the first frame update
+
+    private Texture2D _combatModeTexture;
+    private Texture2D _driveModeTexture;
+
     void Start()
     {
+        _driveModeTexture = LoadTextureFromFile("drive mode a.png");
+        _combatModeTexture = LoadTextureFromFile("combat mode.png");
         timeCounter = 0;
     }
 
@@ -89,8 +95,8 @@ public class Timer : MonoBehaviour
         if (player.GetComponent<HoverTankController>().Mode() == TankMode.DRIVE)
         {
             
-            Texture2D newTexture = LoadTextureFromFile("drive mode a.png");
-            Texture2D cTexture = LoadTextureFromFile("combat mode.png");
+            Texture2D newTexture = _driveModeTexture;
+            Texture2D cTexture = _combatModeTexture;
             if (DM.texture != newTexture)
             {
                 SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, none);
@@ -100,8 +106,8 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            Texture2D newTexture = LoadTextureFromFile("drive mode.png");
-            Texture2D cTexture = LoadTextureFromFile("combat mode a.png");
+            Texture2D newTexture = _driveModeTexture;
+            Texture2D cTexture = _combatModeTexture;
             if (DM.texture != newTexture)
             {
                 SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, none);
