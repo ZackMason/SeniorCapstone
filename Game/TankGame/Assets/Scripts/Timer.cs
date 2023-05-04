@@ -15,7 +15,8 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI CDT;
     public TextMeshProUGUI FCDT;
 
-    public Image BCD;
+    // fire and boost cooldown?
+    public Image BCD; 
     public Image FCD;
 
     public AudioSource DriveAudio;
@@ -91,7 +92,7 @@ public class Timer : MonoBehaviour
         //DriveAudio.Play();
 
 
-        Vector3 none = new Vector3(0, 0, 0);
+        
         if (player.GetComponent<HoverTankController>().Mode() == TankMode.DRIVE)
         {
             
@@ -99,7 +100,7 @@ public class Timer : MonoBehaviour
             Texture2D cTexture = _combatModeTexture;
             if (DM.texture != newTexture)
             {
-                SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, none);
+                SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, Vector3.zero);
             }
             DM.texture = newTexture;
             CM.texture = cTexture;
@@ -110,7 +111,7 @@ public class Timer : MonoBehaviour
             Texture2D cTexture = _combatModeTexture;
             if (DM.texture != newTexture)
             {
-                SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, none);
+                SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, Vector3.zero);
             }
             DM.texture = newTexture;
             CM.texture = cTexture;
