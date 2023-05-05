@@ -32,7 +32,6 @@ public class Timer : MonoBehaviour
     public float fire;
     public float timeCounter;
     private TimeSpan timePlaying;
-    // Start is called before the first frame update
 
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
