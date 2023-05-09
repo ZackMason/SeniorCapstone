@@ -38,6 +38,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
         _driveModeTexture = LoadTextureFromFile("drive mode a.png");
         _combatModeTexture = LoadTextureFromFile("combat mode.png");
         timeCounter = 0;
@@ -48,7 +49,7 @@ public class Timer : MonoBehaviour
     {
         timeCounter += Time.deltaTime;
         player = respawnManager.Player;
-        //int healthy = player.GetComponent<Health>().GetCurrentHealth();
+        //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();
         //healthtext.text = healthy.ToString();
 
         boosty = player.GetComponent<HoverTankController>()._boostTimer;
