@@ -137,16 +137,6 @@ PrefabInstance:
       propertyPath: EnginePower
       value: 15500
       objectReference: {fileID: 0}
-    - target: {fileID: 97167048959660294, guid: 327fff65a4524f84cb711e84e7838dea,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 97167048959660294, guid: 327fff65a4524f84cb711e84e7838dea,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: TankBody

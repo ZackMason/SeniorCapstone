@@ -112,7 +112,6 @@ public class HoverTankController : MonoBehaviour
         
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
-            _tankRigidbody.mass = 50f;
             if ((_deathTimer -= Time.deltaTime) < 0.0f) {
                 Destroy(gameObject);
             }
