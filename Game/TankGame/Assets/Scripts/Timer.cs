@@ -36,11 +36,12 @@ public class Timer : MonoBehaviour
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
 
+    [SerializeField] private ModeIndicator _combatModeIndicator;
+    [SerializeField] private ModeIndicator _driveModeIndicator;
+
     void Start()
     {
         SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
-        _driveModeTexture = LoadTextureFromFile("drive mode a.png");
-        _combatModeTexture = LoadTextureFromFile("combat mode.png");
         timeCounter = 0;
     }
 
@@ -95,26 +96,17 @@ public class Timer : MonoBehaviour
         
         if (player.GetComponent<HoverTankController>().Mode() == TankMode.DRIVE)
         {
-            
-            Texture2D newTexture = _driveModeTexture;
-            Texture2D cTexture = _combatModeTexture;
-            if (DM.texture != newTexture)
-            {
+            _combatModeIndicator.SetState(false);
+            if (_driveModeIndicator.SetState(true)) {
                 SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, Vector3.zero);
             }
-            DM.texture = newTexture;
-            CM.texture = cTexture;
         }
         else
         {
-            Texture2D newTexture = _driveModeTexture;
-            Texture2D cTexture = _combatModeTexture;
-            if (DM.texture != newTexture)
-            {
-                SoundManager.Instance?.PlaySound(SoundAsset.CombatMode, Vector3.zero);
+            _driveModeIndicator.SetState(false);
+            if (_combatModeIndicator.SetState(true)) {
+                SoundManager.Instance?.PlaySound(SoundAsset.DriveMode, Vector3.zero);
             }
-            DM.texture = newTexture;
-            CM.texture = cTexture;
         }
 
         if (score == 0)
@@ -128,11 +120,4 @@ public class Timer : MonoBehaviour
         //boosttext.text = boostcooldown;
     }
 
-    Texture2D LoadTextureFromFile(string filePath)
-    {
-        Texture2D texture = new Texture2D(2, 2);
-        byte[] bytes = System.IO.File.ReadAllBytes(filePath);
-        texture.LoadImage(bytes);
-        return texture;
-    }
 }
