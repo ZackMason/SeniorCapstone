@@ -2121,11 +2121,6 @@ PrefabInstance:
       propertyPath: respawnManager
       value: 
       objectReference: {fileID: 2146510226}
-    - target: {fileID: 8736133357604731053, guid: c9b4b29e0b69af84687837577de047fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8736133357747525056, guid: c9b4b29e0b69af84687837577de047fe,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2235,11 +2230,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8736133358248774223, guid: c9b4b29e0b69af84687837577de047fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b4b29e0b69af84687837577de047fe, type: 3}
@@ -3424,6 +3414,11 @@ PrefabInstance:
       objectReference: {fileID: 1437225197}
     - target: {fileID: 1112866967075437989, guid: 2dd25dc45dcd87846bf3aae6da5f76af,
         type: 3}
+      propertyPath: theme1
+      value: 
+      objectReference: {fileID: 2026377431}
+    - target: {fileID: 1112866967075437989, guid: 2dd25dc45dcd87846bf3aae6da5f76af,
+        type: 3}
       propertyPath: DriveModeA
       value: 
       objectReference: {fileID: 871448557}
@@ -3683,6 +3678,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946752739}
   m_CullTransparentMesh: 1
+--- !u!82 &2026377431 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4350715138653974720, guid: 85412c8406e25df489fead10b5e5357a,
+    type: 3}
+  m_PrefabInstance: {fileID: 486182190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2055878547
 PrefabInstance:
   m_ObjectHideFlags: 0
