@@ -46,6 +46,7 @@ public class TargetFinder : MonoBehaviour
 
                             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity, layerMask)) {
                                 // Note(Zack): This looks dumb, because it is
+                                Debug.Assert(hit.rigidbody || hit.collider, "Is this even possible?");
                                 if (hit.rigidbody) {
                                     if (hit.rigidbody.gameObject != faction.gameObject) {
                                         continue;
