@@ -1,5 +1,7 @@
 # Gravitank Gauntlet
 
+# [Play The Game!](https://cerealcode.itch.io/untitled-tank-game)
+
 ## Table Of Contents
 - [Build](#build)
 - [Tank](#tank)
