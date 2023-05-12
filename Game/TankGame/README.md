@@ -7,7 +7,6 @@
 - [Destruction](#destruction)
 - [AI](#ai)
 - [Singletons](#singletons)
-- [Misc](#misc)
 
 ## Build
 The game is built using only Unity 2021.3.16f1 with the Universal Render Pipeline, and python 3.7 with pytorch for machine learning. 
@@ -49,6 +48,3 @@ The game is built using only Unity 2021.3.16f1 with the Universal Render Pipelin
 - [ParticleManager](Assets/Singletons/ParticleManager.cs)
 - [RespawnManager](Assets/Singletons/RespawnManager.cs)
 - [UnitManager](Assets/Singletons/UnitManager.cs)
-
-## Misc
-- [Health](Assets/Scripts/Health.cs)
