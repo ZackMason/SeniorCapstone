@@ -1,12 +1,16 @@
 # Gravitank Gauntlet
 
 ## Table Of Contents
+- [Build](#build)
 - [Tank](#tank)
 - [Weapons](#weapons)
 - [Destruction](#destruction)
 - [AI](#ai)
 - [Singletons](#singletons)
 - [Misc](#misc)
+
+## Build
+The game is built using only Unity 2021.3.16f1 with the Universal Render Pipeline, and python 3.7 with pytorch for machine learning. 
 
 ## Tank
 - [Controller](Assets/GameObjects/Tank/HoverTankController.cs)
