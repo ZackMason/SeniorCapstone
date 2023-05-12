@@ -33,7 +33,7 @@ public class RespawnManager : MonoBehaviour
 
     public void SetRespawnPosition(Vector3 pos) => _lastPlayerPosition = pos;
     
-    void Start() => SetRespawnPosition(Player.transform.position);
+    void Start() => SetRespawnPosition(Player?.transform.position ?? Vector3.zero);
 
     bool _isOnGround(Vector3 pos) {
         return true;
@@ -59,7 +59,7 @@ public class RespawnManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Player?.GetComponent<HoverTankController>()?.IsAlive() == false &&
+        if ((Player?.GetComponent<HoverTankController>()?.IsAlive() ?? true) == false &&
             RespawnCoroutine == null
         ) { // player died
             Player?.GetComponent<HoverTankController>()?.OverrideDeathTimer();

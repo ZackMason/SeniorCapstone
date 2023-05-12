@@ -255,6 +255,7 @@ MonoBehaviour:
   MoveTarget: {x: 0, y: 0, z: 0}
   HasTarget: 0
   NeedsVision: 1
+  VisionRadius: 500
   SearchTime: 1
   MinDistance: 15
 --- !u!114 &6089857088546478575
