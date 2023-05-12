@@ -169,8 +169,6 @@ public class HoverTankController : MonoBehaviour
         if (_brain.WantToSwitchMode()) {
             _mode = _mode == TankMode.COMBAT ? TankMode.DRIVE : TankMode.COMBAT;
         }
-
-
     }
 
     void FixedUpdate() {
