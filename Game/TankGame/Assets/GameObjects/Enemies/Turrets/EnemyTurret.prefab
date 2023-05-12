@@ -79,7 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
+  HasTarget: 0
   NeedsVision: 1
+  VisionRadius: 500
   SearchTime: 1
 --- !u!54 &1961641404754456219
 Rigidbody:
@@ -273,6 +275,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 1897103433111165607, guid: 0f380e9da25317f47b81794784f00290,
     type: 3}
   eaudio: {fileID: 0}
+  _fireTime: 0
   MakeNoise: 0
   AimDir: 1
   FireRate: 1
