@@ -6,7 +6,7 @@ public class RespawnCheckpoint : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
         if (other.attachedRigidbody?.tag == "Player") {
-            RespawnManager.Instance.SetRespawnPosition(other.transform.position);
+            RespawnManager.Instance.SetRespawnTransform(other.transform);
             Destroy(gameObject);
         }
     }
