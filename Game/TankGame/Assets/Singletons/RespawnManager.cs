@@ -14,6 +14,7 @@ public class RespawnManager : MonoBehaviour
     public float RespawnTime;
 
     private Vector3 _lastPlayerPosition;
+    private Quaternion _lastPlayerRotation;
  
     private Coroutine RespawnCoroutine;
 
@@ -32,9 +33,13 @@ public class RespawnManager : MonoBehaviour
     }
 
     public void SetRespawnPosition(Vector3 pos) => _lastPlayerPosition = pos;
+    public void SetRespawnRotation(Quaternion rot) => _lastPlayerRotation = rot;
+    public void SetRespawnTransform(Transform t) {
+        SetRespawnPosition(t.position);
+        SetRespawnRotation(t.rotation);
+    }
+    void Start() => SetRespawnTransform(Player?.transform ?? new Transform());
     
-    void Start() => SetRespawnPosition(Player?.transform.position ?? Vector3.zero);
-
     bool _isOnGround(Vector3 pos) {
         return true;
         // RaycastHit hit;
@@ -44,14 +49,18 @@ public class RespawnManager : MonoBehaviour
     IEnumerator RespawnPlayer() {
         yield return new WaitForSeconds(RespawnTime);
         Destroy(Player);
-        Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, Quaternion.identity);
+        Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, _lastPlayerRotation);
         RespawnCoroutine = null;
     }
+
+    
+    
 
     IEnumerator SetCheckpoint() {
         while(true) {
             if (_isOnGround(Player.transform.position) && RespawnCoroutine == null) {
                 _lastPlayerPosition = Player.transform.position;
+                _lastPlayerRotation = Player.transform.rotation;
             }
             yield return new WaitForSeconds(CheckpointTime);
         }
