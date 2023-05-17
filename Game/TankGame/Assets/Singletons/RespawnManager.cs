@@ -38,7 +38,7 @@ public class RespawnManager : MonoBehaviour
         SetRespawnPosition(t.position);
         SetRespawnRotation(t.rotation);
     }
-    void Start() => SetRespawnTransform(Player?.transform ?? new Transform());
+    void Start() => SetRespawnTransform(Player?.transform ?? transform);
     
     bool _isOnGround(Vector3 pos) {
         return true;
