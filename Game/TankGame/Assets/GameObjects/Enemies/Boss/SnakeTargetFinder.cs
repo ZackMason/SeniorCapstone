@@ -26,8 +26,19 @@ public class SnakeTargetFinder
 
     private GameObject _getPlayer() => RespawnManager.Instance.Player;
 
+    public void CenterAttackTarget() {
+        Exit = UnityEngine.Random.insideUnitSphere * ArenaRadius * 0.5f;
+        Target = UnityEngine.Random.insideUnitSphere * ArenaRadius * 0.5f;
+        Target.y = -80f; 
+        Exit.y = 0f;
+    }
+
     public void SelectTarget(Vector3 target) {
-        Exit = _calculateExitPoint(target) - _arenaCenter.position;
-        Target = target - _arenaCenter.position;
+        if (target == Vector3.zero) {
+            CenterAttackTarget();
+        } else {
+            Exit = _calculateExitPoint(target) - _arenaCenter.position;
+            Target = target - _arenaCenter.position;
+        }
     }
 }
