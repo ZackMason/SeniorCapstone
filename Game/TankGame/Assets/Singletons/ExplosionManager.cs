@@ -28,13 +28,14 @@ public class ExplosionManager : MonoBehaviour
 
         foreach (Collider proximity in colliders) {
             Rigidbody body = proximity.GetComponent<Rigidbody>();
-            Health health = proximity.GetComponent<Health>();
+            Health health = proximity.GetComponentInParent<Health>();
 
             if (health != null) {
                 float falloff = 1.0f / Mathf.Max(1.0f, (proximity.transform.position - position).sqrMagnitude);
                 if (health.Damage(Random.Range(damage*0.5f, damage*1.5f) * falloff)) {
                     killed.Add(health);
                 }
+                // print($"Hit - {health.GetHealth()}hp remaining");
             }
 
             if (body != null) {

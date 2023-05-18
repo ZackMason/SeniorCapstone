@@ -7,11 +7,13 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
-    [Range(0, 200)]
+    
     public float MaxHealth;
     
     private float _currentHealth;
     private Destructible _destructible;
+
+    public float GetHealth() => _currentHealth;
 
     void Start() {
         _currentHealth = MaxHealth;
