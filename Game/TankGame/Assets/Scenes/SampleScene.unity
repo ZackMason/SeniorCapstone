@@ -926,7 +926,7 @@ MonoBehaviour:
   - position: {x: 61.97992, y: 0, z: -41.765686}
     roll: 0
   - position: {x: -3.7832947, y: 25.494762, z: -3.7971191}
-    roll: 180
+    roll: 2160
   - position: {x: -74.14023, y: 0, z: 41.653625}
     roll: 0
   - position: {x: -144.49716, y: -25.494762, z: 87.10437}
