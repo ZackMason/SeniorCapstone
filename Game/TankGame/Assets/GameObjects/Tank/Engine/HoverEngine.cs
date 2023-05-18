@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
 public class PIDController {
@@ -64,15 +65,20 @@ public class PIDController {
 
 public class HoverEngine : MonoBehaviour
 {
+    [SerializeField] private bool _showInfo = false;
     [SerializeField] private PIDController _pidRotController;
     [SerializeField] private PIDController _pidDistanceController;
     public Rigidbody TankRigidbody;
 
     [Range(1, 60000)]
     public float EnginePower;
+
+    private float _lastDistance = 0f;
+    private float _lastPower = 0f;
     
     private float _HoverPower(float groundDistance) {
         groundDistance = Mathf.Clamp(groundDistance, 0f, 10f);
+        _lastDistance = groundDistance;
         
         float rotError = Vector3.Dot(Vector3.up, TankRigidbody.transform.up);
         float pidRotPower = _pidRotController.Calculate(Time.fixedDeltaTime, rotError, 1f);
@@ -106,13 +112,29 @@ public class HoverEngine : MonoBehaviour
             float cosFactor = Vector3.Dot(-rayDirection, hit.normal);
             // cosFactor = 1.0f;
             // halfVector = -rayDirection;
-  
-            TankRigidbody.AddForceAtPosition(_HoverPower(hit.distance) * halfVector * cosFactor * Time.fixedDeltaTime * 10.0f, rayOrigin);
+            _lastPower = _HoverPower(hit.distance);
+            TankRigidbody.AddForceAtPosition(_lastPower * halfVector * cosFactor * Time.fixedDeltaTime * 10.0f, rayOrigin);
 
             Debug.DrawRay(rayOrigin, halfVector * _HoverPower(hit.distance) * cosFactor * 0.1f, Color.blue);
             Debug.DrawRay(rayOrigin, rayDirection * hit.distance, Color.yellow);
         } else {
             Debug.DrawRay(rayOrigin, rayDirection * 100.0f, Color.yellow);
+        }
+    }
+
+    
+    void OnDrawGizmos() {
+        if (_showInfo) {
+            var errorLast = _pidDistanceController.errorLast;
+            
+            Color labelColor = Color.black;
+            GUI.contentColor = labelColor;
+
+            GUIStyle style = new GUIStyle(GUI.skin.label);
+
+            style.fontSize = 20;
+
+            Handles.Label(transform.position, $"Hover Engine\nError: {errorLast}\nDistance: {_lastDistance}\nPower: {_lastPower}", style);
         }
     }
 }
