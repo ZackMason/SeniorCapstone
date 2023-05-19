@@ -73,7 +73,7 @@ public class SnakeController : MonoBehaviour
 
     private void _groundAttack() {
         _targetFinder.SelectTarget(RespawnManager.Instance.Player.transform.position);
-        float height = 8f;
+        float height = 5f;
         Vector3 sphereScale = new Vector3(1f, 0.00001f, 1f);
         var path = _getPath();
         
@@ -85,11 +85,11 @@ public class SnakeController : MonoBehaviour
         path.m_Waypoints[1].position += Vector3.Scale(sphereScale, UnityEngine.Random.insideUnitSphere) * 30f;
         path.m_Waypoints[2].position += Vector3.Scale(sphereScale, UnityEngine.Random.insideUnitSphere) * 30f;
         path.m_Waypoints[3].position = _targetFinder.Target;
-        Vector3 target = path.m_Waypoints[2].position;
-        path.m_Waypoints[3].position =
-            target + 
-            (_targetFinder.Target - target).normalized * 
-            ((_targetFinder.Target - target).magnitude *2f); // 80 is length of snakey
+        // Vector3 target = path.m_Waypoints[2].position;
+        // path.m_Waypoints[3].position =
+        //     target + 
+        //     (_targetFinder.Target - target).normalized * 
+        //     ((_targetFinder.Target - target).magnitude *2f); // 80 is length of snakey
             
         path.InvalidateDistanceCache();
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tank
   - Environment
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - UI
   - RealTank
   - DriveTank
-  - 
-  - 
-  - 
-  - 
+  - Boss
+  - Bullets
+  - Lava
+  - BossArena
   - 
   - 
   - 
