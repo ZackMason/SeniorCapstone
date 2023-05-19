@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2973158323927589121}
   - component: {fileID: 3491072350631579594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.001
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,9 +56,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6099089297295785373}
   - component: {fileID: 8995734719756354136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.004
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,9 +102,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6556589832052445697}
   - component: {fileID: 2518197201163233976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,9 +148,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2728043606876018384}
   - component: {fileID: 443549899029322267}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.010
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ SphereCollider:
   m_GameObject: {fileID: 2483890071287546941}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.018
   m_Center: {x: 0, y: 0, z: 0}
@@ -194,9 +194,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2454901027621040340}
   - component: {fileID: 7571292481301083076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.008
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +226,7 @@ SphereCollider:
   m_GameObject: {fileID: 3457826003621210841}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.018
   m_Center: {x: 0, y: 0, z: 0}
@@ -240,9 +240,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8952430658046265958}
   - component: {fileID: 947674945984191427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.005
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,9 +286,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627340876249832}
   - component: {fileID: 3636627340876249833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,9 +337,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627340962197499}
   - component: {fileID: 3636627340962197476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 9
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,9 +388,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341108228192}
   - component: {fileID: 3636627341108228193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -439,9 +439,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341140354860}
   - component: {fileID: 3636627341140354861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 12
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,9 +490,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341502468091}
   - component: {fileID: 3636627341502468068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 7
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,9 +541,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341595328134}
   - component: {fileID: 3636627341595328135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,9 +592,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341650751975}
   - component: {fileID: 3636627341650751968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 8
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,9 +643,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341703415481}
   - component: {fileID: 3636627341703415482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 11
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,9 +694,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627341836243624}
   - component: {fileID: 3636627341836243625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 10
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,9 +745,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627342249173717}
   - component: {fileID: 3636627342249173718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 5
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,9 +796,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627342542412421}
   - component: {fileID: 3636627342542412422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -847,9 +847,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627342758782575}
   - component: {fileID: 3636627342758782568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rig 1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,9 +905,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3636627342896203705}
   - component: {fileID: 3636627342896203706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 6
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -956,9 +956,9 @@ GameObject:
   m_Component:
   - component: {fileID: 111739671211103312}
   - component: {fileID: 5091210268822154560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1056,10 +1056,12 @@ GameObject:
   - component: {fileID: 4949221937722309586}
   - component: {fileID: 8169883585301262536}
   - component: {fileID: 2352666469006302349}
-  - component: {fileID: 3324469857281949546}
-  m_Layer: 0
+  - component: {fileID: 919132149022384352}
+  - component: {fileID: 8440096309465046016}
+  - component: {fileID: 672609484384266653}
+  m_Layer: 8
   m_Name: snake
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1148,7 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dollyCart: {fileID: 4949221937722309586}
-  _moveSpeed: 5
+  _moveSpeed: 10
   _targetFinder:
     ArenaRadius: 80
     Exit: {x: 0, y: 0, z: 0}
@@ -1168,7 +1170,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
   MaxHealth: 2000
---- !u!114 &3324469857281949546
+--- !u!54 &919132149022384352
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518953882127570319}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &8440096309465046016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1177,11 +1195,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4518953882127570319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febf5e76e84331944bf56b20ef811b16, type: 3}
+  m_Script: {fileID: 11500000, guid: b265b15c0a7ba1242bb00913eec0cbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyedPrefab: {fileID: 0}
-  RamResistance: 0
+--- !u!135 &672609484384266653
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518953882127570319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.66
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5406804225693527340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,9 +1221,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6255144630359386067}
   - component: {fileID: 7193926096146944139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.006
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,9 +1267,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5662528635385793235}
   - component: {fileID: 7815069710853757676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.009
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,7 +1299,7 @@ SphereCollider:
   m_GameObject: {fileID: 5782472358936027011}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.018
   m_Center: {x: 0, y: 0, z: 0}
@@ -1284,9 +1313,9 @@ GameObject:
   m_Component:
   - component: {fileID: 355647912951991519}
   - component: {fileID: 3626249100442646468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.010_end
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,7 +1344,7 @@ SphereCollider:
   m_GameObject: {fileID: 6865399210006576747}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.018
   m_Center: {x: 0, y: 0, z: 0}
@@ -1328,9 +1357,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 222180637306083494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: snake
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1361,9 +1390,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8525670313301931312}
   - component: {fileID: 7374536762865382359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.007
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1407,9 +1436,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8044476576538449229}
   - component: {fileID: 1683598555373941193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1453,9 +1482,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5006764119258330112}
   - component: {fileID: 3346063751020877794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

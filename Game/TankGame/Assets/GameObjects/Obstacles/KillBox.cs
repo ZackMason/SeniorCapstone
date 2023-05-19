@@ -5,7 +5,9 @@ using UnityEngine;
 public class KillBox : MonoBehaviour
 {
     private void _kill(GameObject go) {
-        go?.GetComponent<Health>()?.Damage(1000000);
+        if (go?.tag != "Boss") {
+            go?.GetComponent<Health>()?.Damage(1000000);
+        }
     }
 
     void OnCollisionEnter(Collision collision) {
