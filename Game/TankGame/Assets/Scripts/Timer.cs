@@ -28,13 +28,20 @@ public class Timer : MonoBehaviour
     public RespawnManager respawnManager;
     public GameObject player;
     public static int score = 0;
+    public static int zone = 0;
     public float boosty;
     public float fire;
     public float timeCounter;
-    private TimeSpan timePlaying;
+    public TimeSpan timePlaying;
+
+    public TimeSpan zone1;
+    public TimeSpan zone2;
+    public TimeSpan zone3;
 
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
+
+    bool isFadingOut = false;
 
     [SerializeField] private ModeIndicator _combatModeIndicator;
     [SerializeField] private ModeIndicator _driveModeIndicator;
@@ -43,6 +50,7 @@ public class Timer : MonoBehaviour
     {
         SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
         timeCounter = 0;
+        bestTime.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,12 +64,12 @@ public class Timer : MonoBehaviour
         boosty = player.GetComponent<HoverTankController>()._boostTimer;
         if (boosty > 0)
         {
-            //BoostAudio.Play();
             CDT.text = boosty.ToString("f0");
             BCD.fillAmount = 0.2f * boosty;
         }
         else
         {
+            BoostAudio.Play();
             CDT.text = " ";
             BCD.fillAmount = 0.0f;
         }
@@ -117,7 +125,54 @@ public class Timer : MonoBehaviour
         timePlaying = TimeSpan.FromSeconds(timeCounter);
         string timeDisplayed = timePlaying.ToString("mm':'ss");
         timerText.text = timeDisplayed;
-        //boosttext.text = boostcooldown;
+        if (zone == 1)
+        {
+            bestTime.text = "Zone 1: " + timeDisplayed;
+            zone1 = timePlaying;
+            score += 1000 - Convert.ToInt32(timePlaying.TotalSeconds * 3);
+            bestTime.gameObject.SetActive(true);
+            zone += 1;
+        }
+        else if (zone == 3)
+        {
+            bestTime.text = "Zone 2: " + timeDisplayed;
+            zone2 = timePlaying;
+            score += 1000 - Convert.ToInt32(timePlaying.TotalSeconds * 3) + Convert.ToInt32(zone1.TotalSeconds);
+            bestTime.gameObject.SetActive(true);
+            zone += 1;
+        }
+        else if (zone == 5)
+        {
+            bestTime.text = "Zone 3: " + timeDisplayed;
+            zone2 = timePlaying;
+            score += 1000 - Convert.ToInt32(timePlaying.TotalSeconds * 3) + Convert.ToInt32(zone2.TotalSeconds);
+            bestTime.gameObject.SetActive(true);
+            zone += 1;
+        }
+        else if (!isFadingOut && bestTime.gameObject.activeSelf)
+        {
+            StartCoroutine(FadeOutBestTimeText());
+        }
+    }
+
+    IEnumerator FadeOutBestTimeText()
+    {
+        isFadingOut = true;
+
+        float alpha = 1f;
+        while (alpha > 0f)
+        {
+            // Reduce transparency gradually
+            alpha -= Time.deltaTime / 3.0f;
+            bestTime.alpha = alpha;
+
+            yield return null;
+        }
+
+        bestTime.gameObject.SetActive(false);
+        bestTime.alpha = 1f; 
+
+        isFadingOut = false; 
     }
 
 }

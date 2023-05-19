@@ -14,6 +14,8 @@ public class ObjectLock : MonoBehaviour
         while(true) {
             if (Locks.All(e => e == null)) {
                 Destroy(this.gameObject);
+                Timer.zone += 1;
+
                 if (count == 1)
                 {
                     SoundManager.Instance?.PlaySound(SoundAsset.theme2, Vector3.zero);
