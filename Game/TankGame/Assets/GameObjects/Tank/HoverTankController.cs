@@ -34,6 +34,9 @@ public class HoverTankController : MonoBehaviour
     public GameObject   TankHead;
     public GameObject   TankTurret;
     public GameObject   TankBody;
+    public GameObject GetHead() => TankHead;
+    public GameObject GetTurret() => TankTurret;
+    public GameObject GetBody() => TankBody;
     public float        LerpConstant;
 
     [Range(1, 2000)]
