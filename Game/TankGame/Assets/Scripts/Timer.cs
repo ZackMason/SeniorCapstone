@@ -7,6 +7,10 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    //public Image headhealth;
+    //public Image turrethealth;
+    public Image bodyhealth;
+
     public RawImage needle;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI bestTime;
@@ -41,6 +45,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+
         SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
         timeCounter = 0;
     }
@@ -48,10 +53,36 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+ 
         timeCounter += Time.deltaTime;
         player = respawnManager.Player;
         //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();
-        //healthtext.text = healthy.ToString();
+        if (player.GetComponent<HoverTankController>().GetBody() != null) 
+        {
+            if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 10)
+            {
+                healthtext.text = "    " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+            }
+            else if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 100)
+            {
+                healthtext.text = "   " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+            }
+            else
+            {
+                healthtext.text = "  " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+            }
+            bodyhealth.fillAmount = 1.0f - player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() / 120.0f;
+        }
+        else
+        {
+            healthtext.text = "DEAD";
+            bodyhealth.fillAmount = 1.0f;
+        }
+        //turrethealth.fillAmount = player.GetComponent<HoverTankController>().GetTurret().GetComponent<Health>().GetHealth() / 100.0f;
+        //headhealth.fillAmount = player.GetComponent<HoverTankController>().GetHead().GetComponent<Health>().GetHealth() / 100.0f;
+       
+
+        
 
         boosty = player.GetComponent<HoverTankController>()._boostTimer;
         if (boosty > 0)
