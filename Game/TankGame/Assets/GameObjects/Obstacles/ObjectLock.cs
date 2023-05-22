@@ -13,6 +13,7 @@ public class ObjectLock : MonoBehaviour
     IEnumerator _checkLock() {
         while(true) {
             if (Locks.All(e => e == null)) {
+                Timer.zone += 1;
                 Destroy(this.gameObject);
                 if (count == 1)
                 {

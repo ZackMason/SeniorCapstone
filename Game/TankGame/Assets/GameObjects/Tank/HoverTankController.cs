@@ -209,13 +209,16 @@ public class HoverTankController : MonoBehaviour
         _tankRigidbody.AddForce(BodyForward * DriveInput.y * DrivePower);
 
         if (TurboActive != 0.0f && _turboTimer <= 0.0f){
+            SoundManager.Instance?.PlaySound(SoundAsset.Boost, Vector3.zero);
             _turboTimer = TurboCooldownTime;
             _boostTimer = BoostCooldownTime * 0.5f;
             //Debug.Log("turbo");
             _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .75f, ForceMode.Impulse);
+            
         }
 
         else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
+            SoundManager.Instance?.PlaySound(SoundAsset.Boost, Vector3.zero);
             _boostTimer = BoostCooldownTime;
             //Debug.Log("boost");
             _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 3.0f, ForceMode.Impulse);
