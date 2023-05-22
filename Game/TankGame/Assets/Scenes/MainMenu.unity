@@ -1389,6 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052ecca66f7a9d244bc959c508d508c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneName: MLPlayground
 --- !u!1001 &688647735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4149,6 +4150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052ecca66f7a9d244bc959c508d508c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneName: SampleScene
 --- !u!1001 &1917043758
 PrefabInstance:
   m_ObjectHideFlags: 0
