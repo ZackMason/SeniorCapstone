@@ -29003,6 +29003,11 @@ PrefabInstance:
       propertyPath: _targetFinder._arenaCenter
       value: 
       objectReference: {fileID: 81187773}
+    - target: {fileID: 8440096309465046016, guid: 2e96167d7848e984ea9ff1bec6649ab6,
+        type: 3}
+      propertyPath: _layerToCheck.m_Bits
+      value: 2059
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e96167d7848e984ea9ff1bec6649ab6, type: 3}
 --- !u!1001 &4655202760512022583
