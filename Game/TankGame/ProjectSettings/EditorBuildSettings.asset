@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MLPlayground.unity
+    guid: 112d882b9ed0be24ea27fccb8f8de5cb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0af39f22a6cf5b24a8a3e11750dabed3,
       type: 2}

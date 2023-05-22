@@ -1021,7 +1021,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -5495902117074765545, guid: b04593e8b153e2f48a102e10fbbde9ba, type: 3}
   m_Bones:
@@ -1198,6 +1198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b265b15c0a7ba1242bb00913eec0cbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _layerToCheck:
+    serializedVersion: 2
+    m_Bits: 11
 --- !u!135 &672609484384266653
 SphereCollider:
   m_ObjectHideFlags: 0
