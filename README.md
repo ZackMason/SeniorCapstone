@@ -1,5 +1,7 @@
-# SeniorCapstone
+# Gravitank Guantlet
 OSU Game Design Competition Senior Capstone
+
+A 3D hover tank combat game where you navigate treacherous terrain, avoid obstacles, defeat various enemies, including the boss at the end.
 
 ## Table of Content
 - [Architecture](Game/TankGame/README.md)
