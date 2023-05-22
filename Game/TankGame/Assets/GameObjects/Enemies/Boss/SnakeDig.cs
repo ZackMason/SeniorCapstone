@@ -6,7 +6,7 @@ public class SnakeDig : MonoBehaviour
 {
     private bool _canExplode = true;
 
-    private LayerMask _layerToCheck = 11;
+    [SerializeField] private LayerMask _layerToCheck = 1 << 11;
     private Collider[] ColliderArray = new Collider[10];
 
     private bool _isSphereTriggerCollidingWithLayer() {
