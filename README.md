@@ -1,6 +1,12 @@
 # SeniorCapstone
 OSU Game Design Competition Senior Capstone
 
+## Table of Content
+- [Architecture](Game/TankGame/README.md)
+- [Roles](#roles)
+- [How to Build](#how-to-build)
+
+
 ## Roles
 
 - Scheduler/Manager: Zack
@@ -8,6 +14,5 @@ OSU Game Design Competition Senior Capstone
 - Note Taker: 
 - Documentation: 
 
-## Weekly Schedule
-
-- TA Meeting - Thursday 2:40 pm
+## How to Buuild
+  Install Unity 2021.3.16f, necessary packages will be installed for you by the project. 
