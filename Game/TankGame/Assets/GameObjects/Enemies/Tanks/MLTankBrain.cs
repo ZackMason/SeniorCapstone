@@ -77,13 +77,13 @@ public class MLTankBrain : Agent, ITankBrain
         // Note(Zack):
         // Reward based off predictions of how it should act
         // in order to try to speed up training
-        // if (_fire > 0.0f) {
-        //     AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
-        // }
+        if (_fire > 0.0f) {
+            AddReward(_computeAccuracy() > 0.8f ? 0.001f : 0.0f);
+        }
         // prefer driving forward
-        // AddReward(Vector2.Dot(_drive, new Vector2(0.0f, 1.0f)) * 0.01f);
-        // AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
-        // AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
+        AddReward(Vector2.Dot(_drive, new Vector2(0.0f, 1.0f)) * 0.01f);
+        AddReward(Vector2.Dot(_drive, GetDriveInput()) * 0.01f);
+        AddReward(Vector2.Dot(_turret, GetTurretInput()) * 0.01f);
     }
 
     public override void CollectObservations(VectorSensor sensor) {
@@ -131,7 +131,6 @@ public class MLTankBrain : Agent, ITankBrain
     }
 
     public override void Heuristic(in ActionBuffers actionsOut) {
-        base.Heuristic(actionsOut);
     }
 
     // Todo(Zack): Add raycast to avoid running into walls

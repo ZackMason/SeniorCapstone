@@ -15,7 +15,7 @@ behaviors:
       epsilon_schedule: linear
     network_settings:
       normalize: false
-      hidden_units: 128
+      hidden_units: 256
       num_layers: 2
       vis_encode_type: simple
       memory: null
@@ -27,7 +27,7 @@ behaviors:
         strength: 1.0
         network_settings:
           normalize: false
-          hidden_units: 128
+          hidden_units: 256
           num_layers: 2
           vis_encode_type: simple
           memory: null
@@ -36,8 +36,8 @@ behaviors:
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
-    max_steps: 500000
-    time_horizon: 64
+    max_steps: 50000000
+    time_horizon: 128
     summary_freq: 50000
     threaded: false
     self_play: null
@@ -56,7 +56,7 @@ engine_settings:
   width: 84
   height: 84
   quality_level: 5
-  time_scale: 20
+  time_scale: 5.0
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: false
