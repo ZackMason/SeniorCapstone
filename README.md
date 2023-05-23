@@ -1,5 +1,13 @@
-# SeniorCapstone
+# Gravitank Guantlet
 OSU Game Design Competition Senior Capstone
+
+A 3D hover tank combat game where you navigate treacherous terrain, avoid obstacles, defeat various enemies, including the boss at the end.
+
+## Table of Content
+- [Code Architecture](Game/TankGame/README.md)
+- [Roles](#roles)
+- [How to Build](#how-to-build)
+
 
 ## Roles
 
@@ -8,6 +16,5 @@ OSU Game Design Competition Senior Capstone
 - Note Taker: 
 - Documentation: 
 
-## Weekly Schedule
-
-- TA Meeting - Thursday 2:40 pm
+## How to Buuild
+  Install Unity 2021.3.16f, necessary packages will be installed for you by the project. 
