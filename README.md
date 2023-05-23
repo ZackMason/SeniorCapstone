@@ -13,7 +13,7 @@ A 3D hover tank combat game where you navigate treacherous terrain, avoid obstac
 - Zack - Project Manager / Programmer / Artist / AI
 - Haroon - Programmer / Task Coordinator
 - Timmy - Programmer / Sound
-- Tobby - Level Design / QA 
+- Toby - Level Design / QA 
 
 ## How to Buuild
   Install Unity 2021.3.16f, necessary packages will be installed for you by the project. 
