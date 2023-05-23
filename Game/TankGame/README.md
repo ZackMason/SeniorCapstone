@@ -40,6 +40,11 @@ The game is built using only Unity 2021.3.16f1 with the Universal Render Pipelin
 - [EnemyTankBrain](Assets/GameObjects/Enemies/Tanks/EnemyTankBrain.cs)
 - [MLTankBrain](Assets/GameObjects/Enemies/Tanks/MLTankBrain.cs)
 
+### Boss
+- [SnakeController](Assets/GameObjects/Enemies/Boss/SnakeController.cs)
+- [SnakeTargetFinder](Assets/GameObjects/Enemies/Boss/SnakeTargetFinder.cs)
+- [SnakeDig](Assets/GameObjects/Enemies/Boss/SnakeDig.cs)
+
 ### [Turret](Assets/GameObjects/Enemies/Turrets/Turret.cs)
 
 ## Singletons
