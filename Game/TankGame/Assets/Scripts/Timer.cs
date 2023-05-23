@@ -43,6 +43,8 @@ public class Timer : MonoBehaviour
     bool isFadingOut = false;
     public static int zone = 0;
 
+    private bool _isDone = false;
+    public void Finish() => _isDone = true;
 
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
@@ -52,7 +54,6 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
         SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
         timeCounter = 0;
     }
@@ -60,8 +61,9 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        timeCounter += Time.deltaTime;
+        if (!_isDone) {
+            timeCounter += Time.deltaTime;
+        }
         player = respawnManager.Player;
         var tankBody = player.GetComponent<HoverTankController>().GetBody();
         //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();

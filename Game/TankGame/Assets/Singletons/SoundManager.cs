@@ -32,6 +32,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy() {
+        if (Instance == this) {
+            Instance = null;
+        }
+    }
+
     // Todo(Zack): Cache sounds each frame to stop sound from
     // stacking on top of each other
     public void PlaySound(SoundAsset asset, Vector3 position) {
