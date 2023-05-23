@@ -978,6 +978,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3250751692145266990, guid: e7a7f0c210057684dbe78891423b1605,
+        type: 3}
+      propertyPath: _sceneName
+      value: SampleScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6967160774222391338, guid: e7a7f0c210057684dbe78891423b1605,
         type: 3}
       propertyPath: m_Name
