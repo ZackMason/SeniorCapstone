@@ -63,22 +63,24 @@ public class Timer : MonoBehaviour
  
         timeCounter += Time.deltaTime;
         player = respawnManager.Player;
+        var tankBody = player.GetComponent<HoverTankController>().GetBody();
         //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();
-        if (player.GetComponent<HoverTankController>().GetBody() != null) 
+        if (tankBody != null) 
         {
-            if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 10)
+            var tankHealth = tankBody.GetComponent<Health>()?.GetHealth() ?? 120f;
+            if (tankHealth < 10)
             {
-                healthtext.text = "    " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "    " + tankHealth.ToString("f0");
             }
-            else if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 100)
+            else if (tankHealth < 100)
             {
-                healthtext.text = "   " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "   " + tankHealth.ToString("f0");
             }
             else
             {
-                healthtext.text = "  " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "  " + tankHealth.ToString("f0");
             }
-            bodyhealth.fillAmount = 1.0f - player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() / 120.0f;
+            bodyhealth.fillAmount = 1.0f - (tankHealth) / 120.0f;
         }
         else
         {
