@@ -32,6 +32,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy() {
+        if (Instance == this) {
+            Instance = null;
+        }
+    }
+
     // Todo(Zack): Cache sounds each frame to stop sound from
     // stacking on top of each other
     public void PlaySound(SoundAsset asset, Vector3 position) {
@@ -40,7 +46,7 @@ public class SoundManager : MonoBehaviour
             case SoundAsset.Explosion: AudioSource.PlayClipAtPoint(ExplosionAudio, position); break;
             case SoundAsset.DriveMode: DriveModeA.Play(); break;
             case SoundAsset.CombatMode: CombatModeA.Play(); break;
-            case SoundAsset.Boost: Boost.Play(); break;
+            case SoundAsset.Boost: Boost?.Play(); break;
             case SoundAsset.theme1: theme1.Play(); break;
             case SoundAsset.theme2: Fade(theme1); theme2.Play(); break;
             case SoundAsset.theme3: Fade(theme2); theme3.Play(); break;

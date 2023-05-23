@@ -43,6 +43,8 @@ public class Timer : MonoBehaviour
     bool isFadingOut = false;
     public static int zone = 0;
 
+    private bool _isDone = false;
+    public void Finish() => _isDone = true;
 
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
@@ -52,7 +54,6 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
         SoundManager.Instance?.PlaySound(SoundAsset.theme1, Vector3.zero);
         timeCounter = 0;
     }
@@ -60,25 +61,28 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        timeCounter += Time.deltaTime;
+        if (!_isDone) {
+            timeCounter += Time.deltaTime;
+        }
         player = respawnManager.Player;
+        var tankBody = player.GetComponent<HoverTankController>().GetBody();
         //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();
-        if (player.GetComponent<HoverTankController>().GetBody() != null) 
+        if (tankBody != null) 
         {
-            if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 10)
+            var tankHealth = tankBody.GetComponent<Health>()?.GetHealth() ?? 120f;
+            if (tankHealth < 10)
             {
-                healthtext.text = "    " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "    " + tankHealth.ToString("f0");
             }
-            else if (player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() < 100)
+            else if (tankHealth < 100)
             {
-                healthtext.text = "   " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "   " + tankHealth.ToString("f0");
             }
             else
             {
-                healthtext.text = "  " + player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth().ToString("f0");
+                healthtext.text = "  " + tankHealth.ToString("f0");
             }
-            bodyhealth.fillAmount = 1.0f - player.GetComponent<HoverTankController>().GetBody().GetComponent<Health>().GetHealth() / 120.0f;
+            bodyhealth.fillAmount = 1.0f - (tankHealth) / 120.0f;
         }
         else
         {

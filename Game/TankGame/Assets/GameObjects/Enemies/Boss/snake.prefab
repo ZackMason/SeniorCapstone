@@ -1149,6 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091cb7fc2ee77f74d88dad95f9355177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 0}
   _dollyCart: {fileID: 4949221937722309586}
   _moveSpeed: 10
   _targetFinder:
@@ -1169,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
-  MaxHealth: 2000
+  MaxHealth: 420
 --- !u!54 &919132149022384352
 Rigidbody:
   m_ObjectHideFlags: 0

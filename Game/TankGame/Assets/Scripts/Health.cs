@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class Health : MonoBehaviour
@@ -14,6 +17,8 @@ public class Health : MonoBehaviour
     private Destructible _destructible;
 
     public float GetHealth() => _currentHealth;
+
+    public event Action OnDeath;
 
     void Start() {
         _currentHealth = MaxHealth;
@@ -34,6 +39,7 @@ public class Health : MonoBehaviour
                 _destructible.Destruct();
                 Timer.score += 100;
             }
+            OnDeath?.Invoke();
             Destroy(this.gameObject);
             return true;
         }

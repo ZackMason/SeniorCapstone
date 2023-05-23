@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8912816900495378943}
   - component: {fileID: 7814090729345368540}
   - component: {fileID: 7814090729345368512}
+  - component: {fileID: 8046770142918272214}
+  - component: {fileID: 3250751692145266990}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -114,3 +116,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyedPrefab: {fileID: 0}
   RamResistance: 0
+--- !u!114 &8046770142918272214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967160774222391338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84548acf8754f1449839de5b228ce0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  MaxHealth: 1
+--- !u!114 &3250751692145266990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967160774222391338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052ecca66f7a9d244bc959c508d508c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: MLPlayground

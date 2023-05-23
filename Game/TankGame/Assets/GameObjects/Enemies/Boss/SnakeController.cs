@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class SnakeController : MonoBehaviour
 {
+    [SerializeField] private Timer _timer;
     [SerializeField] private CinemachineDollyCart _dollyCart;
     [SerializeField] private float _moveSpeed;
     private float _pathPosition = 0f;
@@ -15,6 +16,10 @@ public class SnakeController : MonoBehaviour
     private void _setCartPosition(float p) => _dollyCart.m_Position = p;
     private CinemachineSmoothPath _getPath() => _dollyCart.m_Path as CinemachineSmoothPath;
     
+    void OnDestroy() {
+        _timer.Finish();
+    }
+
     void Update()
     {
         _pathPosition += Time.deltaTime / _moveSpeed;
