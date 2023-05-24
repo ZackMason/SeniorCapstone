@@ -43,9 +43,13 @@ public class Timer : MonoBehaviour
     bool isFadingOut = false;
     public static int zone = 0;
 
-    private bool _isDone = false;
-    public void Finish() => _isDone = true;
+    private int bossCount = 2;
 
+    private bool _isDone = false;
+    public void Finish() {
+        bossCount -= 1;
+        _isDone = bossCount == 0;
+    }
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
 
@@ -69,20 +73,10 @@ public class Timer : MonoBehaviour
         //int healthy = player.GetComponent<Health>().TankBody.GetCurrentHealth();
         if (tankBody != null) 
         {
-            var tankHealth = tankBody.GetComponent<Health>()?.GetHealth() ?? 120f;
-            if (tankHealth < 10)
-            {
-                healthtext.text = "    " + tankHealth.ToString("f0");
-            }
-            else if (tankHealth < 100)
-            {
-                healthtext.text = "   " + tankHealth.ToString("f0");
-            }
-            else
-            {
-                healthtext.text = "  " + tankHealth.ToString("f0");
-            }
-            bodyhealth.fillAmount = 1.0f - (tankHealth) / 120.0f;
+            var tankHealth = tankBody.GetComponent<Health>().GetHealth();
+
+            healthtext.text = tankHealth.ToString("f0");
+            bodyhealth.fillAmount = 1.0f - (tankHealth) / tankBody.GetComponent<Health>().MaxHealth;
         }
         else
         {

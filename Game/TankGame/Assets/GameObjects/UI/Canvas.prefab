@@ -488,7 +488,7 @@ RectTransform:
   m_GameObject: {fileID: 1399264306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4659636, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8736133357747525056}
@@ -496,8 +496,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: -121}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 298, y: -122.7}
+  m_SizeDelta: {x: 122.4974, y: 123.7954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1399264309
 CanvasRenderer:
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9790d5d6ba336294dbbe345c344e84dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b1f6530fe9cd2f4ab5e0140cbfe8b8d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -891,7 +891,7 @@ RectTransform:
   m_GameObject: {fileID: 2061976618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4659636, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8736133357747525056}
@@ -899,8 +899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: -121}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 298.00003, y: -122.69999}
+  m_SizeDelta: {x: 122.4974, y: 123.7954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2061976621
 CanvasRenderer:
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9790d5d6ba336294dbbe345c344e84dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b1f6530fe9cd2f4ab5e0140cbfe8b8d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -973,11 +973,11 @@ RectTransform:
   m_Father: {fileID: 8736133357747525056}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 762, y: -61}
-  m_SizeDelta: {x: 108.5, y: 41.1837}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 425, y: -94}
+  m_SizeDelta: {x: 336.5466, y: 123.3933}
+  m_Pivot: {x: 0.49999985, y: 0.5}
 --- !u!222 &359684183288813624
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1006,9 +1006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Health
-
-'
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3312b518f5ce29849930f8bd9e78cf0d, type: 2}
   m_sharedMaterial: {fileID: 6935664544472706358, guid: 3312b518f5ce29849930f8bd9e78cf0d,
@@ -1043,8 +1041,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1072,7 +1070,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -110.2185, y: 0, z: 43.12897, w: 16.891363}
+  m_margin: {x: -110.2185, y: 0, z: 142.30011, w: 16.891363}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

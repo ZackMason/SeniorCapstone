@@ -35,12 +35,12 @@ PrefabInstance:
     - target: {fileID: 1039174448613861898, guid: bc3ffc9b9b4c10d4c922b69ee69bcd8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1039174448613861898, guid: bc3ffc9b9b4c10d4c922b69ee69bcd8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.325
+      value: -0.0069999993
       objectReference: {fileID: 0}
     - target: {fileID: 1039174448613861898, guid: bc3ffc9b9b4c10d4c922b69ee69bcd8b,
         type: 3}
@@ -142,6 +142,11 @@ PrefabInstance:
       propertyPath: TankBody
       value: 
       objectReference: {fileID: 5647558271033602758}
+    - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: CenterOfMass.y
+      value: -0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: BoostCooldownTime
@@ -342,6 +347,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 10.12
       objectReference: {fileID: 0}
+    - target: {fileID: 6593572276932622592, guid: 327fff65a4524f84cb711e84e7838dea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.418
+      objectReference: {fileID: 0}
     - target: {fileID: 6632582274525601637, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: m_Mesh
@@ -366,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.235
       objectReference: {fileID: 0}
     - target: {fileID: 6632582275650403938, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}

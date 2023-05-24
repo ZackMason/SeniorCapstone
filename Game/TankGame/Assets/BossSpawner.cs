@@ -5,13 +5,13 @@ using UnityEngine;
 // Note(Zack): This Script activates the boss when the player enters the trigger area
 public class BossSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _boss;
+    [SerializeField] private List<GameObject> _boss = new List<GameObject>();
 
-    void Start() => _boss.SetActive(false);
+    void Start() => _boss.ForEach(boss => boss.SetActive(false));
         
     void OnTriggerEnter(Collider other) {
         if (other.attachedRigidbody?.tag == "Player") {
-            _boss.SetActive(true);
+            _boss.ForEach(boss => boss.SetActive(true));
             Destroy(this);
         }
     }
