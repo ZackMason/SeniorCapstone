@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Turbo",
-                    "type": "Value",
-                    "id": "5e99f205-5da0-48b0-9040-0aa0ab9b555b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -287,72 +278,6 @@
                     "action": "SwitchMode",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "Keyboard Combo",
-                    "id": "1ce3a954-dcd9-413d-a35d-1d1e07dd8d87",
-                    "path": "Custom",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "firstPart",
-                    "id": "fefca180-2797-4712-b3bc-643fc97d72ee",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "secondPart",
-                    "id": "a4596b89-6951-403c-97ec-443c86242f44",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Controller Combo",
-                    "id": "ebc59a1e-31d4-4462-b557-593e4e6529ec",
-                    "path": "Custom",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "firstPart",
-                    "id": "063a7711-d341-4bf6-a47e-ff9bfb410fb6",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "secondPart",
-                    "id": "485ae95f-e0ef-49de-a009-16f3c6fb9c6d",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turbo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "Axis",
