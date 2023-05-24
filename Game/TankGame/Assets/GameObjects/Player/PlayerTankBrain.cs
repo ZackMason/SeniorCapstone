@@ -45,9 +45,9 @@ public class PlayerTankBrain : MonoBehaviour, ITankBrain
         _boost = value.Get<float>();
     }
 
-    void OnTurbo(InputValue value) {
-        _turbo = value.Get<float>();
-    }
+    // void OnTurbo(InputValue value) {
+    //     _turbo = value.Get<float>();
+    // }
 
     void OnFire(InputValue value) {
         _fire = value.Get<float>();
