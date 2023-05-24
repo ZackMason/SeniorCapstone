@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.1764706, g: 0.81960785, b: 0.8666667, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.01
+  m_FogDensity: 0.001
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -453,8 +453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b1097189de554ba0982d66d1c16b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
-  _rotSpeed: 1
+  acceleration: 50
+  accSprintMultiplier: 4
+  lookSensitivity: 0.3
+  dampingCoefficient: 5
+  focusOnEnable: 1
 --- !u!1 &1075477083
 GameObject:
   m_ObjectHideFlags: 0
