@@ -81,7 +81,7 @@ MonoBehaviour:
   MoveTarget: {x: 0, y: 0, z: 0}
   HasTarget: 0
   NeedsVision: 1
-  VisionRadius: 100
+  VisionRadius: 75
   SearchTime: 1
 --- !u!54 &1961641404754456219
 Rigidbody:
