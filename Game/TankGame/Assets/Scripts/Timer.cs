@@ -126,7 +126,7 @@ public class Timer : MonoBehaviour
         Vector3 needlerot = needle.rectTransform.rotation.eulerAngles;
         needlerot.z = velocityMagnitude;
         needle.rectTransform.rotation = Quaternion.Euler(needlerot);
-        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f;
+        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f * 0.2f;
         //DriveAudio.Play();
 
 
