@@ -27,6 +27,11 @@ public class TargetFinder : MonoBehaviour
     }
 
     public void Search(float dt) {
+        if (RespawnManager.Instance.ShouldIgnorePlayer()) {
+            HasTarget = false;
+            return;
+        }
+
         if ((_searchTimer -= dt) < 0.0f) {
             _searchTimer = SearchTime;
 
@@ -35,13 +40,13 @@ public class TargetFinder : MonoBehaviour
             Faction[] factions = FindObjectsOfType(typeof(Faction)) as Faction[];
             foreach(Faction faction in factions) {
                 if (faction.ID != _faction.ID) {
-                    float dist = Vector3.Magnitude(faction.gameObject.transform.position - transform.position);
+                    float dist = (faction.gameObject.transform.position - transform.position).magnitude;
                     float tooClose = 3.0f;
                     if (dist < closest && dist > tooClose && dist < VisionRadius) {
                         if (NeedsVision) {
                             int layerMask = ~0;
                             Vector3 rayOrigin = transform.position;
-                            Vector3 rayDirection = Vector3.Normalize(faction.gameObject.transform.position - transform.position);
+                            Vector3 rayDirection = (faction.gameObject.transform.position - transform.position).normalized;
                             RaycastHit hit;
 
                             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity, layerMask)) {

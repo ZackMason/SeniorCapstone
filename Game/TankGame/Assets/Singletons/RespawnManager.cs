@@ -19,6 +19,9 @@ public class RespawnManager : MonoBehaviour
     private Coroutine RespawnCoroutine;
 
     public static RespawnManager Instance { get; private set; }
+
+    private float _ignoreTimer = 0f;
+    public bool ShouldIgnorePlayer() => _ignoreTimer > 0f;
     
     private void Awake() 
     {
@@ -42,19 +45,15 @@ public class RespawnManager : MonoBehaviour
     
     bool _isOnGround(Vector3 pos) {
         return true;
-        // RaycastHit hit;
-        // return Physics.Raycast(pos, Vector3.down, out hit, 4.0f, 0);
     }
 
     IEnumerator RespawnPlayer() {
         yield return new WaitForSeconds(RespawnTime);
+        _ignoreTimer = 4f;
         Destroy(Player);
         Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, _lastPlayerRotation);
         RespawnCoroutine = null;
     }
-
-    
-    
 
     IEnumerator SetCheckpoint() {
         while(true) {
@@ -68,6 +67,8 @@ public class RespawnManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        _ignoreTimer -= Time.fixedDeltaTime;
+
         if ((Player?.GetComponent<HoverTankController>()?.IsAlive() ?? true) == false &&
             RespawnCoroutine == null
         ) { // player died
