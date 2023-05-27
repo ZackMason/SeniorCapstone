@@ -27,7 +27,7 @@ public class TargetFinder : MonoBehaviour
     }
 
     public void Search(float dt) {
-        if (RespawnManager.Instance.ShouldIgnorePlayer()) {
+        if (RespawnManager.Instance?.ShouldIgnorePlayer() ?? false) {
             HasTarget = false;
             return;
         }
