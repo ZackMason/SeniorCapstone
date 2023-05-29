@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -18,13 +19,23 @@ public class InputManager : MonoBehaviour
         } 
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) {
+    void Update() {
+        if (Input.GetMouseButtonDown(0) && 
+            (!LevelManager.Instance?.IsShowingOptions() ?? true)) {
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
         }
-        if (Input.GetKey(KeyCode.Escape)) {
-            Cursor.lockState = CursorLockMode.None;
+        if (Input.GetKeyDown(KeyCode.Escape) ||
+            (Gamepad.current?.selectButton.wasPressedThisFrame ?? false)) {
+            if (LevelManager.Instance?.IsShowingOptions() ?? false) {
+                LevelManager.Instance?.ShowOptions(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1f;
+            } else {
+                LevelManager.Instance?.ShowOptions(true);
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0f;
+            }
         }
     }
 }

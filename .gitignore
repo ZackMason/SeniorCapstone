@@ -1,5 +1,7 @@
-
+[Ee]xport/
 .vs/
+ML/venv/
+
 
 # Compiled Object files
 *.slo
@@ -99,3 +101,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 [Aa]ssets/[Ss]treamingAssets/aa.meta
 [Aa]ssets/[Ss]treamingAssets/aa/*
+
+Game/TankGame/Assets/ML-Agents/Timers/*
