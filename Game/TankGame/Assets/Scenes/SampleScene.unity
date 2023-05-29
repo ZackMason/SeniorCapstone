@@ -5869,7 +5869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use "q+E" to Turbo Boost
+  m_text: 'Use "CTRL" (Y) to Turbo Boost
 
 '
   m_isRightToLeft: 0
@@ -8295,11 +8295,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1940063211}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -111.258, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 144.43, y: 73.65}
+  m_AnchoredPosition: {x: 144.43, y: 74.87}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572542381
@@ -8322,7 +8322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "Space" to change Modes
+  m_text: Press "Space" (X) to change Modes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3312b518f5ce29849930f8bd9e78cf0d, type: 2}
   m_sharedMaterial: {fileID: 6935664544472706358, guid: 3312b518f5ce29849930f8bd9e78cf0d,
@@ -8468,7 +8468,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1940063211}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -183.95, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8495,7 +8495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use "Shift" to Airbrake
+  m_text: 'Use "Shift" (B) to Airbrake
 
 '
   m_isRightToLeft: 0
@@ -24895,11 +24895,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1940063211}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -111.258, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 144.42, y: 69.7}
+  m_AnchoredPosition: {x: 144.42, y: 71.3}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815699025
@@ -24922,7 +24922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use q/E to Boost \n"
+  m_text: "Use q (LB) /E (RB) to Boost \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3312b518f5ce29849930f8bd9e78cf0d, type: 2}
   m_sharedMaterial: {fileID: 6935664544472706358, guid: 3312b518f5ce29849930f8bd9e78cf0d,
@@ -27212,9 +27212,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 572542380}
   - {fileID: 1815699024}
   - {fileID: 573468259}
-  - {fileID: 572542380}
   - {fileID: 395829326}
   - {fileID: 387595160}
   m_Father: {fileID: 0}
@@ -30895,7 +30895,7 @@ PrefabInstance:
     - target: {fileID: 473595072436445023, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
       propertyPath: BoostCooldownTime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1141868329182929322, guid: 327fff65a4524f84cb711e84e7838dea,
         type: 3}
