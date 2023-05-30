@@ -33,6 +33,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Turbo",
+                    "type": "Value",
+                    "id": "b817e6ba-1703-4107-9f54-49f25524d0e3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Fire",
                     "type": "Value",
                     "id": "62a2542f-e51b-43b9-bad0-c57d8fd465b1",
@@ -344,6 +353,28 @@
                     "action": "Boost",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b56dd730-b1b9-4d33-8233-ada03ed6dbab",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turbo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "166ba15e-f0f0-46a4-863d-0816317b31ce",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turbo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
