@@ -26,9 +26,7 @@ public class HoverTankController : MonoBehaviour
     [Range(0, 15)]
     public float BoostCooldownTime;
     [Range(0, 15)]
-    public float TurboCooldownTime;
     public float _boostTimer;
-    private float _turboTimer;
 
     public Vector3      CenterOfMass;
     public GameObject   TankHead;
@@ -122,7 +120,6 @@ public class HoverTankController : MonoBehaviour
             return; 
         }
         _boostTimer -= Time.deltaTime;
-        _turboTimer -= Time.deltaTime;
 
         Vector2 TurretInput = _brain.GetTurretInput() * Time.deltaTime * 0.1f;
         if (_mode == TankMode.COMBAT) {
@@ -208,10 +205,9 @@ public class HoverTankController : MonoBehaviour
         _tankRigidbody.AddTorque(Vector3.up * DriveInput.x * TorquePower);
         _tankRigidbody.AddForce(BodyForward * DriveInput.y * DrivePower);
 
-        if (TurboActive != 0.0f && _turboTimer <= 0.0f){
-            _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * .75f, ForceMode.Impulse);
-            _turboTimer = TurboCooldownTime;
-            _boostTimer = BoostCooldownTime * 0.5f;
+        if (TurboActive != 0.0f && _boostTimer <= 0.0f){
+            _tankRigidbody.AddForce(BodyForward * TurboActive * DrivePower * 2f, ForceMode.Impulse);
+            _boostTimer = BoostCooldownTime * 1.5f;
             SoundManager.Instance?.PlaySound(SoundAsset.Boost, Vector3.zero);
             //Debug.Log("turbo");
             
