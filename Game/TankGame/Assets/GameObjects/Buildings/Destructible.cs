@@ -9,6 +9,8 @@ public class Destructible : MonoBehaviour
 
     [SerializeField] private CinemachineImpulseSource _impulsor;
 
+    private bool _boomed = false;
+
     void Start() {
         _impulsor = GetComponentInChildren<CinemachineImpulseSource>();
     }
@@ -17,6 +19,9 @@ public class Destructible : MonoBehaviour
     public float RamResistance;
 
     public void Destruct() {
+        if (_boomed) return;
+        _boomed = true;
+        
         if (DestroyedPrefab) {
             var savedScale = transform.localScale;
             var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
