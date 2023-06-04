@@ -114,6 +114,10 @@ public class HoverTankController : MonoBehaviour
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
             _tankRigidbody.mass = 50f;
+             if (_camera != null) {
+                _camera.fieldOfView = 90;
+            }
+
             if ((_deathTimer -= Time.deltaTime) < 0.0f) {
                 Destroy(gameObject);
             }
@@ -134,7 +138,7 @@ public class HoverTankController : MonoBehaviour
         }
         Vector3 toTarget = _turretDirection(_tankYawPitch);
         Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
-        float stepSize = 0.5f * Time.deltaTime;
+        float stepSize = Time.deltaTime * 0.7f;
 
         Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 
