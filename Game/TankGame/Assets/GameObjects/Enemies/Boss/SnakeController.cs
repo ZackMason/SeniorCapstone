@@ -25,7 +25,7 @@ public class SnakeController : MonoBehaviour
     void Update()
     {
         var target = RespawnManager.Instance.Player.transform.position;
-        _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.05f);
+        _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.05f * Globals.Instance.CameraShake);
 
         _pathPosition += Time.deltaTime / _moveSpeed;
         if (_pathPosition >= 1.1f) {

@@ -21,7 +21,7 @@ public class Destructible : MonoBehaviour
     public void Destruct() {
         if (_boomed) return;
         _boomed = true;
-        
+
         if (DestroyedPrefab) {
             var savedScale = transform.localScale;
             var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
@@ -30,7 +30,7 @@ public class Destructible : MonoBehaviour
             if (_impulsor) { // todo(zack): if we're spawning visuals, lets add camera shake
                 
                 var target = RespawnManager.Instance.Player.transform.position;
-                _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.5f);
+                _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.5f * Globals.Instance.CameraShake);
             }
         }
         Destroy(this.gameObject);

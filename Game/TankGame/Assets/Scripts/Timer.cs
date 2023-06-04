@@ -48,13 +48,16 @@ public class Timer : MonoBehaviour
     private bool _isDone = false;
     public void Finish() {
         bossCount -= 1;
-        _isDone = bossCount == 0;
+        _winScreen.SetActive(_isDone = bossCount == 0);
+
     }
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
 
     [SerializeField] private ModeIndicator _combatModeIndicator;
     [SerializeField] private ModeIndicator _driveModeIndicator;
+
+    [SerializeField] private GameObject _winScreen;
 
     void Start()
     {
@@ -126,7 +129,7 @@ public class Timer : MonoBehaviour
         Vector3 needlerot = needle.rectTransform.rotation.eulerAngles;
         needlerot.z = velocityMagnitude;
         needle.rectTransform.rotation = Quaternion.Euler(needlerot);
-        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f * 0.2f;
+        DriveAudio.volume = player.GetComponent<Rigidbody>().velocity.magnitude * 0.1f * 0.2f * Globals.Instance.SFXAudio;
         //DriveAudio.Play();
 
 
