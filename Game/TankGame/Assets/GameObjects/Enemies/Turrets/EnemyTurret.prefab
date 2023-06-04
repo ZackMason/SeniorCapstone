@@ -352,6 +352,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: turret_head
       objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: c296a0213c47b0e4796aa38794fe8c25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
+    - target: {fileID: 7202271454713460447, guid: c296a0213c47b0e4796aa38794fe8c25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c296a0213c47b0e4796aa38794fe8c25, type: 3}
 --- !u!1 &1560280134773172062 stripped
@@ -468,6 +478,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 982ea19ddad9d694ab7ffccc1bd3e598,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 919132149155446097, guid: 982ea19ddad9d694ab7ffccc1bd3e598,
         type: 3}
       propertyPath: m_Name

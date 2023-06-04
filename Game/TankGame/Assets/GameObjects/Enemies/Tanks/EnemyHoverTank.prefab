@@ -7,11 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082313132265926468}
     m_Modifications:
+    - target: {fileID: 619939468960059932, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: DestroyedPrefab
+      value: 
+      objectReference: {fileID: 5550509609170954667, guid: 0b8728f74c93993428d05aa2fe919131,
+        type: 3}
     - target: {fileID: 919708614946476336, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 1082313132265926469}
+    - target: {fileID: 1083967781658524072, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 2640767751629196638, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: m_RootOrder
@@ -72,16 +83,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: tank_body
       objectReference: {fileID: 0}
+    - target: {fileID: 3814206506605590065, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
+    - target: {fileID: 4453376606744190880, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 4469227267427186488, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 1082313132265926469}
+    - target: {fileID: 4752056276609723262, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 4772341061278614502, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 1082313132265926469}
+    - target: {fileID: 6363985297215682489, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 6600335318121996065, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: TankRigidbody
@@ -92,6 +123,16 @@ PrefabInstance:
       propertyPath: TankRigidbody
       value: 
       objectReference: {fileID: 1082313132265926469}
+    - target: {fileID: 8580287902757383459, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
+    - target: {fileID: 8951982225344766229, guid: 96ece65613dd1474ca155f47f394edc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 9219893796348627341, guid: 96ece65613dd1474ca155f47f394edc0,
         type: 3}
       propertyPath: TankRigidbody
@@ -117,6 +158,16 @@ PrefabInstance:
       propertyPath: ID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2653691284865616215, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
+    - target: {fileID: 2664218585344569611, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc577ea0f2cb5b40b97b24c6b624a8a, type: 2}
     - target: {fileID: 3319749611546774308, guid: 1686887f314c2424f9eb174b446e3a9f,
         type: 3}
       propertyPath: Detectors.Array.size

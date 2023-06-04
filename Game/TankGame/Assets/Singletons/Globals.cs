@@ -9,6 +9,9 @@ public class Globals : MonoBehaviour
 
     // Graphics
     public float AAQuality { 
+        get {
+            return PlayerPrefs.GetFloat("AA", 0f);
+        }
         set {
             Camera[] cameras = FindObjectsOfType(typeof(Camera)) as Camera[];
             
@@ -25,47 +28,68 @@ public class Globals : MonoBehaviour
                     uacd.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
 
                 }
+                PlayerPrefs.SetFloat("AA", value);
+                PlayerPrefs.Save();
             }
         }
     }
 
     // Gameplay
-    public float MouseSensitivity { get; set; } = 1f;
-    public float CameraShake { get; set; } = 1f;
-
-    // Audio
-    public float MainAudio { get; set; } = 1f;
-
-    private float _musicAudio = 1f;
-    public float MusicAudio { 
+    public float MouseSensitivity {
         get {
-            return _musicAudio * MainAudio;
+            return PlayerPrefs.GetFloat("MouseSensitivity", 1f);
         }
         set {
-            _musicAudio = value;
+            PlayerPrefs.SetFloat("MouseSensitivity", value);
+            PlayerPrefs.Save();
+        }
+    }
+    public float CameraShake {
+        get {
+            return PlayerPrefs.GetFloat("CameraShake", 1f);
+        }
+        set {
+            PlayerPrefs.SetFloat("CameraShake", value);
+            PlayerPrefs.Save();
         }
     }
 
-    private float _sfxAudio = 1f;
-    public float SFXAudio { 
+    // Audio
+    public float MainAudio {
         get {
-            return _sfxAudio * MainAudio;
+            return PlayerPrefs.GetFloat("MainAudio", 1f);
         }
         set {
-            _sfxAudio = value;
+            PlayerPrefs.SetFloat("MainAudio", value);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public float MusicAudio {
+        get {
+            return PlayerPrefs.GetFloat("MusicAudio", 1f) * MainAudio;
+        }
+        set {
+            PlayerPrefs.SetFloat("MusicAudio", value);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public float SFXAudio {
+        get {
+            return PlayerPrefs.GetFloat("SFXAudio", 1f) * MainAudio;
+        }
+        set {
+            PlayerPrefs.SetFloat("SFXAudio", value);
+            PlayerPrefs.Save();
         }
     }
     
-    private void Awake() 
-    { 
-        if (Instance != null && Instance != this) 
-        { 
+    private void Awake() { 
+        if (Instance != null && Instance != this) { 
             Destroy(this); 
-        } 
-        else 
-        { 
+        } else { 
             Instance = this; 
         } 
     }
-
 }
