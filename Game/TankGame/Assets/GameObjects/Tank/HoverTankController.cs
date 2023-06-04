@@ -148,14 +148,16 @@ public class HoverTankController : MonoBehaviour
 
         if (nextRotation.magnitude > 0.0f) {
             float maxPitchAngle = 45f;
-            Quaternion newRotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
+            // Quaternion newRotation = Quaternion.LookRotation(nextRotation, TankBody.transform.up);
+            Quaternion newRotation = Quaternion.Inverse(TankBody.transform.rotation) * Quaternion.LookRotation(nextRotation, -TankBody.transform.forward);
             Vector3 euler = newRotation.eulerAngles;
             if (euler.x > 180f) {
                 euler.x -= 360f;
             }
             euler.x = Mathf.Clamp(euler.x, -maxPitchAngle, maxPitchAngle);
+            euler.z = 0f;
             newRotation.eulerAngles = euler;
-            TankHead.transform.rotation = newRotation;
+            TankHead.transform.rotation = TankBody.transform.rotation * newRotation;
         } else {
             Debug.Log($"{name}: has weird rotation, turret = {_tankYawPitch}, {toTarget}");
         }
@@ -219,9 +221,7 @@ public class HoverTankController : MonoBehaviour
             SoundManager.Instance?.PlaySound(SoundAsset.Boost, Vector3.zero);
             //Debug.Log("turbo");
             
-        }
-
-        else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
+        } else if (BoostDir != 0.0f && _boostTimer <= 0.0f) {
             _tankRigidbody.AddForce(BodyRight * BoostDir * DrivePower * 3.0f, ForceMode.Impulse);
             _boostTimer = BoostCooldownTime;
             SoundManager.Instance?.PlaySound(SoundAsset.Boost, Vector3.zero);
