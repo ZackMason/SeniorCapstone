@@ -18,7 +18,7 @@ public class SnakeDig : MonoBehaviour
     private bool _isColliding() => _isSphereTriggerCollidingWithLayer();
 
     IEnumerator _resetExplosion() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
         _canExplode = true;
     }
 
