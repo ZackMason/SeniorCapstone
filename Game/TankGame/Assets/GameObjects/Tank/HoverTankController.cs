@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public enum TankMode {
     DRIVE, COMBAT, SIZE
@@ -10,11 +11,10 @@ public enum TankMode {
 
 public class HoverTankController : MonoBehaviour
 {
-
     public ITankBrain   _brain;
     private HEWeapon    _weapon;
     private Rigidbody   _tankRigidbody;
-    private Camera      _camera;
+    private CinemachineVirtualCamera      _camera;
     private Vector2     _tankYawPitch = new Vector2(
         0.0f, Mathf.PI
     );
@@ -60,7 +60,7 @@ public class HoverTankController : MonoBehaviour
             _brain = GetComponent<ITankBrain>();
         }
         _weapon = GetComponentInChildren<HEWeapon>();
-        _camera = GetComponentInChildren<Camera>();
+        _camera = GetComponentInChildren<CinemachineVirtualCamera>();
         _tankRigidbody = GetComponent<Rigidbody>();
 
         _tankRigidbody.centerOfMass = CenterOfMass;
@@ -109,13 +109,17 @@ public class HoverTankController : MonoBehaviour
         _tankYawPitch.x = Mathf.Atan2(forwardDir.z, forwardDir.x); 
     }
 
+    private void _setFOV(CinemachineVirtualCamera cam, float fov) {
+        cam.m_Lens.FieldOfView = fov;
+    }
+
     void Update() {
         
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
             _tankRigidbody.mass = 50f;
              if (_camera != null) {
-                _camera.fieldOfView = 90;
+                _setFOV(_camera, 90);
             }
 
             if ((_deathTimer -= Time.deltaTime) < 0.0f) {
@@ -158,9 +162,9 @@ public class HoverTankController : MonoBehaviour
 
         if (_camera != null) {
             if (_brain.WantToZoom()) {
-                _camera.fieldOfView = 30;
+                _setFOV(_camera, 30);
             } else {
-                _camera.fieldOfView = 90;
+                _setFOV(_camera, 90);
             }
         }
 
