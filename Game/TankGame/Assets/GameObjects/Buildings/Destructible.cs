@@ -27,7 +27,7 @@ public class Destructible : MonoBehaviour
             var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
             newObject.transform.localScale = savedScale;
 
-            if (_impulsor) { // todo(zack): if we're spawning visuals, lets add camera shake
+            if (_impulsor && RespawnManager.Instance.Player) { // todo(zack): if we're spawning visuals, lets add camera shake
                 
                 var target = RespawnManager.Instance.Player.transform.position;
                 _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.5f * Globals.Instance.CameraShake);

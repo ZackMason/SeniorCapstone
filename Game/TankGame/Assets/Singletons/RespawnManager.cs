@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,6 +45,13 @@ public class RespawnManager : MonoBehaviour
     
     bool _isOnGround(Vector3 pos) {
         return true;
+    }
+
+    public void KillPlayer() {
+        if (Player) {
+            var health = Player.GetComponentInChildren<Health>();
+            health.Damage(100000000);
+        }
     }
 
     IEnumerator RespawnPlayer() {
