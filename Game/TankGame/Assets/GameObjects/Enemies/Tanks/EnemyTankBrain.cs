@@ -25,7 +25,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         float fuzzy_forward = Vector3.Dot(-transform.forward, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
         float fuzzy_right = Vector3.Dot(-transform.right, Vector3.Normalize(TargetFinder.MoveTarget - transform.position));
 
-        fuzzy_right *= 1f - Mathf.Clamp(_getAccuracy(), 0f, 1f);
+        fuzzy_right *= 1f - Mathf.Clamp(_getAccuracy(), 0.1f, 1f);
 
         return new Vector2(
             Mathf.Clamp(fuzzy_right*2.0f, -1.0f, 1.0f),
@@ -60,7 +60,7 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         fuzzyAim = Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(fuzzyAim)) * Mathf.Sign(fuzzyAim) + 
                     0.5f * Mathf.Pow(fuzzyAim, 3), -1.0f, 1.0f);
 
-        return new Vector2(fuzzyAim * 3.0f, 0.0f);
+        return new Vector2(fuzzyAim * 9.0f, 0.0f);
     }
     
     public bool WantToSwitchMode(){
