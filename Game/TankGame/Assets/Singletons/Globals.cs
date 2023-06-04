@@ -9,6 +9,9 @@ public class Globals : MonoBehaviour
 
     // Graphics
     public float AAQuality { 
+        get {
+            return PlayerPrefs.GetFloat("AA", 0f);
+        }
         set {
             Camera[] cameras = FindObjectsOfType(typeof(Camera)) as Camera[];
             
@@ -25,6 +28,8 @@ public class Globals : MonoBehaviour
                     uacd.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
 
                 }
+                PlayerPrefs.SetFloat("AA", value);
+                PlayerPrefs.Save();
             }
         }
     }

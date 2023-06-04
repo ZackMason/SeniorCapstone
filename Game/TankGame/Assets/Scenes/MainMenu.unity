@@ -5951,6 +5951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 734995593244896637, guid: 9dd17a5ed5044804099e6c950988dea1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1820209754223028143, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -6199,22 +6204,22 @@ PrefabInstance:
     - target: {fileID: 4245774221304471111, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 823.3753
+      value: 823.33966
       objectReference: {fileID: 0}
     - target: {fileID: 4245774221304471111, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 462.99945
+      value: 463.18005
       objectReference: {fileID: 0}
     - target: {fileID: 4245774221304471111, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 411.68765
+      value: 411.66983
       objectReference: {fileID: 0}
     - target: {fileID: 4245774221304471111, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -231.49973
+      value: -231.59003
       objectReference: {fileID: 0}
     - target: {fileID: 4245774222251830791, guid: 9dd17a5ed5044804099e6c950988dea1,
         type: 3}
@@ -6720,6 +6725,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c1b9e4c4826b143b5210a93ff82729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1668953623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1820209754223028143, guid: 9dd17a5ed5044804099e6c950988dea1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668953621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1668953624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7812092019223213797, guid: 9dd17a5ed5044804099e6c950988dea1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668953621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1668953625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6388573094414127668, guid: 9dd17a5ed5044804099e6c950988dea1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668953621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1668953626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2198670106276270444, guid: 9dd17a5ed5044804099e6c950988dea1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668953621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1668953627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245774222284281917, guid: 9dd17a5ed5044804099e6c950988dea1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668953621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668953628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668953627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300bcbf00423d14458d73f65eb74c343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseSensitivity: {fileID: 1668953626}
+  _Antialiasing: {fileID: 1933633096}
+  _CameraShake: {fileID: 1971104068}
+  _mainAudio: {fileID: 1668953625}
+  _musicAudio: {fileID: 1668953624}
+  _sfxAudio: {fileID: 1668953623}
 --- !u!1001 &1679212237
 PrefabInstance:
   m_ObjectHideFlags: 0
