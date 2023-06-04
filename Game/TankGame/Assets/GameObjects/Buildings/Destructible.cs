@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Destructible : MonoBehaviour
 {
     public GameObject DestroyedPrefab;
+
+    [SerializeField] private CinemachineImpulseSource _impulsor;
+
+    void Start() {
+        _impulsor = GetComponentInChildren<CinemachineImpulseSource>();
+    }
 
     [Range(0, 10000)]
     public float RamResistance;
@@ -14,6 +21,12 @@ public class Destructible : MonoBehaviour
             var savedScale = transform.localScale;
             var newObject = Instantiate(DestroyedPrefab, transform.position, transform.rotation);
             newObject.transform.localScale = savedScale;
+
+            if (_impulsor) { // todo(zack): if we're spawning visuals, lets add camera shake
+                
+                var target = RespawnManager.Instance.Player.transform.position;
+                _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.5f);
+            }
         }
         Destroy(this.gameObject);
     }

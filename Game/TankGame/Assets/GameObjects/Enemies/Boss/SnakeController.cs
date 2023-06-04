@@ -16,12 +16,17 @@ public class SnakeController : MonoBehaviour
     private void _setCartPosition(float p) => _dollyCart.m_Position = p;
     private CinemachineSmoothPath _getPath() => _dollyCart.m_Path as CinemachineSmoothPath;
     
+    [SerializeField] private CinemachineImpulseSource _impulsor;
+
     void OnDestroy() {
         _timer.Finish();
     }
 
     void Update()
     {
+        var target = RespawnManager.Instance.Player.transform.position;
+        _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.05f);
+
         _pathPosition += Time.deltaTime / _moveSpeed;
         if (_pathPosition >= 1.1f) {
             _pathPosition = 0f;
