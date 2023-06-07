@@ -113,7 +113,7 @@ public class HoverTankController : MonoBehaviour
         cam.m_Lens.FieldOfView = fov;
     }
 
-    void Update() {
+    void LateUpdate() {
         
         if (IsAlive() == false) { 
             _tankRigidbody.centerOfMass = new Vector3(0,0,0);
@@ -142,7 +142,7 @@ public class HoverTankController : MonoBehaviour
         }
         Vector3 toTarget = _turretDirection(_tankYawPitch);
         Debug.DrawRay(TankHead.transform.position, toTarget * 20.0f, Color.green);
-        float stepSize = Time.deltaTime * 0.7f;
+        float stepSize = Time.deltaTime;
 
         Vector3 nextRotation = Vector3.RotateTowards(TankHead.transform.forward, -toTarget, stepSize, 0.0f);
 

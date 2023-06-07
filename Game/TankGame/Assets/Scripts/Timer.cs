@@ -49,7 +49,6 @@ public class Timer : MonoBehaviour
     public void Finish() {
         bossCount -= 1;
         _winScreen.SetActive(_isDone = bossCount == 0);
-
     }
     private Texture2D _combatModeTexture;
     private Texture2D _driveModeTexture;
