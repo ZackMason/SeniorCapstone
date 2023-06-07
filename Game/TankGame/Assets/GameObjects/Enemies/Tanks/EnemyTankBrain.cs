@@ -58,12 +58,12 @@ public class EnemyTankBrain : MonoBehaviour, ITankBrain
         var turretSideDir = Cannon.right;
         var fuzzyAim = Vector3.Dot(turretSideDir, dir);
         fuzzyAim = Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(fuzzyAim)) * Mathf.Sign(fuzzyAim) + 
-                    0.5f * Mathf.Pow(fuzzyAim, 3), -1.0f, 1.0f);
+                    0.5f * Mathf.Pow(fuzzyAim, 3f), -1.0f, 1.0f);
 
         return new Vector2(fuzzyAim * 9.0f, 0.0f);
     }
     
-    public bool WantToSwitchMode(){
+    public bool WantToSwitchMode(){ 
         return false;
     }
     public bool WantToZoom() {
