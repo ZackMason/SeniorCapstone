@@ -17,6 +17,8 @@ public class SpinTargets : MonoBehaviour
     [SerializeField] private List<Vector3> _positions = new List<Vector3>();
 
     void Start() {
+        Timer.score = 0;
+        
         foreach(Transform child in transform) {
             _targets.Add(child.gameObject);
             _positions.Add(child.transform.localPosition);
