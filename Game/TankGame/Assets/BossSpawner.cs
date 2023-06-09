@@ -6,11 +6,15 @@ using UnityEngine;
 public class BossSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _boss = new List<GameObject>();
+    [SerializeField] private GameObject _healthContainer;
 
-    void Start() => _boss.ForEach(boss => boss.SetActive(false));
+    void Start() {
+        _boss.ForEach(boss => boss.SetActive(false));
+    } 
         
     void OnTriggerEnter(Collider other) {
         if (other.attachedRigidbody?.tag == "Player") {
+            _healthContainer.SetActive(true);
             _boss.ForEach(boss => boss.SetActive(true));
             Destroy(this);
         }
