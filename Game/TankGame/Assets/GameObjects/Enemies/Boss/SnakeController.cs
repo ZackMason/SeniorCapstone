@@ -24,7 +24,6 @@ public class SnakeController : MonoBehaviour
 
     void Start() {
         _health = GetComponent<Health>();
-        _healthContainer.SetActive(true);
     }
 
     void OnDestroy() {

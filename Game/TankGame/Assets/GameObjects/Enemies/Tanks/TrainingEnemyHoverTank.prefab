@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainingEnemyHoverTank
       objectReference: {fileID: 0}
+    - target: {fileID: 1784748916289540937, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21e4ed9a87a5c574590cb11e8fca226b, type: 2}
+    - target: {fileID: 1796453802311707413, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21e4ed9a87a5c574590cb11e8fca226b, type: 2}
     - target: {fileID: 2087656505260019337, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: ID
@@ -77,6 +87,11 @@ PrefabInstance:
       propertyPath: DestroyedPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4010314332914447256, guid: bb7857b8c90aff3438742cdcf445408d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21e4ed9a87a5c574590cb11e8fca226b, type: 2}
     - target: {fileID: 6089857088546478575, guid: bb7857b8c90aff3438742cdcf445408d,
         type: 3}
       propertyPath: TargetFinder

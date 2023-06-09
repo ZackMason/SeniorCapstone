@@ -19,7 +19,10 @@ public class SnakeTargetFinder
 
         Vector3 toTarget = (target - _arenaCenter.position);
         toTarget.y = 0f;
-        Vector3 exit = _arenaCenter.position - toTarget.normalized * ArenaRadius;
+        Vector3 jitter = UnityEngine.Random.onUnitSphere;
+        jitter.y = 0f;
+        jitter = jitter.normalized;
+        Vector3 exit = _arenaCenter.position - (toTarget.normalized * 3f + jitter).normalized * ArenaRadius;
 
         return exit;
     }
