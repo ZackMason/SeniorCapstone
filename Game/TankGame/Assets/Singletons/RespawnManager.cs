@@ -59,6 +59,8 @@ public class RespawnManager : MonoBehaviour
         _ignoreTimer = 4f;
         Destroy(Player);
         Player = GameObject.Instantiate(PlayerPrefab, _lastPlayerPosition, _lastPlayerRotation);
+        Player.GetComponent<HoverTankController>().BoostCooldownTime = 2;
+        Player.GetComponent<HoverTankController>()._boostTimer = 0;
         RespawnCoroutine = null;
     }
 
