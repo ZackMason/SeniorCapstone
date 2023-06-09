@@ -65,13 +65,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   BoostCooldownTime: 5
+  _boostTimer: 0
   CenterOfMass: {x: 0, y: -0.45, z: 0}
   TankHead: {fileID: 4609936421520363742}
   TankTurret: {fileID: 4599075006056016002}
   TankBody: {fileID: 0}
   LerpConstant: 50
-  DrivePower: 2000
-  TorquePower: 125
+  DrivePower: 1692
+  TorquePower: 200
   _torqueXController:
     proportionGain: 0.8
     derivativeGain: 0.1
@@ -202,6 +203,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 1897103433111165607, guid: 0f380e9da25317f47b81794784f00290,
     type: 3}
   eaudio: {fileID: 0}
+  _fireTime: 0
   MakeNoise: 0
   AimDir: -1
   FireRate: 1

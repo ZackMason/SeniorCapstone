@@ -433,6 +433,11 @@ PrefabInstance:
       propertyPath: LerpConstant
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7611513640616111163, guid: 1686887f314c2424f9eb174b446e3a9f,
+        type: 3}
+      propertyPath: BoostCooldownTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1686887f314c2424f9eb174b446e3a9f, type: 3}
 --- !u!1 &5821680567504004026 stripped

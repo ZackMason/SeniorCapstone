@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.UI;
 
 public class SnakeController : MonoBehaviour
 {
@@ -17,13 +17,25 @@ public class SnakeController : MonoBehaviour
     private CinemachineSmoothPath _getPath() => _dollyCart.m_Path as CinemachineSmoothPath;
     
     [SerializeField] private CinemachineImpulseSource _impulsor;
+    
+    [SerializeField] private GameObject _healthContainer;
+    [SerializeField] private Image _healthBar;
+    [SerializeField] private Health _health;
+
+    void Start() {
+        _health = GetComponent<Health>();
+        _healthContainer.SetActive(true);
+    }
 
     void OnDestroy() {
         _timer.Finish();
+        Destroy(_healthContainer);
     }
 
     void Update()
     {
+        _healthBar.fillAmount = _health.GetHealth() / _health.MaxHealth;
+
         var target = RespawnManager.Instance.Player.transform.position;
         _impulsor.GenerateImpulse( (transform.position - target).normalized * 0.05f * Globals.Instance.CameraShake);
 
