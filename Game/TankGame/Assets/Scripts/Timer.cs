@@ -170,6 +170,7 @@ public class Timer : MonoBehaviour
             zone2 = timePlaying;
             score += 1000 - Convert.ToInt32(timePlaying.TotalSeconds * 3) + Convert.ToInt32(zone1.TotalSeconds);
             bestTime.gameObject.SetActive(true);
+            SoundManager.Instance?.PlaySound(SoundAsset.theme3, Vector3.zero);
             zone += 1;
         }
         else if (zone == 5)

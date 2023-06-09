@@ -15,6 +15,7 @@ public class BossSpawner : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.attachedRigidbody?.tag == "Player") {
             _healthContainer.SetActive(true);
+            SoundManager.Instance?.PlaySound(SoundAsset.theme4, Vector3.zero);
             _boss.ForEach(boss => boss.SetActive(true));
             Destroy(this);
         }
