@@ -123,18 +123,18 @@ public class HoverEngine : MonoBehaviour
     }
 
     
-    void OnDrawGizmos() {
-        if (_showInfo) {
-            var errorLast = _pidDistanceController.errorLast;
+    // void OnDrawGizmos() {
+    //     if (_showInfo) {
+    //         var errorLast = _pidDistanceController.errorLast;
             
-            Color labelColor = Color.black;
-            GUI.contentColor = labelColor;
+    //         Color labelColor = Color.black;
+    //         GUI.contentColor = labelColor;
 
-            GUIStyle style = new GUIStyle(GUI.skin.label);
+    //         GUIStyle style = new GUIStyle(GUI.skin.label);
 
-            style.fontSize = 20;
+    //         style.fontSize = 20;
 
-            Handles.Label(transform.position + transform.right, $"Hover Engine\nError: {errorLast}\nDistance: {_lastDistance}\nPower: {_lastPower}", style);
-        }
-    }
+    //         Handles.Label(transform.position + transform.right, $"Hover Engine\nError: {errorLast}\nDistance: {_lastDistance}\nPower: {_lastPower}", style);
+    //     }
+    // }
 }

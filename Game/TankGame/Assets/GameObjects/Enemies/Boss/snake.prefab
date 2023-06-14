@@ -1159,6 +1159,9 @@ MonoBehaviour:
     Target: {x: 0, y: 0, z: 0}
     _arenaCenter: {fileID: 0}
   _impulsor: {fileID: 5096377602312618914}
+  _healthContainer: {fileID: 0}
+  _healthBar: {fileID: 0}
+  _health: {fileID: 0}
 --- !u!114 &2352666469006302349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,7 +1218,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.66
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5096377602312618914
 MonoBehaviour:
@@ -1329,7 +1332,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1799453571399146081
 MonoBehaviour:
@@ -1405,7 +1408,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5107067649044440735
 MonoBehaviour:
@@ -1619,7 +1622,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8598250350607322285
 GameObject:
